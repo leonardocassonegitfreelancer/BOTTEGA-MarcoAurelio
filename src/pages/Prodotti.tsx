@@ -121,8 +121,6 @@ const Prodotti = () => {
       description: t("products.pietre.desc"),
       items: [
         { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
-        { image: kintsugiImage, name: t("products.pietre.item2.name"), desc: t("products.pietre.item2.desc") },
-        { image: kintsugiImage, name: t("products.pietre.item3.name"), desc: t("products.pietre.item3.desc") },
       ],
     },
     senza_pietre: {
