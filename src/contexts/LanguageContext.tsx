@@ -119,6 +119,10 @@ const translations: Record<Language, Record<string, string>> = {
     "products.aria.item3.name": "ARIA Sottile",
     "products.aria.item3.desc": "Versione sottile con elementi traforati, leggerezza quotidiana.",
 
+    // Testimonial
+    "testimonial.quote": "\"Opere d'arte uniche, capolavori.\nUna persona eccezionale.\nNel laboratorio si assapora la passione di chi ha dedicato la vita a un'arte che sta scomparendo.\nPerché qui si parla di un artista vero.\"",
+    "testimonial.author": "Valerio S.",
+
     // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Roma",
   },
@@ -231,6 +235,10 @@ const translations: Record<Language, Record<string, string>> = {
     "products.aria.item2.desc": "Wide band with suspended mosaic pattern, polished finish.",
     "products.aria.item3.name": "ARIA Slim",
     "products.aria.item3.desc": "Slim version with openwork elements, everyday lightness.",
+
+    // Testimonial
+    "testimonial.quote": "\"Unique works of art, masterpieces.\nAn exceptional person.\nIn the workshop you can taste the passion of someone who has devoted their life to an art that is disappearing.\nBecause here we are talking about a true artist.\"",
+    "testimonial.author": "Valerio S.",
 
     // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Rome",
