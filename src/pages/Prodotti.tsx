@@ -18,6 +18,7 @@ import ariaLetteraDImage from "@/assets/aria-lettera-d.png";
 import kintsugiImage from "@/assets/kintsugi.jpg";
 import mareeFullImage from "@/assets/maree.jpg";
 import kintsugiStratiImage from "@/assets/kintsugi-strati.png";
+import kintsugiStratiDetailImage from "@/assets/kintsugi-strati-detail.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -119,7 +120,7 @@ const Prodotti = () => {
       subtitle: t("products.pietre.subtitle"),
       description: t("products.pietre.desc"),
       items: [
-        { image: kintsugiImage, name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
+        { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
         { image: kintsugiImage, name: t("products.pietre.item2.name"), desc: t("products.pietre.item2.desc") },
         { image: kintsugiImage, name: t("products.pietre.item3.name"), desc: t("products.pietre.item3.desc") },
       ],
