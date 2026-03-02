@@ -300,11 +300,16 @@ const Prodotti = () => {
                 className="mb-12 md:mb-16"
               >
                 <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
-                  {/* Video placeholder — sostituire con il video reale */}
-                  <img
-                    src={kintsugiStratiImage}
-                    alt="Kintsugi — luce e frattura, venature dorate su metallo inciso"
+                  <video
+                    src="/kintsugi-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    poster={kintsugiStratiImage}
                     className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
