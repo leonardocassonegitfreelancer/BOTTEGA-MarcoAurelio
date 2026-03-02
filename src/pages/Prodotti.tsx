@@ -17,6 +17,7 @@ import ariaImage from "@/assets/aria.webp";
 import ariaLetteraDImage from "@/assets/aria-lettera-d.png";
 import kintsugiImage from "@/assets/kintsugi.jpg";
 import mareeFullImage from "@/assets/maree.jpg";
+import kintsugiStratiImage from "@/assets/kintsugi-strati.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -287,6 +288,91 @@ const Prodotti = () => {
                     {t("form.title")}
                   </button>
 
+                </div>
+              </motion.div>
+            )}
+
+            {/* KINTSUGI collection intro */}
+            {active === "pietre" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 md:mb-16"
+              >
+                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                  {/* Video placeholder — sostituire con il video reale */}
+                  <img
+                    src={kintsugiStratiImage}
+                    alt="Kintsugi — luce e frattura, venature dorate su metallo inciso"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                </div>
+
+                <div className="max-w-3xl mx-auto space-y-6 text-center">
+                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                    Non nascondo nulla, tutto ciò che ho vissuto è oro.
+                  </p>
+
+                  <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
+                    KINTSUGI<span className="text-gold">.</span>
+                  </h3>
+
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                    Luce e frattura.<br />
+                    La materia si spezza, l'oro non nasconde: <span className="text-gold not-italic">rivela</span>.<br />
+                    Ogni segno inciso è una dichiarazione.
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  {/* Strati */}
+                  <div className="flex items-center justify-center gap-6 md:gap-8">
+                    <p className="text-gold font-display text-2xl md:text-3xl leading-tight tracking-wide">
+                      金<br />継<br />層
+                    </p>
+                    <div className="text-left">
+                      <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">Strati</p>
+                      <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md">
+                        Questo Kintsugi non ha un solo livello.<br />
+                        Ha strati. Come le storie che non si risolvono mai in una volta sola.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <div className="space-y-4 text-left max-w-lg mx-auto">
+                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                      <span className="text-gold font-display">Primo strato:</span> l'anello. La forma che regge tutto.
+                    </p>
+                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                      <span className="text-gold font-display">Secondo strato:</span> diamante. Non per brillare. Decide il disegno.
+                    </p>
+                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                      <span className="text-gold font-display">Terzo strato:</span> l'incisione profonda. Qui l'oro non è decorazione: viene depositato dentro la ferita.
+                    </p>
+                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                      <span className="text-gold font-display">Quarto strato:</span> una seconda incisione, fitta, da 0,2 millimetri. Microsolchi ravvicinati, bruniti e ossidati a nero in profondità. È la memoria che resta sotto.
+                    </p>
+                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                      <span className="text-gold font-display">Quinto strato:</span> carteggio a bianco delle superfici. Il nero superficiale arretra. Restano le incisioni nere, il loro contrasto con l'oro, la materia viva. È l'aspetto definitivo.
+                    </p>
+                  </div>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
+                    Quello che il metallo raggiunge solo col tempo, indossandolo.
+                  </p>
+
+                  <button
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                  >
+                    {t("form.title")}
+                  </button>
                 </div>
               </motion.div>
             )}
