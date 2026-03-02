@@ -168,7 +168,7 @@ const Prodotti = () => {
               <h2 className="text-2xl md:text-5xl font-display font-light text-cream mb-3 md:mb-4">
                 {categories.find((c) => c.key === active)?.label}
               </h2>
-              <p className="text-cream-muted font-body font-light text-xs md:text-sm leading-relaxed max-w-2xl mx-auto">
+              <p className="text-cream-muted font-body font-light text-xs md:text-sm leading-relaxed max-w-2xl mx-auto whitespace-pre-line">
                 {current.description}
               </p>
             </div>

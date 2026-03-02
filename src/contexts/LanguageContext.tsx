@@ -115,7 +115,7 @@ const translations: Record<Language, Record<string, string>> = {
     "products.senza_pietre.item3.desc": "Anello a sezione piatta in argento, stile contemporaneo.",
 
     "products.filamento.subtitle": "Filamento",
-    "products.filamento.desc": "Decine di elementi uniti in aria, senza supporto — come un mosaico sospeso nel vuoto. Il risultato è un gioiello trasparente, leggero come l'aria.",
+    "products.filamento.desc": "Decine di elementi uniti in aria, senza supporto\n\"Come un mosaico sospeso nel vuoto.\"\nIl risultato è un gioiello trasparente, leggero come l'aria.",
     "products.filamento.item1.name": "ARIA Anello",
     "products.filamento.item1.desc": "Anello traforato in oro, struttura aerea e trasparente.",
     "products.filamento.item2.name": "ARIA Fascia",
