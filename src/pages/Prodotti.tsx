@@ -31,6 +31,10 @@ import navtilvs2Image from "@/assets/navtilvs-2.png";
 import mareeDetail1Image from "@/assets/maree-detail-1.png";
 import mareeDetail2Image from "@/assets/maree-detail-2.png";
 import mareePezziUniciImage from "@/assets/maree-pezzi-unici.png";
+import sangue1Image from "@/assets/sangue-1.png";
+import sangue2Image from "@/assets/sangue-2.png";
+import sangue3Image from "@/assets/sangue-3.png";
+import sangue4Image from "@/assets/sangue-4.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
@@ -169,6 +173,7 @@ const Prodotti = () => {
       description: t("products.pendenti.desc"),
       items: [
         { image: sbilanciamentoBiancoImage, images: [sbilanciamentoBiancoImage, sbilanciamentoLateraleImage, sbilanciamentoDettaglioImage], name: t("products.pendenti.sbilanciamento.name"), desc: t("products.pendenti.sbilanciamento.material") },
+        { image: sangue1Image, images: [sangue1Image, sangue2Image, sangue3Image, sangue4Image], name: t("products.pendenti.sangue.name"), desc: t("products.pendenti.sangue.material") },
       ],
     },
     bracciali: {
@@ -676,6 +681,85 @@ const Prodotti = () => {
               </motion.div>
             )}
 
+            {/* --- SANGUE block (under pendenti) --- */}
+            {active === "pendenti" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                {/* ◆ Diamond separator */}
+                <div className="flex items-center gap-4 my-12 md:my-16">
+                  <div className="flex-1 h-px bg-gold/30" />
+                  <span className="text-gold text-xs">◆</span>
+                  <div className="flex-1 h-px bg-gold/30" />
+                </div>
+
+                <div className="mb-12 md:mb-16">
+                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                    <video
+                      src="/sangue-intro.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      poster={sangue1Image}
+                      className="w-full h-full object-cover"
+                      style={{ backgroundColor: "hsl(var(--background))" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                  </div>
+
+                  <div className="max-w-3xl mx-auto space-y-6 text-center">
+                    <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
+                      SANGUE<span className="text-gold">.</span>
+                    </h3>
+                    <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
+                      {t("products.pendenti.sangue.subtitle")}
+                    </p>
+
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                    <p className="text-cream font-body text-sm md:text-base leading-[2] italic whitespace-pre-line">
+                      {t("products.pendenti.sangue.story")}
+                    </p>
+
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  </div>
+
+                  {/* SANGUE product carousel */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="group">
+                      <div className="relative overflow-hidden mb-4">
+                        <ProductImageCarousel images={current.items[1].images || [current.items[1].image]} alt={current.items[1].name} />
+                        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[1].name}</h3>
+                      <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[1].desc}</p>
+                    </motion.div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="text-center mt-10 md:mt-14">
+                    <button
+                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                    >
+                      {t("form.title")}
+                    </button>
+                  </div>
+                </div>
+
+                {/* ◆ Diamond separator */}
+                <div className="flex items-center gap-4 my-12 md:my-16">
+                  <div className="flex-1 h-px bg-gold/30" />
+                  <span className="text-gold text-xs">◆</span>
+                  <div className="flex-1 h-px bg-gold/30" />
+                </div>
+              </motion.div>
+            )}
+
             {/* --- Pezzi Unici: MAREE block --- */}
             {active === "pezzi_unici" && (
               <motion.div
@@ -760,7 +844,7 @@ const Prodotti = () => {
             )}
 
             {/* Product grid (categories with unified grid only) */}
-            {active !== "pietre" && active !== "filamento" && active !== "pezzi_unici" && (
+            {active !== "pietre" && active !== "filamento" && active !== "pezzi_unici" && active !== "pendenti" && (
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
                 {current.items.map((item, i) => (
                   <motion.div
