@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useSearchParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -22,7 +23,19 @@ interface ProductItem {
 
 const Prodotti = () => {
   const { t } = useLanguage();
-  const [active, setActive] = useState<Category>("fedi");
+  const [searchParams] = useSearchParams();
+  const validCategories: Category[] = ["fedi", "pietre", "senza_pietre", "filamento", "pendenti", "bracciali"];
+  const initialCat = validCategories.includes(searchParams.get("cat") as Category)
+    ? (searchParams.get("cat") as Category)
+    : "fedi";
+  const [active, setActive] = useState<Category>(initialCat);
+
+  useEffect(() => {
+    const cat = searchParams.get("cat") as Category;
+    if (validCategories.includes(cat)) {
+      setActive(cat);
+    }
+  }, [searchParams]);
 
   const categories: { key: Category; label: string }[] = [
     { key: "fedi", label: t("products.cat.fedi") },
