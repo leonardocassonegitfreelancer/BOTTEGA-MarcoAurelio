@@ -73,6 +73,19 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.distance": "A 29 min a piedi dal Colosseo",
     "contact.instagram": "Instagram",
 
+    // Contact form
+    "form.label": "Scrivici",
+    "form.title": "Invia un Messaggio",
+    "form.name": "Il tuo nome",
+    "form.email": "La tua email",
+    "form.category": "Tipo di opera",
+    "form.message": "Il tuo messaggio...",
+    "form.send": "Invia su WhatsApp",
+    "form.error.name": "Inserisci il tuo nome",
+    "form.error.email": "Inserisci un'email valida",
+    "form.error.category": "Seleziona un tipo di opera",
+    "form.error.message": "Inserisci un messaggio",
+
     // Products page
     "products.label": "Le Opere",
     "products.title": "I Nostri Gioielli",
@@ -211,6 +224,19 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.address2": "Campo de' Fiori, Rome",
     "contact.distance": "29 min walk from the Colosseum",
     "contact.instagram": "Instagram",
+
+    // Contact form
+    "form.label": "Get in Touch",
+    "form.title": "Send a Message",
+    "form.name": "Your name",
+    "form.email": "Your email",
+    "form.category": "Type of piece",
+    "form.message": "Your message...",
+    "form.send": "Send via WhatsApp",
+    "form.error.name": "Please enter your name",
+    "form.error.email": "Please enter a valid email",
+    "form.error.category": "Please select a type",
+    "form.error.message": "Please enter a message",
 
     // Products page
     "products.label": "The Works",

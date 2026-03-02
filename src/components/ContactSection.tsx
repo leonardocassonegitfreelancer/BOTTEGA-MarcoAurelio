@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { MapPin, MessageCircle, Clock, Instagram } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import WhatsAppContactForm from "@/components/WhatsAppContactForm";
 
 const ContactSection = () => {
   const { t } = useLanguage();
@@ -83,6 +84,11 @@ const ContactSection = () => {
             </div>
           </a>
         </motion.div>
+
+        {/* WhatsApp Contact Form */}
+        <div className="mt-16">
+          <WhatsAppContactForm />
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
