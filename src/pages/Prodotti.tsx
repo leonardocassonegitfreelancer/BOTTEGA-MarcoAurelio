@@ -476,12 +476,19 @@ const Prodotti = () => {
                 transition={{ duration: 0.8 }}
                 className="mb-12 md:mb-16"
               >
-                <div className="max-w-xl mx-auto mb-10">
-                  <img
-                    src={sbilanciamentoBiancoImage}
-                    alt="Uno Sbilanciamento di Bianco — pendente in oro bianco e diamante"
-                    className="w-full aspect-[3/4] object-cover"
+                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                  <video
+                    src="/sbilanciamento-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    poster={sbilanciamentoBiancoImage}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
 
                 <div className="max-w-3xl mx-auto space-y-6 text-center">
