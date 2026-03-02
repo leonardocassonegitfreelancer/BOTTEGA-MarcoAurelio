@@ -308,98 +308,160 @@ const Prodotti = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="mb-12 md:mb-16"
               >
-                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
-                  <video
-                    ref={kintsugiVideoRef}
-                    src="/kintsugi-intro.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    poster={kintsugiStratiImage}
-                    className="w-full h-full object-cover"
-                    style={{ backgroundColor: "hsl(var(--background))" }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                </div>
-
-                <div className="max-w-3xl mx-auto space-y-6 text-center">
-                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
-                    {t("products.pietre.kintsugi.motto")}
-                  </p>
-                  <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
-                    KINTSUGI<span className="text-gold">.</span>
-                  </h3>
-                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
-                    {t("products.pietre.kintsugi.story").split("{gold}").map((part, i) => {
-                      if (i === 0) return part;
-                      const [gold, rest] = part.split("{/gold}");
-                      return <span key={i}><span className="text-gold not-italic">{gold}</span>{rest}</span>;
-                    })}
-                  </p>
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-                  <div className="flex items-center justify-center gap-6 md:gap-8">
-                    <p className="text-gold font-display text-2xl md:text-3xl leading-tight tracking-wide">
-                      金<br />継<br />層
-                    </p>
-                    <div className="text-left">
-                      <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">{t("products.pietre.kintsugi.strati.title")}</p>
-                      <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md whitespace-pre-line">
-                        {t("products.pietre.kintsugi.strati.desc")}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-                  <div className="space-y-4 text-left max-w-lg mx-auto">
-                    {[1, 2, 3, 4, 5].map((n) => (
-                      <p key={n} className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                        <span className="text-gold font-display">{t(`products.pietre.kintsugi.layerLabel${n}`)}</span> {t(`products.pietre.kintsugi.layer${n}`)}
-                      </p>
-                    ))}
-                  </div>
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-                  <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
-                    {t("products.pietre.kintsugi.closing")}
-                  </p>
-                </div>
-
-                {/* MVTARA NEBVLA ZERO intro */}
-                <div className="mt-12 md:mt-16 max-w-3xl mx-auto space-y-6 text-center">
+                {/* --- Kintsugi block --- */}
+                <div className="mb-12 md:mb-16">
                   <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                     <video
-                      src="/mvtara-nebvla-intro.mp4"
+                      ref={kintsugiVideoRef}
+                      src="/kintsugi-intro.mp4"
                       autoPlay
                       loop
                       muted
                       playsInline
                       preload="auto"
-                      poster={mvtaraNebvla1Image}
+                      poster={kintsugiStratiImage}
                       className="w-full h-full object-cover"
                       style={{ backgroundColor: "hsl(var(--background))" }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
 
-                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
-                    {t("products.pietre.mvtara.subtitle")}
-                  </p>
-                  <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
-                    MVTARA NEBVLA ZERO<span className="text-gold">.</span>
-                  </h3>
-                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
-                    {t("products.pietre.mvtara.material")}
-                  </p>
+                  <div className="max-w-3xl mx-auto space-y-6 text-center">
+                    <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                      {t("products.pietre.kintsugi.motto")}
+                    </p>
+                    <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
+                      KINTSUGI<span className="text-gold">.</span>
+                    </h3>
+                    <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                      {t("products.pietre.kintsugi.story").split("{gold}").map((part, i) => {
+                        if (i === 0) return part;
+                        const [gold, rest] = part.split("{/gold}");
+                        return <span key={i}><span className="text-gold not-italic">{gold}</span>{rest}</span>;
+                      })}
+                    </p>
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+                    <div className="flex items-center justify-center gap-6 md:gap-8">
+                      <p className="text-gold font-display text-2xl md:text-3xl leading-tight tracking-wide">
+                        金<br />継<br />層
+                      </p>
+                      <div className="text-left">
+                        <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">{t("products.pietre.kintsugi.strati.title")}</p>
+                        <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md whitespace-pre-line">
+                          {t("products.pietre.kintsugi.strati.desc")}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+                    <div className="space-y-4 text-left max-w-lg mx-auto">
+                      {[1, 2, 3, 4, 5].map((n) => (
+                        <p key={n} className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                          <span className="text-gold font-display">{t(`products.pietre.kintsugi.layerLabel${n}`)}</span> {t(`products.pietre.kintsugi.layer${n}`)}
+                        </p>
+                      ))}
+                    </div>
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+                    <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
+                      {t("products.pietre.kintsugi.closing")}
+                    </p>
+                  </div>
 
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  {/* Kintsugi product carousel */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="group">
+                      <div className="relative overflow-hidden mb-4">
+                        <ProductImageCarousel images={current.items[0].images || [current.items[0].image]} alt={current.items[0].name} />
+                        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[0].name}</h3>
+                      <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[0].desc}</p>
+                    </motion.div>
+                  </div>
 
-                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
-                    {t("products.pietre.mvtara.story")}
-                  </p>
+                  {/* CTA */}
+                  <div className="text-center mt-10 md:mt-14">
+                    <button
+                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                    >
+                      {t("form.title")}
+                    </button>
+                  </div>
+                </div>
 
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                {/* ◆ Diamond separator */}
+                <div className="flex items-center gap-4 my-12 md:my-16">
+                  <div className="flex-1 h-px bg-gold/30" />
+                  <span className="text-gold text-xs">◆</span>
+                  <div className="flex-1 h-px bg-gold/30" />
+                </div>
+
+                {/* --- MVTARA NEBVLA ZERO block --- */}
+                <div className="mb-12 md:mb-16">
+                  <div className="max-w-3xl mx-auto space-y-6 text-center">
+                    <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                      <video
+                        src="/mvtara-nebvla-intro.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        poster={mvtaraNebvla1Image}
+                        className="w-full h-full object-cover"
+                        style={{ backgroundColor: "hsl(var(--background))" }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                    </div>
+
+                    <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                      {t("products.pietre.mvtara.subtitle")}
+                    </p>
+                    <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
+                      MVTARA NEBVLA ZERO<span className="text-gold">.</span>
+                    </h3>
+                    <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
+                      {t("products.pietre.mvtara.material")}
+                    </p>
+
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                    <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                      {t("products.pietre.mvtara.story")}
+                    </p>
+
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  </div>
+
+                  {/* MVTARA product carousel */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="group">
+                      <div className="relative overflow-hidden mb-4">
+                        <ProductImageCarousel images={current.items[1].images || [current.items[1].image]} alt={current.items[1].name} />
+                        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[1].name}</h3>
+                      <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[1].desc}</p>
+                    </motion.div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="text-center mt-10 md:mt-14">
+                    <button
+                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                    >
+                      {t("form.title")}
+                    </button>
+                  </div>
+                </div>
+
+                {/* ◆ Diamond separator */}
+                <div className="flex items-center gap-4 my-12 md:my-16">
+                  <div className="flex-1 h-px bg-gold/30" />
+                  <span className="text-gold text-xs">◆</span>
+                  <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
             )}
@@ -507,66 +569,37 @@ const Prodotti = () => {
               </motion.div>
             )}
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-              {current.items.map((item, i) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group"
-                >
-                  <div className="relative overflow-hidden mb-4">
-                    {item.images && item.images.length > 1 ? (
-                      <ProductImageCarousel images={item.images} alt={item.name} />
-                    ) : (
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                    )}
-                    <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
-                  </div>
-                  <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{item.name}</h3>
-                  <p className="text-cream-muted font-body text-xs leading-relaxed">{item.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* CTA below carousel for Kintsugi family */}
-            {active === "pietre" && (
-              <div className="text-center mt-10 md:mt-14">
-                <button
-                  onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                  className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                >
-                  {t("form.title")}
-                </button>
+            {/* Product grid (non-pietre categories only — pietre is handled above) */}
+            {active !== "pietre" && (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                {current.items.map((item, i) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                    className="group"
+                  >
+                    <div className="relative overflow-hidden mb-4">
+                      {item.images && item.images.length > 1 ? (
+                        <ProductImageCarousel images={item.images} alt={item.name} />
+                      ) : (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                      )}
+                      <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{item.name}</h3>
+                    <p className="text-cream-muted font-body text-xs leading-relaxed">{item.desc}</p>
+                  </motion.div>
+                ))}
               </div>
             )}
 
-            <div className="mt-16 md:mt-20">
-              <div id="contact-form" className="scroll-mt-28 border border-gold/20 p-6 md:p-10 max-w-xl mx-auto">
-                <div className="text-center mb-6">
-                  <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">
-                    {t("form.label")}
-                  </p>
-                  <h3 className="text-xl md:text-2xl font-display font-light text-cream">
-                    {t("form.title")}
-                  </h3>
-                </div>
-                <WhatsAppContactForm defaultCategory={active} defaultCollection={
-                  active === "fedi" ? "nido" :
-                  active === "pietre" ? "kintsugi" :
-                  active === "senza_pietre" ? "initivm" :
-                  active === "filamento" ? "aria" :
-                  ""
-                } compact />
-              </div>
-            </div>
-
-            {/* Related categories */}
+            {/* Related categories (BEFORE form) */}
             <div className="mt-16 md:mt-24">
               <div className="text-center mb-8 md:mb-10">
                 <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">
@@ -611,6 +644,27 @@ const Prodotti = () => {
                       </button>
                     );
                   })}
+              </div>
+            </div>
+
+            {/* WhatsApp form (AFTER recommended) */}
+            <div className="mt-16 md:mt-20">
+              <div id="contact-form" className="scroll-mt-28 border border-gold/20 p-6 md:p-10 max-w-xl mx-auto">
+                <div className="text-center mb-6">
+                  <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">
+                    {t("form.label")}
+                  </p>
+                  <h3 className="text-xl md:text-2xl font-display font-light text-cream">
+                    {t("form.title")}
+                  </h3>
+                </div>
+                <WhatsAppContactForm defaultCategory={active} defaultCollection={
+                  active === "fedi" ? "nido" :
+                  active === "pietre" ? "kintsugi" :
+                  active === "senza_pietre" ? "initivm" :
+                  active === "filamento" ? "aria" :
+                  ""
+                } compact />
               </div>
             </div>
           </motion.div>
