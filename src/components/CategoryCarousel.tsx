@@ -2,7 +2,7 @@ import { useState, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 
-type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
+type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
 interface CategoryCarouselProps {
   categories: { key: Category; label: string }[];

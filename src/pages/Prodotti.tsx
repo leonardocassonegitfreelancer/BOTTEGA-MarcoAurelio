@@ -29,7 +29,7 @@ import mvtaraNebvla2Image from "@/assets/mvtara-nebvla-2.png";
 import navtilvs1Image from "@/assets/navtilvs-1.png";
 import navtilvs2Image from "@/assets/navtilvs-2.png";
 
-type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
+type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
 const slugToCategory: Record<string, Category> = {
   // Italian slugs
@@ -39,6 +39,7 @@ const slugToCategory: Record<string, Category> = {
   "anelli-in-filamento": "filamento",
   "pendenti": "pendenti",
   "bracciali": "bracciali",
+  "pezzi-unici": "pezzi_unici",
   // English slugs
   "wedding-bands": "fedi",
   "circular-rings": "pietre",
@@ -46,6 +47,7 @@ const slugToCategory: Record<string, Category> = {
   "wire-rings": "filamento",
   "pendants": "pendenti",
   "bracelets": "bracciali",
+  "unique-pieces": "pezzi_unici",
   // Legacy slugs (backwards compatibility)
   "anelli-con-pietre": "pietre",
   "anelli-senza-pietre": "senza_pietre",
@@ -60,6 +62,7 @@ const categoryToSlugIt: Record<Category, string> = {
   filamento: "anelli-in-filamento",
   pendenti: "pendenti",
   bracciali: "bracciali",
+  pezzi_unici: "pezzi-unici",
 };
 
 const categoryToSlugEn: Record<Category, string> = {
@@ -69,6 +72,7 @@ const categoryToSlugEn: Record<Category, string> = {
   filamento: "wire-rings",
   pendenti: "pendants",
   bracciali: "bracelets",
+  pezzi_unici: "unique-pieces",
 };
 
 interface ProductItem {
@@ -121,6 +125,7 @@ const Prodotti = () => {
     { key: "filamento", label: t("products.cat.filamento") },
     { key: "pendenti", label: t("products.cat.pendenti") },
     { key: "bracciali", label: t("products.cat.bracciali") },
+    { key: "pezzi_unici", label: t("products.cat.pezzi_unici") },
   ];
 
   const products: Record<Category, { subtitle: string; description: string; items: ProductItem[] }> = {
@@ -170,6 +175,13 @@ const Prodotti = () => {
         { image: mareeFullImage, name: t("products.bracciali.item1.name"), desc: t("products.bracciali.item1.desc") },
         { image: anelliLisciImage, name: t("products.bracciali.item2.name"), desc: t("products.bracciali.item2.desc") },
         { image: mareeFullImage, name: t("products.bracciali.item3.name"), desc: t("products.bracciali.item3.desc") },
+      ],
+    },
+    pezzi_unici: {
+      subtitle: t("products.pezzi_unici.subtitle"),
+      description: t("products.pezzi_unici.desc"),
+      items: [
+        { image: mareeImage, name: t("products.pezzi_unici.maree.name"), desc: t("products.pezzi_unici.maree.desc") },
       ],
     },
   };
@@ -661,8 +673,74 @@ const Prodotti = () => {
               </motion.div>
             )}
 
+            {/* --- Pezzi Unici: MAREE block --- */}
+            {active === "pezzi_unici" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 md:mb-16"
+              >
+                <div className="max-w-3xl mx-auto space-y-6 text-center">
+                  <p className="text-cream font-body text-sm md:text-base leading-[2] italic whitespace-pre-line">
+                    {t("products.pezzi_unici.maree.poem")}
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <p className="text-cream-muted font-body text-[10px] md:text-xs tracking-[0.2em]">
+                    {t("products.pezzi_unici.maree.poemCredit")}
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
+                    MAREE<span className="text-gold">.</span>
+                  </h3>
+                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
+                    {t("products.pezzi_unici.maree.theme")}
+                  </p>
+
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                    {t("products.pezzi_unici.maree.desc")}
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                </div>
+
+                {/* MAREE product carousel */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                  <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="group">
+                    <div className="relative overflow-hidden mb-4">
+                      <ProductImageCarousel images={current.items[0].images || [current.items[0].image]} alt={current.items[0].name} />
+                      <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[0].name}</h3>
+                    <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[0].desc}</p>
+                  </motion.div>
+                </div>
+
+                {/* CTA */}
+                <div className="text-center mt-10 md:mt-14">
+                  <button
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                  >
+                    {t("form.title")}
+                  </button>
+                </div>
+
+                {/* ◆ Diamond separator */}
+                <div className="flex items-center gap-4 my-12 md:my-16">
+                  <div className="flex-1 h-px bg-gold/30" />
+                  <span className="text-gold text-xs">◆</span>
+                  <div className="flex-1 h-px bg-gold/30" />
+                </div>
+              </motion.div>
+            )}
+
             {/* Product grid (categories with unified grid only) */}
-            {active !== "pietre" && active !== "filamento" && (
+            {active !== "pietre" && active !== "filamento" && active !== "pezzi_unici" && (
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
                 {current.items.map((item, i) => (
                   <motion.div
@@ -713,6 +791,7 @@ const Prodotti = () => {
                       filamento: ariaImage,
                       pendenti: sbilanciamentoBiancoImage,
                       bracciali: mareeFullImage,
+                      pezzi_unici: mareeImage,
                     };
                     return (
                       <button
@@ -755,6 +834,7 @@ const Prodotti = () => {
                   active === "pietre" ? "kintsugi" :
                   active === "senza_pietre" ? "initivm" :
                   active === "filamento" ? "aria" :
+                  active === "pezzi_unici" ? "maree" :
                   ""
                 } compact />
               </div>
