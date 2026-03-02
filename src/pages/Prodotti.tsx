@@ -110,11 +110,11 @@ const Prodotti = () => {
       <Navbar />
 
       {/* Header */}
-      <div className="pt-28 md:pt-36 pb-8 md:pb-12">
+      <div className="pt-24 md:pt-36 pb-4 md:pb-12">
         <div className="container max-w-6xl px-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors mb-6 md:mb-8"
           >
             <ArrowLeft className="w-4 h-4" />
             {t("products.back")}
@@ -124,10 +124,10 @@ const Prodotti = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-sm tracking-[0.3em] uppercase text-gold font-body mb-4">
+            <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-gold font-body mb-2 md:mb-4">
               {t("products.label")}
             </p>
-            <h1 className="text-4xl md:text-6xl font-display font-light text-cream">
+            <h1 className="text-3xl md:text-6xl font-display font-light text-cream">
               {t("products.title")}
             </h1>
           </motion.div>
@@ -135,13 +135,13 @@ const Prodotti = () => {
       </div>
 
       {/* Category Tabs */}
-      <div className="container max-w-6xl px-6 mb-12 md:mb-16">
-        <div className="flex flex-wrap gap-2 md:gap-3">
+      <div className="container max-w-6xl px-6 mb-10 md:mb-16">
+        <div className="flex gap-2 md:gap-3 overflow-x-auto pb-2 -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap scrollbar-hide">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActive(cat.key)}
-              className={`px-4 py-2 text-xs tracking-[0.15em] uppercase font-body border transition-all duration-300 ${
+              className={`px-3 md:px-4 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.12em] md:tracking-[0.15em] uppercase font-body border transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
                 active === cat.key
                   ? "border-gold text-gold bg-gold/10"
                   : "border-cream-muted/20 text-cream-muted hover:border-gold/50 hover:text-cream"
@@ -154,7 +154,7 @@ const Prodotti = () => {
       </div>
 
       {/* Product Grid */}
-      <div className="container max-w-6xl px-6 pb-24">
+      <div className="container max-w-6xl px-6 pb-20 md:pb-24">
         <AnimatePresence mode="wait">
           <motion.div
             key={active}
@@ -163,12 +163,12 @@ const Prodotti = () => {
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
           >
-            <div className="mb-12 text-center">
-              <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-3">{current.subtitle}</p>
-              <h2 className="text-3xl md:text-5xl font-display font-light text-cream mb-4">
+            <div className="mb-8 md:mb-12 text-center">
+              <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold font-body mb-2 md:mb-3">{current.subtitle}</p>
+              <h2 className="text-2xl md:text-5xl font-display font-light text-cream mb-3 md:mb-4">
                 {categories.find((c) => c.key === active)?.label}
               </h2>
-              <p className="text-cream-muted font-body font-light text-sm leading-relaxed max-w-2xl mx-auto">
+              <p className="text-cream-muted font-body font-light text-xs md:text-sm leading-relaxed max-w-2xl mx-auto">
                 {current.description}
               </p>
             </div>
