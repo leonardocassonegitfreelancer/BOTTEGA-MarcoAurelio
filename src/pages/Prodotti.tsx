@@ -337,6 +337,54 @@ const Prodotti = () => {
                 } compact />
               </div>
             </div>
+
+            {/* Related categories */}
+            <div className="mt-16 md:mt-24">
+              <div className="text-center mb-8 md:mb-10">
+                <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">
+                  {t("products.related.label")}
+                </p>
+                <h3 className="text-xl md:text-2xl font-display font-light text-cream">
+                  {t("products.related.title")}
+                </h3>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
+                {categories
+                  .filter((cat) => cat.key !== active)
+                  .slice(0, 3)
+                  .map((cat) => {
+                    const representativeImage: Record<Category, string> = {
+                      fedi: nidoImage,
+                      pietre: kintsugiImage,
+                      senza_pietre: anelliLisciImage,
+                      filamento: ariaImage,
+                      pendenti: mareeFullImage,
+                      bracciali: mareeFullImage,
+                    };
+                    return (
+                      <button
+                        key={cat.key}
+                        onClick={() => handleCategoryChange(cat.key)}
+                        className="group relative overflow-hidden border border-gold/20 hover:border-gold/50 transition-all duration-500"
+                      >
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={representativeImage[cat.key]}
+                            alt={cat.label}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                        </div>
+                        <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                          <p className="text-xs tracking-[0.2em] uppercase font-body text-cream group-hover:text-gold transition-colors duration-300">
+                            {cat.label}
+                          </p>
+                        </div>
+                      </button>
+                    );
+                  })}
+              </div>
+            </div>
           </motion.div>
         </AnimatePresence>
       </div>
