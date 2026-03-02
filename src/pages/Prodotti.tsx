@@ -404,11 +404,18 @@ const Prodotti = () => {
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.4 }}
                     >
-                      {/* INITIVM intro — placeholder video/image */}
+                      {/* INITIVM intro video */}
                       <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
-                        <div className="w-full h-full flex items-center justify-center bg-background border border-gold/10">
-                          <p className="text-cream-muted font-body text-xs tracking-[0.2em] uppercase">Video in arrivo</p>
-                        </div>
+                        <video
+                          src="/initivm-intro.mp4"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="auto"
+                          className="w-full h-full object-cover"
+                          style={{ backgroundColor: "hsl(var(--background))" }}
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                       </div>
 
