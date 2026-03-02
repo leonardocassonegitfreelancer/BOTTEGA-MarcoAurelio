@@ -7,6 +7,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppContactForm from "@/components/WhatsAppContactForm";
+import CategoryCarousel from "@/components/CategoryCarousel";
+import { useIsMobile } from "@/hooks/use-mobile";
 import nidoImage from "@/assets/nido.jpg";
 import mareeImage from "@/assets/maree-ring.png";
 import anelliLisciImage from "@/assets/anelli-lisci.jpg";
@@ -65,6 +67,7 @@ const Prodotti = () => {
   const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
   const [active, setActive] = useState<Category>(resolvedCat);
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
@@ -187,21 +190,29 @@ const Prodotti = () => {
 
       {/* Category Tabs */}
       <div className="container max-w-6xl px-6 mb-10 md:mb-16">
-        <div className="flex gap-2 md:gap-3 overflow-x-auto pb-2 -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap scrollbar-hide">
-          {categories.map((cat) => (
-            <button
-              key={cat.key}
-              onClick={() => handleCategoryChange(cat.key)}
-              className={`px-3 md:px-4 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.12em] md:tracking-[0.15em] uppercase font-body border transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
-                active === cat.key
-                  ? "border-gold text-gold bg-gold/10"
-                  : "border-cream-muted/20 text-cream-muted hover:border-gold/50 hover:text-cream"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
+        {isMobile ? (
+          <CategoryCarousel
+            categories={categories}
+            active={active}
+            onCategoryChange={handleCategoryChange}
+          />
+        ) : (
+          <div className="flex gap-3 flex-wrap">
+            {categories.map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => handleCategoryChange(cat.key)}
+                className={`px-4 py-2 text-xs tracking-[0.15em] uppercase font-body border transition-all duration-300 whitespace-nowrap ${
+                  active === cat.key
+                    ? "border-gold text-gold bg-gold/10"
+                    : "border-cream-muted/20 text-cream-muted hover:border-gold/50 hover:text-cream"
+                }`}
+              >
+                {cat.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Product Grid */}
