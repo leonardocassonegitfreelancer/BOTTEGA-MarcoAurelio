@@ -55,17 +55,22 @@ const ContactSection = () => {
           </div>
 
           {/* Indirizzo */}
-          <div className="flex items-start gap-4 p-6 border border-border">
+          <a
+            href="https://maps.app.goo.gl/vt8LYbZqNG8UYNZb6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-start gap-4 p-6 border border-border hover:border-gold/30 transition-colors duration-500 group"
+          >
             <MapPin className="w-5 h-5 text-gold mt-1 shrink-0" />
             <div>
-              <h3 className="font-display text-xl text-cream mb-1">Dove Siamo</h3>
+              <h3 className="font-display text-xl text-cream mb-1 group-hover:text-gold transition-colors">Dove Siamo</h3>
               <p className="text-cream-muted font-body text-sm">Via dei Cappellari 21</p>
               <p className="text-cream-muted font-body text-sm">Campo de' Fiori, Roma</p>
               <p className="text-cream-muted font-body text-xs mt-2">
                 A 29 min a piedi dal Colosseo
               </p>
             </div>
-          </div>
+          </a>
 
           {/* Instagram */}
           <a
