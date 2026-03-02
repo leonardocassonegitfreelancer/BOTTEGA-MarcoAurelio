@@ -67,7 +67,7 @@ const Prodotti = () => {
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   }, []);
 
   useEffect(() => {
