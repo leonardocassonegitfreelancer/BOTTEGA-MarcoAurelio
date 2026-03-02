@@ -181,6 +181,11 @@ const translations: Record<Language, Record<string, string>> = {
     "products.filamento.item2.desc": "Fascia larga con trama a mosaico sospeso, finitura lucida.",
     "products.filamento.item3.name": "ARIA Sottile",
     "products.filamento.item3.desc": "Versione sottile con elementi traforati, leggerezza quotidiana.",
+    "products.filamento.navtilvs.name": "NAVTILVS — ARRAKIS",
+    "products.filamento.navtilvs.desc": "Anello in argento con Onice e diamante",
+    "products.filamento.navtilvs.subtitle": "Collezione ARIA",
+    "products.filamento.navtilvs.material": "Argento, Onice, Diamante",
+    "products.filamento.navtilvs.story": "Una spirale sospesa nel vuoto.\nL'Onice è il silenzio al centro, il diamante è il punto di consapevolezza.\nIntorno, decine di elementi uniti senza sostegno,\ncome materia che ha dimenticato il peso.\n\nSembra fragile.\nIn realtà è addestrato alla resistenza.\n\nARIA: Decine, centinaia di pezzi come in un Mosaico\nuniti in \"aereo\", SENZA \"supporto\"\nTRASPARENTI, come ARIA.",
 
     "products.pendenti.subtitle": "Pendenti",
     "products.pendenti.desc": "Opere sospese, forgiate a mano. Ogni pezzo è unico.",
@@ -394,6 +399,11 @@ const translations: Record<Language, Record<string, string>> = {
     "products.filamento.item2.desc": "Wide band with suspended mosaic pattern, polished finish.",
     "products.filamento.item3.name": "ARIA Slim",
     "products.filamento.item3.desc": "Slim version with openwork elements, everyday lightness.",
+    "products.filamento.navtilvs.name": "NAVTILVS — ARRAKIS",
+    "products.filamento.navtilvs.desc": "Silver ring with Onyx and diamond",
+    "products.filamento.navtilvs.subtitle": "ARIA Collection",
+    "products.filamento.navtilvs.material": "Silver, Onyx, Diamond",
+    "products.filamento.navtilvs.story": "A spiral suspended in the void.\nThe Onyx is the silence at the centre, the diamond is the point of awareness.\nAround it, tens of elements joined without support,\nlike matter that has forgotten its weight.\n\nIt looks fragile.\nIn truth, it is trained for resistance.\n\nARIA: Tens, hundreds of pieces like a Mosaic\njoined mid-air, WITHOUT \"support\"\nTRANSPARENT, like AIR.",
 
     "products.pendenti.subtitle": "Pendants",
     "products.pendenti.desc": "Suspended works, hand-forged. Every piece is unique.",
