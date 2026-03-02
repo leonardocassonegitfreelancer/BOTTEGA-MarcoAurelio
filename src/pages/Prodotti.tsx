@@ -168,9 +168,6 @@ const Prodotti = () => {
       description: t("products.pendenti.desc"),
       items: [
         { image: sbilanciamentoBiancoImage, name: t("products.pendenti.sbilanciamento.name"), desc: t("products.pendenti.sbilanciamento.material") },
-        { image: mareeFullImage, name: t("products.pendenti.item1.name"), desc: t("products.pendenti.item1.desc") },
-        { image: kintsugiImage, name: t("products.pendenti.item2.name"), desc: t("products.pendenti.item2.desc") },
-        { image: mareeFullImage, name: t("products.pendenti.item3.name"), desc: t("products.pendenti.item3.desc") },
       ],
     },
     bracciali: {

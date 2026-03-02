@@ -176,7 +176,7 @@ const translations: Record<Language, Record<string, string>> = {
     "products.filamento.item3.desc": "Versione sottile con elementi traforati, leggerezza quotidiana.",
 
     "products.pendenti.subtitle": "Pendenti",
-    "products.pendenti.desc": "Opere sospese — pendenti forgiati a mano che catturano la luce e il movimento. Ogni pezzo è unico.",
+    "products.pendenti.desc": "Opere sospese, forgiate a mano. Ogni pezzo è unico.",
     "products.pendenti.item1.name": "Goccia Maree",
     "products.pendenti.item1.desc": "Pendente a goccia con superficie ondulata, argento satinato.",
     "products.pendenti.item2.name": "Kintsugi Pendente",
@@ -382,7 +382,7 @@ const translations: Record<Language, Record<string, string>> = {
     "products.filamento.item3.desc": "Slim version with openwork elements, everyday lightness.",
 
     "products.pendenti.subtitle": "Pendants",
-    "products.pendenti.desc": "Suspended works — hand-forged pendants that capture light and movement. Every piece is unique.",
+    "products.pendenti.desc": "Suspended works, hand-forged. Every piece is unique.",
     "products.pendenti.item1.name": "Maree Drop",
     "products.pendenti.item1.desc": "Drop pendant with wave-textured surface, satin silver.",
     "products.pendenti.item2.name": "Kintsugi Pendant",
