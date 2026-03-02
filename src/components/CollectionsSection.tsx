@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import nidoImage from "@/assets/nido.jpg";
 import mareeImage from "@/assets/maree-ring.png";
 import kintsugiImage from "@/assets/kintsugi.jpg";
+import ariaImage from "@/assets/aria.webp";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface CollectionCardProps {
@@ -9,10 +10,11 @@ interface CollectionCardProps {
   title: string;
   subtitle: string;
   description: string;
+  alt?: string;
   index: number;
 }
 
-const CollectionCard = ({ image, title, subtitle, description, index }: CollectionCardProps) => (
+const CollectionCard = ({ image, title, subtitle, description, alt, index }: CollectionCardProps) => (
   <motion.div
     initial={{ opacity: 0, y: 40 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -23,7 +25,7 @@ const CollectionCard = ({ image, title, subtitle, description, index }: Collecti
     <div className="relative overflow-hidden mb-6">
       <img
         src={image}
-        alt={title}
+        alt={alt || title}
         className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500" />
@@ -43,18 +45,28 @@ const CollectionsSection = () => {
       title: t("collections.nido.title"),
       subtitle: t("collections.subtitle"),
       description: t("collections.nido.desc"),
+      alt: t("collections.nido.alt"),
     },
     {
       image: mareeImage,
       title: t("collections.maree.title"),
       subtitle: t("collections.subtitle"),
       description: t("collections.maree.desc"),
+      alt: t("collections.maree.alt"),
     },
     {
       image: kintsugiImage,
       title: t("collections.kintsugi.title"),
       subtitle: t("collections.subtitle"),
       description: t("collections.kintsugi.desc"),
+      alt: t("collections.kintsugi.alt"),
+    },
+    {
+      image: ariaImage,
+      title: t("collections.aria.title"),
+      subtitle: t("collections.subtitle"),
+      description: t("collections.aria.desc"),
+      alt: t("collections.aria.alt"),
     },
   ];
 
@@ -76,7 +88,7 @@ const CollectionsSection = () => {
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {collections.map((col, i) => (
             <CollectionCard key={col.title} {...col} index={i} />
           ))}

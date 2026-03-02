@@ -39,6 +39,13 @@ const translations: Record<Language, Record<string, string>> = {
     "collections.maree.desc": "Ispirata al mare, al moto ondoso e agli abissi. La superficie increspata ricorda le onde che si infrangono sulla riva, un simbolo dell'eterno ciclo della vita.",
     "collections.kintsugi.title": "KINTSUGI",
     "collections.kintsugi.desc": "Luce e frattura. Le crepe diventano linee preziose che esaltano l'unicità della forma, rendendo la fragilità un atto di bellezza consapevole.",
+    "collections.aria.title": "ARIA",
+    "collections.aria.desc": "Decine, centinaia di elementi uniti in aria, senza supporto — come un mosaico sospeso nel vuoto. La struttura regge sé stessa. Il risultato è un gioiello trasparente, leggero come l'aria che lo attraversa.",
+
+    "collections.nido.alt": "Fedi NiDO intrecciate a mano — fedi nuziali artigianali in oro e argento, Roma",
+    "collections.maree.alt": "Anello Maree con superficie ondulata — gioiello artigianale ispirato al mare, Roma",
+    "collections.kintsugi.alt": "Gioiello Kintsugi con venature dorate — arte orafa giapponese rivisitata a Roma",
+    "collections.aria.alt": "Anello ARIA in oro traforato — gioiello artigianale trasparente realizzato a mano a Roma",
 
     // Baratto
     "baratto.label": "Il Baratto",
@@ -102,6 +109,16 @@ const translations: Record<Language, Record<string, string>> = {
     "products.lisci.item3.name": "Profilo Piatto",
     "products.lisci.item3.desc": "Anello a sezione piatta in argento, stile contemporaneo.",
 
+    "products.aria.title": "ARIA",
+    "products.aria.subtitle": "Collezione",
+    "products.aria.desc": "Decine, centinaia di elementi uniti in aria, senza supporto — come un mosaico sospeso nel vuoto. La struttura regge sé stessa. Il risultato è un gioiello trasparente, leggero come l'aria che lo attraversa.",
+    "products.aria.item1.name": "ARIA Anello",
+    "products.aria.item1.desc": "Anello traforato in oro, struttura aerea e trasparente.",
+    "products.aria.item2.name": "ARIA Fascia",
+    "products.aria.item2.desc": "Fascia larga con trama a mosaico sospeso, finitura lucida.",
+    "products.aria.item3.name": "ARIA Sottile",
+    "products.aria.item3.desc": "Versione sottile con elementi traforati, leggerezza quotidiana.",
+
     // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Roma",
   },
@@ -135,6 +152,13 @@ const translations: Record<Language, Record<string, string>> = {
     "collections.maree.desc": "Inspired by the sea, by waves and the deep. The rippled surface recalls waves breaking on the shore — a symbol of life's eternal cycle.",
     "collections.kintsugi.title": "KINTSUGI",
     "collections.kintsugi.desc": "Light and fracture. The cracks become precious lines that celebrate the uniqueness of form, making fragility a conscious act of beauty.",
+    "collections.aria.title": "ARIA",
+    "collections.aria.desc": "Tens, hundreds of elements joined mid-air, without support — like a mosaic suspended in the void. The structure holds itself. The result is a transparent jewel, light as the air that passes through it.",
+
+    "collections.nido.alt": "Handwoven NiDO wedding bands — artisan gold and silver rings, Rome",
+    "collections.maree.alt": "Maree ring with wave-textured surface — sea-inspired handcrafted jewel, Rome",
+    "collections.kintsugi.alt": "Kintsugi jewel with golden veins — Japanese-inspired goldsmith art in Rome",
+    "collections.aria.alt": "ARIA openwork gold ring — handcrafted transparent jewel made in Rome",
 
     // Baratto
     "baratto.label": "Silver Trade",
@@ -197,6 +221,16 @@ const translations: Record<Language, Record<string, string>> = {
     "products.lisci.item2.desc": "Smooth 18kt yellow gold ring, classic round section.",
     "products.lisci.item3.name": "Flat Profile",
     "products.lisci.item3.desc": "Flat-section silver ring, contemporary style.",
+
+    "products.aria.title": "ARIA",
+    "products.aria.subtitle": "Collection",
+    "products.aria.desc": "Tens, hundreds of elements joined mid-air, without support — like a mosaic suspended in the void. The structure holds itself. The result is a transparent jewel, light as the air that passes through it.",
+    "products.aria.item1.name": "ARIA Ring",
+    "products.aria.item1.desc": "Openwork gold ring, airy and transparent structure.",
+    "products.aria.item2.name": "ARIA Band",
+    "products.aria.item2.desc": "Wide band with suspended mosaic pattern, polished finish.",
+    "products.aria.item3.name": "ARIA Slim",
+    "products.aria.item3.desc": "Slim version with openwork elements, everyday lightness.",
 
     // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Rome",

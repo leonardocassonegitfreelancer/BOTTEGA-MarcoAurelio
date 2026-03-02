@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import nidoImage from "@/assets/nido.jpg";
 import mareeImage from "@/assets/maree-ring.png";
 import anelliLisciImage from "@/assets/anelli-lisci.jpg";
+import ariaImage from "@/assets/aria.webp";
 
 interface ProductItem {
   image: string;
@@ -97,6 +98,17 @@ const Prodotti = () => {
         { image: anelliLisciImage, name: t("products.lisci.item1.name"), desc: t("products.lisci.item1.desc") },
         { image: anelliLisciImage, name: t("products.lisci.item2.name"), desc: t("products.lisci.item2.desc") },
         { image: anelliLisciImage, name: t("products.lisci.item3.name"), desc: t("products.lisci.item3.desc") },
+      ],
+    },
+    {
+      title: t("products.aria.title"),
+      subtitle: t("products.aria.subtitle"),
+      description: t("products.aria.desc"),
+      index: 3,
+      items: [
+        { image: ariaImage, name: t("products.aria.item1.name"), desc: t("products.aria.item1.desc") },
+        { image: ariaImage, name: t("products.aria.item2.name"), desc: t("products.aria.item2.desc") },
+        { image: ariaImage, name: t("products.aria.item3.name"), desc: t("products.aria.item3.desc") },
       ],
     },
   ];
