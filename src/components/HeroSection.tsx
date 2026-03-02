@@ -9,11 +9,16 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
-        <img
-          src={heroImage}
-          alt={t("hero.imgAlt")}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster={heroImage}
           className="w-full h-full object-cover opacity-40"
-        />
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
       </div>
 
