@@ -19,8 +19,15 @@ const Index = () => {
   }, [location.pathname, setLang]);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: "smooth" }), 400);
+      }
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
