@@ -318,14 +318,24 @@ const Prodotti = () => {
             </div>
 
             {/* Contact form for all categories */}
-            <div id="contact-form" className="mt-16 md:mt-20 flex justify-center">
-              <WhatsAppContactForm defaultCategory={active} defaultCollection={
-                active === "fedi" ? "nido" :
-                active === "pietre" ? "kintsugi" :
-                active === "senza_pietre" ? "maree" :
-                active === "filamento" ? "aria" :
-                ""
-              } compact />
+            <div className="mt-16 md:mt-20">
+              <div id="contact-form" className="scroll-mt-28 border border-gold/20 p-6 md:p-10 max-w-xl mx-auto">
+                <div className="text-center mb-6">
+                  <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">
+                    {t("form.label")}
+                  </p>
+                  <h3 className="text-xl md:text-2xl font-display font-light text-cream">
+                    {t("form.title")}
+                  </h3>
+                </div>
+                <WhatsAppContactForm defaultCategory={active} defaultCollection={
+                  active === "fedi" ? "nido" :
+                  active === "pietre" ? "kintsugi" :
+                  active === "senza_pietre" ? "maree" :
+                  active === "filamento" ? "aria" :
+                  ""
+                } compact />
+              </div>
             </div>
           </motion.div>
         </AnimatePresence>
