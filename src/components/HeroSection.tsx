@@ -15,11 +15,11 @@ const HeroSection = () => {
           loop
           playsInline
           poster={heroImage}
-          className="w-full h-full object-cover opacity-40"
+          className="w-full h-full object-cover opacity-20"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/50 to-background" />
       </div>
 
       <div className="relative z-10 text-center px-6 max-w-3xl">
