@@ -28,6 +28,8 @@ import mvtaraNebvla1Image from "@/assets/mvtara-nebvla-1.png";
 import mvtaraNebvla2Image from "@/assets/mvtara-nebvla-2.png";
 import navtilvs1Image from "@/assets/navtilvs-1.png";
 import navtilvs2Image from "@/assets/navtilvs-2.png";
+import mareeDetail1Image from "@/assets/maree-detail-1.png";
+import mareeDetail2Image from "@/assets/maree-detail-2.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
@@ -181,7 +183,7 @@ const Prodotti = () => {
       subtitle: t("products.pezzi_unici.subtitle"),
       description: t("products.pezzi_unici.desc"),
       items: [
-        { image: mareeImage, name: t("products.pezzi_unici.maree.name"), desc: t("products.pezzi_unici.maree.desc") },
+        { image: mareeImage, images: [mareeImage, mareeDetail1Image, mareeDetail2Image], name: t("products.pezzi_unici.maree.name"), desc: t("products.pezzi_unici.maree.desc") },
       ],
     },
   };
@@ -679,49 +681,72 @@ const Prodotti = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="mb-12 md:mb-16"
               >
-                <div className="max-w-3xl mx-auto space-y-6 text-center">
-                  <p className="text-cream-muted font-body text-[10px] md:text-xs tracking-[0.2em]">
-                    {t("products.pezzi_unici.maree.poemCredit")}
-                  </p>
+                {/* --- MAREE block --- */}
+                <div className="mb-12 md:mb-16">
+                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                    <video
+                      src="/maree-intro.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      poster={mareeImage}
+                      className="w-full h-full object-cover"
+                      style={{ backgroundColor: "hsl(var(--background))" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                  </div>
 
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  <div className="max-w-3xl mx-auto space-y-6 text-center">
+                    <p className="text-cream font-body text-sm md:text-base leading-[2] italic whitespace-pre-line">
+                      {t("products.pezzi_unici.maree.poem")}
+                    </p>
 
-                  <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
-                    MAREE<span className="text-gold">.</span>
-                  </h3>
-                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
-                    {t("products.pezzi_unici.maree.theme")}
-                  </p>
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
 
-                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
-                    {t("products.pezzi_unici.maree.desc")}
-                  </p>
+                    <p className="text-cream-muted font-body text-[10px] md:text-xs tracking-[0.2em]">
+                      {t("products.pezzi_unici.maree.poemCredit")}
+                    </p>
 
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-                </div>
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
 
-                {/* MAREE product carousel */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
-                  <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="group">
-                    <div className="relative overflow-hidden mb-4">
-                      <ProductImageCarousel images={current.items[0].images || [current.items[0].image]} alt={current.items[0].name} />
-                      <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
-                    </div>
-                    <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[0].name}</h3>
-                    <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[0].desc}</p>
-                  </motion.div>
-                </div>
+                    <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
+                      MAREE<span className="text-gold">.</span>
+                    </h3>
+                    <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
+                      inprofvndvmmaris
+                    </p>
 
-                {/* CTA */}
-                <div className="text-center mt-10 md:mt-14">
-                  <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                  >
-                    {t("form.title")}
-                  </button>
+                    <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                      {t("products.pezzi_unici.maree.desc")}
+                    </p>
+
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  </div>
+
+                  {/* MAREE product carousel */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="group">
+                      <div className="relative overflow-hidden mb-4">
+                        <ProductImageCarousel images={current.items[0].images || [current.items[0].image]} alt={current.items[0].name} />
+                        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[0].name}</h3>
+                      <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[0].desc}</p>
+                    </motion.div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="text-center mt-10 md:mt-14">
+                    <button
+                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                    >
+                      {t("form.title")}
+                    </button>
+                  </div>
                 </div>
 
                 {/* ◆ Diamond separator */}
