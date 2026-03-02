@@ -1,58 +1,46 @@
 
 
-## Piano: Ristrutturazione sezione "Anelli Circolari" con separatori diamante
+## Piano: Nuova categoria "Pezzi Unici"
 
-### Struttura finale
+### Concept
 
-```text
-┌─────────────────────────────────────┐
-│ Kintsugi Video + Testo              │
-│ Kintsugi Carousel (solo item 1)     │
-│ CTA → scroll al form               │
-│                                     │
-│ ──── ◆ linea dorata ◆ ────         │
-│                                     │
-│ MVTARA Video + Testo                │
-│ MVTARA Carousel (solo item 2)      │
-│ CTA → scroll al form               │
-│                                     │
-│ ──── ◆ linea dorata ◆ ────         │
-│                                     │
-│ Categorie Raccomandate              │
-│ Form WhatsApp                       │
-└─────────────────────────────────────┘
-```
+Una categoria per pezzi unici, irripetibili, inclassificabili — e per questo meravigliosi. Non un catalogo, ma un invito. MAREE sarà il primo pezzo, introdotto dal testo poetico "Che poi il Mare".
 
-### Modifiche in `src/pages/Prodotti.tsx`
+### Descrizione della categoria
 
-**1. Separare i prodotti nella sezione `pietre`**
+**IT**: "Qui trovi tutti i pezzi che seguono uno stile unico, irripetibile, inclassificabile — e per questo meraviglioso. Se sei in cerca di idee, sei nel posto giusto."
 
-Quando `active === "pietre"`, invece di renderizzare un'unica griglia con tutti gli items, il layout diventa sequenziale:
+**EN**: "Here you'll find pieces that follow a unique, unrepeatable, unclassifiable style — and that's what makes them wonderful. If you're looking for inspiration, you're in the right place."
 
-- Blocco Kintsugi (video + testo esistente, righe 306-367)
-- Griglia con **solo il primo item** (Kintsugi Diamante)
-- CTA button → scroll a `#contact-form`
-- **Componente separatore**: linea dorata con piccolo diamante SVG al centro (`flex items-center gap-4` con due `div h-px bg-gold/30 flex-1` e un diamante `◆` dorato al centro)
-- Blocco MVTARA (video + testo esistente, righe 369-403)
-- Griglia con **solo il secondo item** (MVTARA NEBVLA ZERO)
-- CTA button → scroll a `#contact-form`
-- **Stesso separatore diamante**
+### Modifiche tecniche
 
-**2. Riordinare form e categorie raccomandate**
+**1. Type e slug (`Prodotti.tsx`)**
+- Estendere `Category` con `"pezzi_unici"`
+- Slug IT: `pezzi-unici` / EN: `unique-pieces`
+- Aggiungere alle 3 mappe di slug
 
-Per **tutte** le categorie (non solo pietre):
-- Prima: Categorie Raccomandate (righe 569-615)
-- Dopo: Form WhatsApp (righe 549-567)
+**2. Traduzioni (`LanguageContext.tsx`)**
+- Label: "Pezzi Unici" / "Unique Pieces"
+- Subtitle e description della categoria (testo sopra)
+- Testo poetico "Che poi il Mare" © 2015 Marco Aurelio Lorenzo Gerardi Olivetti
+- Descrizione MAREE: "MAREE nasce dal mare, dalle onde, dal movimento che non si ferma mai. Il metallo è vivo, non ha trattamenti: respira, cambia insieme a chi lo indossa."
+- Nome item: "MAREE — inprofvndvmmaris"
 
-Questo inverte l'ordine attuale.
+**3. Asset**
+- Salvare `image-17.png` come `src/assets/maree-pezzi-unici.png`
 
-**3. Componente separatore diamante**
+**4. Dati prodotto (`Prodotti.tsx`)**
+- Aggiungere `pezzi_unici` a `products` con MAREE come primo item
+- Aggiungere alla lista `categories` (dopo bracciali)
 
-Un semplice div inline riutilizzabile:
-```text
-── ── ── ── ◆ ── ── ── ──
-```
-Implementato con flexbox: due linee `h-px bg-gold/30` + un carattere `◆` in `text-gold text-xs` al centro. Margine verticale `my-12 md:my-16`.
+**5. Layout sequenziale (`Prodotti.tsx`)**
+- Quando `active === "pezzi_unici"`:
+  - Blocco intro: testo poetico "Che poi il Mare" (stile simile agli altri intro, senza video)
+  - Descrizione MAREE + materiali
+  - Carousel prodotto (1 immagine per ora)
+  - CTA → scroll a `#contact-form`
+- Aggiungere `"pezzi_unici"` all'esclusione della griglia unificata
 
-**4. Per le altre categorie** (fedi, senza_pietre, filamento, pendenti, bracciali) la griglia unica rimane invariata, nessun separatore.
+**6. CollectionsSection (homepage)**
+- Aggiungere link a Pezzi Unici usando l'immagine MAREE
 
