@@ -81,6 +81,26 @@ const ContactSection = () => {
             </div>
           </a>
         </motion.div>
+
+        {/* Google Maps */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-12 border border-border overflow-hidden"
+        >
+          <iframe
+            title="Bottega MarcoAurelio - Via dei Cappellari 21, Roma"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2970.123!2d12.4705!3d41.8956!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132f604b17a674d1%3A0x7e3c3c7a1f6b4b0a!2sVia+dei+Cappellari%2C+21%2C+00186+Roma+RM!5e0!3m2!1sit!2sit!4v1700000000000!5m2!1sit!2sit"
+            width="100%"
+            height="350"
+            style={{ border: 0, filter: "invert(90%) hue-rotate(180deg) saturate(0.3) brightness(0.8)" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </motion.div>
       </div>
     </section>
   );
