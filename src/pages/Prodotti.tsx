@@ -24,6 +24,8 @@ import kintsugiKatanaImage from "@/assets/kintsugi-katana.png";
 import sbilanciamentoBiancoImage from "@/assets/sbilanciamento-bianco.png";
 import sbilanciamentoLateraleImage from "@/assets/sbilanciamento-laterale.png";
 import sbilanciamentoDettaglioImage from "@/assets/sbilanciamento-dettaglio.png";
+import mvtaraNebvla1Image from "@/assets/mvtara-nebvla-1.png";
+import mvtaraNebvla2Image from "@/assets/mvtara-nebvla-2.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -134,6 +136,7 @@ const Prodotti = () => {
       description: t("products.pietre.desc"),
       items: [
         { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage, kintsugiKatanaImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
+        { image: mvtaraNebvla1Image, images: [mvtaraNebvla1Image, mvtaraNebvla2Image], name: t("products.pietre.mvtara.name"), desc: t("products.pietre.mvtara.desc") },
       ],
     },
     senza_pietre: {
@@ -361,12 +364,42 @@ const Prodotti = () => {
                   <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
                     {t("products.pietre.kintsugi.closing")}
                   </p>
-                  <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
-                  >
-                    {t("form.title")}
-                  </button>
+                </div>
+
+                {/* MVTARA NEBVLA ZERO intro */}
+                <div className="mt-12 md:mt-16 max-w-3xl mx-auto space-y-6 text-center">
+                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                    <video
+                      src="/mvtara-nebvla-intro.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      poster={mvtaraNebvla1Image}
+                      className="w-full h-full object-cover"
+                      style={{ backgroundColor: "hsl(var(--background))" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                  </div>
+
+                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                    {t("products.pietre.mvtara.subtitle")}
+                  </p>
+                  <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
+                    MVTARA NEBVLA ZERO<span className="text-gold">.</span>
+                  </h3>
+                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
+                    {t("products.pietre.mvtara.material")}
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                    {t("products.pietre.mvtara.story")}
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
                 </div>
               </motion.div>
             )}
@@ -501,7 +534,18 @@ const Prodotti = () => {
               ))}
             </div>
 
-            {/* Contact form for all categories */}
+            {/* CTA below carousel for Kintsugi family */}
+            {active === "pietre" && (
+              <div className="text-center mt-10 md:mt-14">
+                <button
+                  onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                >
+                  {t("form.title")}
+                </button>
+              </div>
+            )}
+
             <div className="mt-16 md:mt-20">
               <div id="contact-form" className="scroll-mt-28 border border-gold/20 p-6 md:p-10 max-w-xl mx-auto">
                 <div className="text-center mb-6">
