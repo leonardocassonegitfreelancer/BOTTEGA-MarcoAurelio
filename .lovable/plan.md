@@ -1,23 +1,17 @@
 
 
-## Piano: Switcher tra Kintsugi e nuovo prodotto nella sezione Pietre
+## Piano: Promemoria misura nel form
 
-### Concetto
-Aggiungere uno switch/toggle nella sezione "Anelli con pietre" che permette di alternare tra due presentazioni complete: **Kintsugi** (già esistente) e il **nuovo prodotto con pietre preziose** (da definire). Ogni presentazione avrà il proprio video introduttivo, storytelling e card prodotto.
+Aggiungere un avviso gentile e non bloccante che appare quando si seleziona una categoria che richiede misura (anelli o bracciali). Non un campo obbligatorio, ma un reminder caldo che dice "ne parleremo insieme, ma tienilo a mente".
 
-### Interventi
+### Modifiche
 
-1. **Aggiungere stato di sub-collezione** in `Prodotti.tsx` — un `useState` per gestire quale presentazione mostrare (es. `"kintsugi" | "nuovo"`), con un toggle/switch visivo posizionato sopra il blocco video+storytelling.
+1. **`src/contexts/LanguageContext.tsx`** — Nuove chiavi IT/EN:
+   - IT: "Per realizzare il tuo gioiello su misura avremo bisogno della tua misura (dito o polso). Non preoccuparti, ne parleremo insieme e ti guideremo passo passo!"
+   - EN: "To create your custom piece we'll need your size (finger or wrist). Don't worry, we'll discuss it together and guide you step by step!"
 
-2. **Componente switch** — Utilizzare un selettore stilizzato con due opzioni (nomi delle sotto-collezioni) in stile coerente con il design gold/cream, posizionato sotto il titolo della categoria e sopra il video. Transizione animata con `AnimatePresence` per il cambio di contenuto.
-
-3. **Struttura dati** — Duplicare la struttura del blocco Kintsugi per il nuovo prodotto: video, testi storytelling, items nella griglia. Per ora useremo placeholder per video e immagini del nuovo prodotto, che potrai caricare dopo.
-
-4. **Traduzioni** — Aggiungere le chiavi necessarie in `LanguageContext.tsx` per il nome e la descrizione del nuovo prodotto.
-
-### Cosa serve da te
-- Il **nome** del nuovo prodotto/collezione con pietre preziose
-- Il **video** introduttivo (come hai fatto per Kintsugi e ARIA)
-- Le **foto** del prodotto
-- Il **testo di storytelling** (oppure possiamo metterne uno provvisorio)
+2. **`src/components/WhatsAppContactForm.tsx`** — Sotto il campo "Tipologia di gioiello", quando `category` è tra `fedi`, `pietre`, `senza_pietre`, `filamento` o `bracciali`:
+   - Mostra un box con `AnimatePresence` / `motion.div`, bordo `gold/20`, icona `Ruler` da lucide-react
+   - Tono caldo, non imperativo — un promemoria amichevole
+   - Nessun campo aggiuntivo, nessun blocco alla submission
 
