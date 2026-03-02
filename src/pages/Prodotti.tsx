@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppContactForm from "@/components/WhatsAppContactForm";
 import nidoImage from "@/assets/nido.jpg";
 import mareeImage from "@/assets/maree-ring.png";
 import anelliLisciImage from "@/assets/anelli-lisci.jpg";
@@ -263,14 +264,9 @@ const Prodotti = () => {
                     <span className="text-cream-muted/60">(valutazione +10% rispetto alla quotazione di ritiro media a Roma – 22-02-26)</span>
                   </p>
 
-                  <a
-                    href={`https://wa.me/393482762842?text=${encodeURIComponent("Salve, sono interessato a questo anello in filamento.\n\nUlteriori dettagli: scrivi qui gli ulteriori dettagli")}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mt-4 px-8 py-4 bg-gold text-background font-body text-sm md:text-base tracking-[0.15em] uppercase font-medium hover:bg-gold/90 transition-colors duration-300"
-                  >
-                    Richiedi Informazioni
-                  </a>
+                  <div className="mt-8">
+                    <WhatsAppContactForm defaultCategory="filamento" compact />
+                  </div>
                 </div>
               </motion.div>
             )}
@@ -296,6 +292,11 @@ const Prodotti = () => {
                   <p className="text-cream-muted font-body text-xs leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
+            </div>
+
+            {/* Contact form for all categories */}
+            <div className="mt-16 md:mt-20 flex justify-center">
+              <WhatsAppContactForm defaultCategory={active} compact />
             </div>
           </motion.div>
         </AnimatePresence>
