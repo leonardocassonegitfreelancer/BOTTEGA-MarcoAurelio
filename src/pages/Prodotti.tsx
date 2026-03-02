@@ -19,6 +19,7 @@ import kintsugiImage from "@/assets/kintsugi.jpg";
 import mareeFullImage from "@/assets/maree.jpg";
 import kintsugiStratiImage from "@/assets/kintsugi-strati.png";
 import kintsugiStratiDetailImage from "@/assets/kintsugi-strati-detail.png";
+import initivmImage from "@/assets/initivm.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -126,9 +127,7 @@ const Prodotti = () => {
       items: pietreSubCollection === "kintsugi" ? [
         { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
       ] : [
-        { image: kintsugiImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") },
-        { image: kintsugiImage, name: t("products.pietre.initivm.item2.name"), desc: t("products.pietre.initivm.item2.desc") },
-        { image: kintsugiImage, name: t("products.pietre.initivm.item3.name"), desc: t("products.pietre.initivm.item3.desc") },
+        { image: initivmImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") },
       ],
     },
     senza_pietre: {
@@ -413,6 +412,7 @@ const Prodotti = () => {
                           muted
                           playsInline
                           preload="auto"
+                          poster={initivmImage}
                           className="w-full h-full object-cover"
                           style={{ backgroundColor: "hsl(var(--background))" }}
                         />
@@ -426,10 +426,20 @@ const Prodotti = () => {
                         <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
                           INITIVM<span className="text-gold">.</span>
                         </h3>
-                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
                           {t("products.pietre.initivm.story")}
                         </p>
+
                         <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                        <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed">
+                          {t("products.pietre.initivm.material")}
+                        </p>
+
+                        <p className="text-cream font-body text-sm md:text-base leading-relaxed font-medium">
+                          Manifattura: <span className="text-gold">{t("products.pietre.initivm.price")}</span> ≈ {t("products.pietre.initivm.priceAlt")}
+                        </p>
+
                         <button
                           onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
                           className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
@@ -483,7 +493,7 @@ const Prodotti = () => {
                 </div>
                 <WhatsAppContactForm defaultCategory={active} defaultCollection={
                   active === "fedi" ? "nido" :
-                  active === "pietre" ? "kintsugi" :
+                  active === "pietre" ? pietreSubCollection :
                   active === "senza_pietre" ? "maree" :
                   active === "filamento" ? "aria" :
                   ""
