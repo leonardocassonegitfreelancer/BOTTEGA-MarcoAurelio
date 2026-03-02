@@ -29,6 +29,7 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
     { value: "nido", label: "NiDO" },
     { value: "maree", label: "Maree" },
     { value: "kintsugi", label: "Kintsugi" },
+    { value: "initivm", label: "INITIVM" },
     { value: "aria", label: "ARIA" },
     { value: "altro", label: lang === "it" ? "Altra / Non so" : "Other / Not sure" },
   ];
