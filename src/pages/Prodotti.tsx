@@ -308,7 +308,13 @@ const Prodotti = () => {
 
             {/* Contact form for all categories */}
             <div className="mt-16 md:mt-20 flex justify-center">
-              <WhatsAppContactForm defaultCategory={active} compact />
+              <WhatsAppContactForm defaultCategory={active} defaultCollection={
+                active === "fedi" ? "nido" :
+                active === "pietre" ? "kintsugi" :
+                active === "senza_pietre" ? "maree" :
+                active === "filamento" ? "aria" :
+                ""
+              } compact />
             </div>
           </motion.div>
         </AnimatePresence>
