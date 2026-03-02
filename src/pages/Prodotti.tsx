@@ -22,6 +22,8 @@ import kintsugiStratiDetailImage from "@/assets/kintsugi-strati-detail.png";
 import initivmImage from "@/assets/initivm.png";
 import kintsugiKatanaImage from "@/assets/kintsugi-katana.png";
 import sbilanciamentoBiancoImage from "@/assets/sbilanciamento-bianco.png";
+import sbilanciamentoLateraleImage from "@/assets/sbilanciamento-laterale.png";
+import sbilanciamentoDettaglioImage from "@/assets/sbilanciamento-dettaglio.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -152,7 +154,7 @@ const Prodotti = () => {
       subtitle: t("products.pendenti.subtitle"),
       description: t("products.pendenti.desc"),
       items: [
-        { image: sbilanciamentoBiancoImage, name: t("products.pendenti.sbilanciamento.name"), desc: t("products.pendenti.sbilanciamento.material") },
+        { image: sbilanciamentoBiancoImage, images: [sbilanciamentoBiancoImage, sbilanciamentoLateraleImage, sbilanciamentoDettaglioImage], name: t("products.pendenti.sbilanciamento.name"), desc: t("products.pendenti.sbilanciamento.material") },
       ],
     },
     bracciali: {
