@@ -98,39 +98,23 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
       )}
 
       <div className="space-y-4">
+        {/* Nome */}
         <div>
+          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
+            {lang === "it" ? "Il tuo nome" : "Your name"}
+          </label>
           <input
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder={t("form.name")}
+            placeholder={lang === "it" ? "Nome e cognome completo" : "Full name"}
             className={inputClass}
             maxLength={100}
           />
           {errors.name && <p className="text-red-400 text-xs mt-1 font-body">{errors.name}</p>}
         </div>
 
-        <div>
-          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
-            {lang === "it" ? "Collezione" : "Collection"}
-          </label>
-          <select
-            value={collection}
-            onChange={(e) => setCollection(e.target.value)}
-            className={`${inputClass} ${!collection ? "text-cream-muted/40" : ""}`}
-          >
-            <option value="" disabled>
-              {lang === "it" ? "Collezione" : "Collection"}
-            </option>
-            {collectionOptions.map((opt) => (
-              <option key={opt.value} value={opt.value} className="bg-background text-cream">
-                {opt.label}
-              </option>
-            ))}
-          </select>
-          {errors.collection && <p className="text-red-400 text-xs mt-1 font-body">{errors.collection}</p>}
-        </div>
-
+        {/* Titolo di Opera (prima) */}
         <div>
           <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
             {lang === "it" ? "Titolo di Opera" : "Work Title"}
@@ -152,7 +136,38 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
           {errors.category && <p className="text-red-400 text-xs mt-1 font-body">{errors.category}</p>}
         </div>
 
+        {/* Collezione (dopo) */}
         <div>
+          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
+            {lang === "it" ? "Collezione" : "Collection"}
+          </label>
+          <select
+            value={collection}
+            onChange={(e) => setCollection(e.target.value)}
+            className={`${inputClass} ${!collection ? "text-cream-muted/40" : ""}`}
+          >
+            <option value="" disabled>
+              {lang === "it" ? "Collezione" : "Collection"}
+            </option>
+            {collectionOptions.map((opt) => (
+              <option key={opt.value} value={opt.value} className="bg-background text-cream">
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          {errors.collection && <p className="text-red-400 text-xs mt-1 font-body">{errors.collection}</p>}
+        </div>
+
+        {/* Messaggio */}
+        <div>
+          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
+            {lang === "it" ? "Il tuo messaggio" : "Your message"}
+          </label>
+          <p className="text-[9px] text-cream-muted/60 font-body mb-2 italic">
+            {lang === "it"
+              ? "Scrivi quello che hai in mente, sii specifico — fai uscire l'artista"
+              : "Write what you have in mind, be specific — let the artist out"}
+          </p>
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
