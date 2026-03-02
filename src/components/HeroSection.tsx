@@ -1,21 +1,22 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/hero-ring.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Gioiello artigianale"
+          alt={t("hero.imgAlt")}
           className="w-full h-full object-cover opacity-40"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-3xl">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -23,7 +24,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-sm tracking-[0.4em] uppercase text-cream-muted mb-6 font-body"
         >
-          Laboratorio Banco Orafo · Roma
+          {t("hero.subtitle")}
         </motion.p>
 
         <motion.h1
@@ -43,7 +44,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.8 }}
           className="text-cream-muted font-body font-light text-lg md:text-xl leading-relaxed max-w-xl mx-auto"
         >
-          Qui i gioielli non sono prodotti in serie: nascono a banco, uno alla volta.
+          {t("hero.tagline")}
         </motion.p>
 
         <motion.div
@@ -56,7 +57,7 @@ const HeroSection = () => {
             href="#about"
             className="inline-flex flex-col items-center gap-2 text-cream-muted hover:text-gold transition-colors duration-500"
           >
-            <span className="text-xs tracking-[0.3em] uppercase font-body">Scopri</span>
+            <span className="text-xs tracking-[0.3em] uppercase font-body">{t("hero.cta")}</span>
             <ChevronDown className="w-5 h-5 animate-bounce" />
           </a>
         </motion.div>

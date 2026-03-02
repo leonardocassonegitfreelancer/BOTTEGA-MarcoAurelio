@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import barattoImage from "@/assets/baratto.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const BarattoSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="baratto" className="py-24 md:py-32 bg-charcoal-light">
       <div className="container max-w-6xl px-6">
@@ -14,11 +17,11 @@ const BarattoSection = () => {
           className="text-center mb-16"
         >
           <p className="text-sm tracking-[0.3em] uppercase text-gold font-body mb-4">
-            Il Baratto
+            {t("baratto.label")}
           </p>
           <h2 className="text-4xl md:text-6xl font-display font-light text-cream">
-            Dai nuova vita al tuo{" "}
-            <span className="gradient-gold-text italic">Argento</span>
+            {t("baratto.title")}{" "}
+            <span className="gradient-gold-text italic">{t("baratto.titleAccent")}</span>
           </h2>
         </motion.div>
 
@@ -31,26 +34,24 @@ const BarattoSection = () => {
             className="space-y-6 order-2 md:order-1"
           >
             <p className="text-cream-muted font-body font-light leading-relaxed text-lg">
-              Portaci il tuo argento, così com'è. Anche rotto. Catenine spezzate, 
-              orecchini spaiati, posate piegate. Piccoli rottami.
+              {t("baratto.p1")}
             </p>
             <p className="text-cream-muted font-body font-light leading-relaxed">
-              Cose che normalmente finiscono nei cassetti o nella spazzatura per noi sono valore. 
-              Qui recuperiamo cose dimenticate e le rendiamo desiderabili.
+              {t("baratto.p2")}
             </p>
             
             <div className="flex items-center gap-4 py-6">
               <div className="flex items-center gap-3 text-cream font-body text-sm">
-                <span className="text-gold">Porti argento</span>
+                <span className="text-gold">{t("baratto.step1")}</span>
                 <ArrowRight className="w-4 h-4 text-gold/50" />
-                <span className="text-cream-muted">Lo pesiamo</span>
+                <span className="text-cream-muted">{t("baratto.step2")}</span>
                 <ArrowRight className="w-4 h-4 text-gold/50" />
-                <span className="text-cream-muted">Lo trasformiamo</span>
+                <span className="text-cream-muted">{t("baratto.step3")}</span>
               </div>
             </div>
 
             <p className="text-cream font-display text-xl italic">
-              "Cambiagli la forma. Dagli un nuovo significato."
+              {t("baratto.quote")}
             </p>
           </motion.div>
 
@@ -63,7 +64,7 @@ const BarattoSection = () => {
           >
             <img
               src={barattoImage}
-              alt="Baratto - trasformazione dell'argento"
+              alt={t("baratto.imgAlt")}
               className="w-full aspect-square object-cover"
             />
           </motion.div>

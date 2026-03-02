@@ -1,23 +1,36 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-
-const links = [
-  { label: "La Bottega", href: "#about" },
-  { label: "Collezioni", href: "#collezioni" },
-  { label: "Baratto", href: "#baratto" },
-  { label: "Contatti", href: "#contatti" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang, setLang, t } = useLanguage();
+
+  const links = [
+    { label: t("nav.bottega"), href: "#about" },
+    { label: t("nav.collections"), href: "#collezioni" },
+    { label: t("nav.baratto"), href: "#baratto" },
+    { label: t("nav.contact"), href: "#contatti" },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      setTimeout(() => {
+        target.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    }
+  };
 
   return (
     <nav
@@ -37,21 +50,37 @@ const Navbar = () => {
             <a
               key={l.href}
               href={l.href}
+              onClick={(e) => handleNavClick(e, l.href)}
               className="text-xs tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors duration-300"
             >
               {l.label}
             </a>
           ))}
+          {/* Language toggle */}
+          <button
+            onClick={() => setLang(lang === "it" ? "en" : "it")}
+            className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-3 py-1.5 hover:border-gold hover:text-gold transition-colors duration-300 text-cream-muted"
+          >
+            {lang === "it" ? "EN" : "IT"}
+          </button>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-cream p-2"
-          aria-label="Menu"
-        >
-          {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={() => setLang(lang === "it" ? "en" : "it")}
+            className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-2 py-1 text-cream-muted hover:text-gold transition-colors"
+          >
+            {lang === "it" ? "EN" : "IT"}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-cream p-2"
+            aria-label="Menu"
+          >
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -68,16 +97,7 @@ const Navbar = () => {
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setMenuOpen(false);
-                    const target = document.querySelector(l.href);
-                    if (target) {
-                      setTimeout(() => {
-                        target.scrollIntoView({ behavior: "smooth" });
-                      }, 300);
-                    }
-                  }}
+                  onClick={(e) => handleNavClick(e, l.href)}
                   className="text-sm tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors"
                 >
                   {l.label}
