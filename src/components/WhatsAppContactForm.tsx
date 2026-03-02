@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -37,6 +37,10 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
   const [name, setName] = useState("");
   const [collection, setCollection] = useState(defaultCollection || "");
   const [category, setCategory] = useState(defaultCategory || "");
+
+  useEffect(() => {
+    if (defaultCollection) setCollection(defaultCollection);
+  }, [defaultCollection]);
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
