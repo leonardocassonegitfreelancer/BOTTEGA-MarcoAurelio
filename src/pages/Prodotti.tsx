@@ -279,6 +279,13 @@ const Prodotti = () => {
                     Manifattura: <span className="text-gold">790 €</span> ≈ ~440 gr di rottami d'argento 925
                   </p>
 
+                  <button
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                  >
+                    {t("form.title")}
+                  </button>
+
                 </div>
               </motion.div>
             )}
@@ -311,7 +318,7 @@ const Prodotti = () => {
             </div>
 
             {/* Contact form for all categories */}
-            <div className="mt-16 md:mt-20 flex justify-center">
+            <div id="contact-form" className="mt-16 md:mt-20 flex justify-center">
               <WhatsAppContactForm defaultCategory={active} defaultCollection={
                 active === "fedi" ? "nido" :
                 active === "pietre" ? "kintsugi" :
