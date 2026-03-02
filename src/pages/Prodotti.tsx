@@ -67,14 +67,20 @@ interface ProductItem {
 
 type PietreSubCollection = "kintsugi" | "initivm";
 
+const validSubCollections: Record<string, PietreSubCollection> = {
+  kintsugi: "kintsugi",
+  initivm: "initivm",
+};
+
 const Prodotti = () => {
   const { t, lang } = useLanguage();
-  const { categoria } = useParams<{ categoria?: string }>();
+  const { categoria, subcollezione } = useParams<{ categoria?: string; subcollezione?: string }>();
   const navigate = useNavigate();
   const categoryToSlug = lang === "en" ? categoryToSlugEn : categoryToSlugIt;
   const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
+  const resolvedSub = (subcollezione && validSubCollections[subcollezione.toLowerCase()]) || "kintsugi";
   const [active, setActive] = useState<Category>(resolvedCat);
-  const [pietreSubCollection, setPietreSubCollection] = useState<PietreSubCollection>("kintsugi");
+  const [pietreSubCollection, setPietreSubCollection] = useState<PietreSubCollection>(resolvedSub);
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
   const kintsugiVideoRef = useRef<HTMLVideoElement>(null);
   const isMobile = useIsMobile();
@@ -88,7 +94,16 @@ const Prodotti = () => {
     if (cat) {
       setActive(cat);
     }
-  }, [categoria]);
+    if (cat === "pietre" && subcollezione) {
+      const sub = validSubCollections[subcollezione.toLowerCase()];
+      if (sub) setPietreSubCollection(sub);
+    }
+  }, [categoria, subcollezione]);
+
+  const handleSubCollectionChange = (sub: PietreSubCollection) => {
+    setPietreSubCollection(sub);
+    navigate(`/prodotti/${categoryToSlug["pietre"]}/${sub}`, { replace: true });
+  };
 
   const handleCategoryChange = (key: Category) => {
     setActive(key);
@@ -311,7 +326,7 @@ const Prodotti = () => {
                     {(["kintsugi", "initivm"] as PietreSubCollection[]).map((sub) => (
                       <button
                         key={sub}
-                        onClick={() => setPietreSubCollection(sub)}
+                        onClick={() => handleSubCollectionChange(sub)}
                         className={`px-6 md:px-10 py-2.5 md:py-3 text-xs tracking-[0.2em] uppercase font-body transition-all duration-300 ${
                           pietreSubCollection === sub
                             ? "bg-gold/15 text-gold border-gold"
