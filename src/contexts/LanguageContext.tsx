@@ -86,6 +86,10 @@ const translations: Record<Language, Record<string, string>> = {
     "form.error.category": "Seleziona un tipo di opera",
     "form.error.message": "Inserisci un messaggio",
 
+    // Products related
+    "products.related.label": "Esplora",
+    "products.related.title": "Ti potrebbero interessare anche",
+
     // Products page
     "products.label": "Le Opere",
     "products.title": "I Nostri Gioielli",
@@ -237,6 +241,10 @@ const translations: Record<Language, Record<string, string>> = {
     "form.error.email": "Please enter a valid email",
     "form.error.category": "Please select a type",
     "form.error.message": "Please enter a message",
+
+    // Products related
+    "products.related.label": "Explore",
+    "products.related.title": "You might also like",
 
     // Products page
     "products.label": "The Works",
