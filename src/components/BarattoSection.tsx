@@ -14,7 +14,7 @@ const BarattoSection = () => {
           className="text-center mb-16"
         >
           <p className="text-sm tracking-[0.3em] uppercase text-gold font-body mb-4">
-            Riciclo Creativo
+            Il Baratto
           </p>
           <h2 className="text-4xl md:text-6xl font-display font-light text-cream">
             Dai nuova vita al tuo{" "}
