@@ -26,6 +26,8 @@ import sbilanciamentoLateraleImage from "@/assets/sbilanciamento-laterale.png";
 import sbilanciamentoDettaglioImage from "@/assets/sbilanciamento-dettaglio.png";
 import mvtaraNebvla1Image from "@/assets/mvtara-nebvla-1.png";
 import mvtaraNebvla2Image from "@/assets/mvtara-nebvla-2.png";
+import navtilvs1Image from "@/assets/navtilvs-1.png";
+import navtilvs2Image from "@/assets/navtilvs-2.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -151,6 +153,7 @@ const Prodotti = () => {
       description: t("products.filamento.desc"),
       items: [
         { image: ariaImage, images: [ariaImage, ariaLetteraDImage], name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
+        { image: navtilvs1Image, images: [navtilvs1Image, navtilvs2Image], name: t("products.filamento.navtilvs.name"), desc: t("products.filamento.navtilvs.desc") },
       ],
     },
     pendenti: {
@@ -249,56 +252,145 @@ const Prodotti = () => {
               </p>
             </div>
 
-            {/* ARIA collection intro */}
             {active === "filamento" && (
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="mb-12 md:mb-16"
               >
-                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12">
-                  <video
-                    ref={ariaVideoRef}
-                    src="/aria-intro.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    poster={ariaImage}
-                    className="w-full h-full object-cover"
-                    style={{ backgroundColor: "hsl(var(--background))" }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                {/* --- ARIA Lettera D block --- */}
+                <div className="mb-12 md:mb-16">
+                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12">
+                    <video
+                      ref={ariaVideoRef}
+                      src="/aria-intro.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      poster={ariaImage}
+                      className="w-full h-full object-cover"
+                      style={{ backgroundColor: "hsl(var(--background))" }}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                  </div>
+
+                  <div className="max-w-3xl mx-auto space-y-6 text-center">
+                    <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                      Collezione <span className="text-gold font-display not-italic">ARIA</span>. Decine, centinaia di pezzi, come in un Mosaico.<br />
+                      Uniti in "aereo", <span className="text-gold">SENZA</span> "supporto".<br />
+                      Gioielli <span className="text-gold">TRASPARENTI</span>, come ARIA.
+                    </p>
+
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                    <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed">
+                      <span className="text-cream font-display">Lettera D</span>, Opera. Anello creato anche con oro di Famiglia fornito dal Committente, per includere ricordo, presenza.
+                    </p>
+
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                    <p className="text-cream font-body text-sm md:text-base leading-relaxed font-medium">
+                      Manifattura: <span className="text-gold">790 €</span> ≈ ~440 gr di rottami d'argento 925
+                    </p>
+                  </div>
+
+                  {/* ARIA product carousel */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="group">
+                      <div className="relative overflow-hidden mb-4">
+                        <ProductImageCarousel images={current.items[0].images || [current.items[0].image]} alt={current.items[0].name} />
+                        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[0].name}</h3>
+                      <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[0].desc}</p>
+                    </motion.div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="text-center mt-10 md:mt-14">
+                    <button
+                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                    >
+                      {t("form.title")}
+                    </button>
+                  </div>
                 </div>
 
-                <div className="max-w-3xl mx-auto space-y-6 text-center">
-                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
-                    Collezione <span className="text-gold font-display not-italic">ARIA</span>. Decine, centinaia di pezzi, come in un Mosaico.<br />
-                    Uniti in "aereo", <span className="text-gold">SENZA</span> "supporto".<br />
-                    Gioielli <span className="text-gold">TRASPARENTI</span>, come ARIA.
-                  </p>
+                {/* ◆ Diamond separator */}
+                <div className="flex items-center gap-4 my-12 md:my-16">
+                  <div className="flex-1 h-px bg-gold/30" />
+                  <span className="text-gold text-xs">◆</span>
+                  <div className="flex-1 h-px bg-gold/30" />
+                </div>
 
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                {/* --- NAVTILVS / ARRAKIS block --- */}
+                <div className="mb-12 md:mb-16">
+                  <div className="max-w-3xl mx-auto space-y-6 text-center">
+                    <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                      <video
+                        src="/navtilvs-intro.mp4"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        preload="auto"
+                        poster={navtilvs1Image}
+                        className="w-full h-full object-cover"
+                        style={{ backgroundColor: "hsl(var(--background))" }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                    </div>
 
-                  <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed">
-                    <span className="text-cream font-display">Lettera D</span>, Opera. Anello creato anche con oro di Famiglia fornito dal Committente, per includere ricordo, presenza.
-                  </p>
+                    <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                      {t("products.filamento.navtilvs.subtitle")}
+                    </p>
+                    <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
+                      NAVTILVS — ARRAKIS<span className="text-gold">.</span>
+                    </h3>
+                    <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
+                      {t("products.filamento.navtilvs.material")}
+                    </p>
 
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
 
-                  <p className="text-cream font-body text-sm md:text-base leading-relaxed font-medium">
-                    Manifattura: <span className="text-gold">790 €</span> ≈ ~440 gr di rottami d'argento 925
-                  </p>
+                    <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                      {t("products.filamento.navtilvs.story")}
+                    </p>
 
-                  <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
-                  >
-                    {t("form.title")}
-                  </button>
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  </div>
 
+                  {/* NAVTILVS product carousel */}
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                    <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="group">
+                      <div className="relative overflow-hidden mb-4">
+                        <ProductImageCarousel images={current.items[1].images || [current.items[1].image]} alt={current.items[1].name} />
+                        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                      </div>
+                      <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{current.items[1].name}</h3>
+                      <p className="text-cream-muted font-body text-xs leading-relaxed">{current.items[1].desc}</p>
+                    </motion.div>
+                  </div>
+
+                  {/* CTA */}
+                  <div className="text-center mt-10 md:mt-14">
+                    <button
+                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                    >
+                      {t("form.title")}
+                    </button>
+                  </div>
+                </div>
+
+                {/* ◆ Diamond separator */}
+                <div className="flex items-center gap-4 my-12 md:my-16">
+                  <div className="flex-1 h-px bg-gold/30" />
+                  <span className="text-gold text-xs">◆</span>
+                  <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
             )}
@@ -569,8 +661,8 @@ const Prodotti = () => {
               </motion.div>
             )}
 
-            {/* Product grid (non-pietre categories only — pietre is handled above) */}
-            {active !== "pietre" && (
+            {/* Product grid (categories with unified grid only) */}
+            {active !== "pietre" && active !== "filamento" && (
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
                 {current.items.map((item, i) => (
                   <motion.div
