@@ -173,6 +173,49 @@ const Prodotti = () => {
               </p>
             </div>
 
+            {/* ARIA collection intro */}
+            {active === "filamento" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 md:mb-16"
+              >
+                <div className="relative w-full aspect-video overflow-hidden mb-8 md:mb-12">
+                  <video
+                    src="/aria-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                </div>
+
+                <div className="max-w-3xl mx-auto space-y-6 text-center">
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                    Collezione <span className="text-gold font-display not-italic">ARIA</span>. Decine, centinaia di pezzi, come in un Mosaico.<br />
+                    Uniti in "aereo", <span className="text-gold">SENZA</span> "supporto".<br />
+                    Gioielli <span className="text-gold">TRASPARENTI</span>, come ARIA.
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed">
+                    <span className="text-cream font-display">Lettera D</span>, Opera. Anello creato anche con oro di Famiglia fornito dal Committente, per includere ricordo, presenza.
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <p className="text-cream-muted font-body text-[11px] md:text-xs leading-relaxed">
+                    Manifattura: <span className="text-gold">790 €</span> ≈ ~440 gr di rottami d'argento 925<br />
+                    <span className="text-cream-muted/60">(valutazione +10% rispetto alla quotazione di ritiro media a Roma – 22-02-26)</span>
+                  </p>
+                </div>
+              </motion.div>
+            )}
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
               {current.items.map((item, i) => (
                 <motion.div
