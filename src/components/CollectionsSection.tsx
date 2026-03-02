@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import nidoImage from "@/assets/nido.jpg";
-import mareeImage from "@/assets/maree.jpg";
+import mareeImage from "@/assets/maree-ring.png";
 import kintsugiImage from "@/assets/kintsugi.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
