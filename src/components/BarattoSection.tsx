@@ -14,10 +14,11 @@ const BarattoSection = () => {
           className="text-center mb-16"
         >
           <p className="text-sm tracking-[0.3em] uppercase text-gold font-body mb-4">
-            Il Sistema
+            Riciclo Creativo
           </p>
           <h2 className="text-4xl md:text-6xl font-display font-light text-cream">
-            Qui vale il <span className="gradient-gold-text italic">Baratto</span>
+            Dai nuova vita al tuo{" "}
+            <span className="gradient-gold-text italic">Argento</span>
           </h2>
         </motion.div>
 
