@@ -133,8 +133,6 @@ const Prodotti = () => {
       description: t("products.filamento.desc"),
       items: [
         { image: ariaImage, name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
-        { image: ariaImage, name: t("products.filamento.item2.name"), desc: t("products.filamento.item2.desc") },
-        { image: ariaImage, name: t("products.filamento.item3.name"), desc: t("products.filamento.item3.desc") },
       ],
     },
     pendenti: {
