@@ -85,8 +85,15 @@ const ContactSection = () => {
           </a>
         </motion.div>
 
+        {/* ◆ Diamond separator before form */}
+        <div className="flex items-center gap-4 mt-16 mb-12">
+          <div className="flex-1 h-px bg-gold/30" />
+          <span className="text-gold text-xs">◆</span>
+          <div className="flex-1 h-px bg-gold/30" />
+        </div>
+
         {/* WhatsApp Contact Form */}
-        <div className="mt-16">
+        <div>
           <WhatsAppContactForm />
         </div>
 
