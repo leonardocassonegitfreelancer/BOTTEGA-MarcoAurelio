@@ -32,7 +32,7 @@ const GetInspiredSection = () => {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="flex justify-center"
         >
-          <div className="w-full max-w-2xl border border-border overflow-hidden bg-card">
+          <div className="w-full max-w-2xl border border-gold/30 overflow-hidden p-1 bg-gradient-to-b from-gold/10 to-transparent">
             <iframe
               title="Bottega MarcoAurelio Instagram"
               src="https://www.instagram.com/bottegamarcoaurelio/embed"
@@ -40,7 +40,6 @@ const GetInspiredSection = () => {
               height="600"
               style={{ border: 0 }}
               loading="lazy"
-              allowTransparency
             />
           </div>
         </motion.div>
