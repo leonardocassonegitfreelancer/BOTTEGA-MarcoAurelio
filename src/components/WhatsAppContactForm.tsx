@@ -122,7 +122,7 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
         {/* Titolo di Opera (prima) */}
         <div>
           <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
-            {lang === "it" ? "Titolo di Opera" : "Work Title"}
+            {lang === "it" ? "Tipologia di gioiello" : "Jewelry type"}
           </label>
           <select
             value={category}
