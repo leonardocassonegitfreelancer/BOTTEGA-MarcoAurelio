@@ -196,6 +196,18 @@ const translations: Record<Language, Record<string, string>> = {
     "testimonial.quote": "\"Opere d'arte uniche, capolavori.\nUna persona eccezionale.\nNel laboratorio si assapora la passione di chi ha dedicato la vita a un'arte che sta scomparendo.\nPerché qui si parla di un artista vero.\"",
     "testimonial.author": "Valerio S.",
 
+    // FAQ
+    "faq.label": "Domande Frequenti",
+    "faq.title": "Tutto quello che vuoi sapere",
+    "faq.q1": "Spedite i gioielli in tutto il mondo?",
+    "faq.a1": "Sì, spediamo in tutto il mondo in modo sicuro e assicurato. Ogni pezzo viene imballato con la massima cura per garantire che arrivi perfetto.",
+    "faq.q2": "Ogni pezzo è fatto a mano e personalizzabile?",
+    "faq.a2": "Assolutamente sì. Ogni opera è fatta a mano, personalizzabile e verrà creata insieme a te e alla tua storia. Nessun pezzo è uguale a un altro.",
+    "faq.q3": "Quanto tempo ci vuole per realizzare un gioiello?",
+    "faq.a3": "Dipende dalla disponibilità dei materiali e dalla complessità dell'opera. Ogni creazione ha i suoi tempi — ne parliamo insieme per trovare la soluzione migliore.",
+    "faq.q4": "Posso discutere ogni dettaglio con voi?",
+    "faq.a4": "Certamente, siamo aperti a discutere ogni dettaglio con te. Nessun problema, nessuna fretta. Il dialogo è parte del processo creativo.",
+
     // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Roma",
   },
@@ -385,6 +397,18 @@ const translations: Record<Language, Record<string, string>> = {
     // Testimonial
     "testimonial.quote": "\"Unique works of art, masterpieces.\nAn exceptional person.\nIn the workshop you can taste the passion of someone who has devoted their life to an art that is disappearing.\nBecause here we are talking about a true artist.\"",
     "testimonial.author": "Valerio S.",
+
+    // FAQ
+    "faq.label": "FAQ",
+    "faq.title": "Everything you want to know",
+    "faq.q1": "Do you ship jewellery worldwide?",
+    "faq.a1": "Yes, we ship worldwide in a secure and insured way. Every piece is carefully packaged to ensure it arrives in perfect condition.",
+    "faq.q2": "Is every piece handmade and customisable?",
+    "faq.a2": "Absolutely. Every piece is handmade, fully customisable, and will be created together with you and your story. No two pieces are ever the same.",
+    "faq.q3": "How long does it take to create a jewel?",
+    "faq.a3": "It depends on the availability of materials and the complexity of the piece. Every creation has its own timeline — we discuss it together to find the best solution.",
+    "faq.q4": "Can I discuss every detail with you?",
+    "faq.a4": "Of course, we are open to discussing every detail with you. No problems, no rush. Dialogue is part of the creative process.",
 
     // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Rome",
