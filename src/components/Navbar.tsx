@@ -29,11 +29,18 @@ const Navbar = () => {
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMenuOpen(false);
-    const target = document.querySelector(href);
-    if (target) {
-      setTimeout(() => {
-        target.scrollIntoView({ behavior: "smooth" });
-      }, 300);
+
+    const isOnHome = location.pathname === "/home" || location.pathname === "/home/en";
+    if (isOnHome) {
+      const target = document.querySelector(href);
+      if (target) {
+        setTimeout(() => {
+          target.scrollIntoView({ behavior: "smooth" });
+        }, 300);
+      }
+    } else {
+      // Navigate to home with hash
+      navigate(`${homePath}${href}`);
     }
   };
 
