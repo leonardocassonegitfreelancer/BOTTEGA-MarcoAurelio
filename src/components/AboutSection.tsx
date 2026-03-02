@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import workshopImage from "@/assets/workshop.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-24 md:py-32">
       <div className="container max-w-6xl px-6">
@@ -15,7 +18,7 @@ const AboutSection = () => {
             <div className="relative">
               <img
                 src={workshopImage}
-                alt="Laboratorio orafo"
+                alt={t("about.imgAlt")}
                 className="w-full aspect-[4/5] object-cover"
               />
               <div className="absolute inset-0 border border-gold/20 translate-x-4 translate-y-4 -z-10" />
@@ -30,21 +33,17 @@ const AboutSection = () => {
             className="space-y-6"
           >
             <p className="text-sm tracking-[0.3em] uppercase text-gold font-body">
-              La Bottega
+              {t("about.label")}
             </p>
             <h2 className="text-3xl md:text-5xl font-display font-light leading-tight text-cream">
-              Nel cuore di Roma, un laboratorio dove il metallo rinasce
+              {t("about.title")}
             </h2>
             <div className="w-16 h-px bg-gold/40" />
             <p className="text-cream-muted font-body font-light leading-relaxed">
-              Bottega MarcoAurelio è un Laboratorio Banco Orafo indipendente nel Centro Storico, 
-              nel cuore di Roma. L'accesso è su appuntamento, per garantire tempo, attenzione 
-              e ascolto a ogni persona.
+              {t("about.p1")}
             </p>
             <p className="text-cream-muted font-body font-light leading-relaxed">
-              Tutte le opere esposte sono fatte da noi, da zero. Tutti pezzi unici. 
-              Non è una gemma da inserire in uno stampo già pronto — è la pietra che detta 
-              le proporzioni, il ritmo, l'equilibrio.
+              {t("about.p2")}
             </p>
           </motion.div>
         </div>

@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import nidoImage from "@/assets/nido.jpg";
 import mareeImage from "@/assets/maree.jpg";
 import kintsugiImage from "@/assets/kintsugi.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface CollectionCardProps {
   image: string;
@@ -33,31 +34,30 @@ const CollectionCard = ({ image, title, subtitle, description, index }: Collecti
   </motion.div>
 );
 
-const collections = [
-  {
-    image: nidoImage,
-    title: "Fedi NiDO",
-    subtitle: "Collezione",
-    description:
-      "Intrecci organici incisi nel metallo, come rami e foglie che si uniscono a proteggere ciò che custodiscono. Un'opera di pazienza, forza e destino condiviso.",
-  },
-  {
-    image: mareeImage,
-    title: "Collezione Maree",
-    subtitle: "Collezione",
-    description:
-      "Ispirata al mare, al moto ondoso e agli abissi. La superficie increspata ricorda le onde che si infrangono sulla riva, un simbolo dell'eterno ciclo della vita.",
-  },
-  {
-    image: kintsugiImage,
-    title: "KINTSUGI",
-    subtitle: "Collezione",
-    description:
-      "Luce e frattura. Le crepe diventano linee preziose che esaltano l'unicità della forma, rendendo la fragilità un atto di bellezza consapevole.",
-  },
-];
-
 const CollectionsSection = () => {
+  const { t } = useLanguage();
+
+  const collections = [
+    {
+      image: nidoImage,
+      title: t("collections.nido.title"),
+      subtitle: t("collections.subtitle"),
+      description: t("collections.nido.desc"),
+    },
+    {
+      image: mareeImage,
+      title: t("collections.maree.title"),
+      subtitle: t("collections.subtitle"),
+      description: t("collections.maree.desc"),
+    },
+    {
+      image: kintsugiImage,
+      title: t("collections.kintsugi.title"),
+      subtitle: t("collections.subtitle"),
+      description: t("collections.kintsugi.desc"),
+    },
+  ];
+
   return (
     <section id="collezioni" className="py-24 md:py-32">
       <div className="container max-w-6xl px-6">
@@ -69,10 +69,10 @@ const CollectionsSection = () => {
           className="text-center mb-20"
         >
           <p className="text-sm tracking-[0.3em] uppercase text-gold font-body mb-4">
-            Le Opere
+            {t("collections.label")}
           </p>
           <h2 className="text-4xl md:text-6xl font-display font-light text-cream">
-            Collezioni
+            {t("collections.title")}
           </h2>
         </motion.div>
 
