@@ -85,6 +85,7 @@ const translations: Record<Language, Record<string, string>> = {
     "form.error.email": "Inserisci un'email valida",
     "form.error.category": "Seleziona un tipo di opera",
     "form.error.message": "Inserisci un messaggio",
+    "form.sizeReminder": "Per realizzare il tuo gioiello su misura avremo bisogno della tua misura (dito o polso). Non preoccuparti, ne parleremo insieme e ti guideremo passo passo!",
 
     // Products related
     "products.related.label": "Esplora",
@@ -287,6 +288,7 @@ const translations: Record<Language, Record<string, string>> = {
     "form.error.email": "Please enter a valid email",
     "form.error.category": "Please select a type",
     "form.error.message": "Please enter a message",
+    "form.sizeReminder": "To create your custom piece we'll need your size (finger or wrist). Don't worry, we'll discuss it together and guide you step by step!",
 
     // Products related
     "products.related.label": "Explore",
