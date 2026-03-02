@@ -5,7 +5,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import nidoImage from "@/assets/nido.jpg";
-import mareeImage from "@/assets/maree.jpg";
+import mareeImage from "@/assets/maree-ring.png";
 import anelliLisciImage from "@/assets/anelli-lisci.jpg";
 
 interface ProductItem {
