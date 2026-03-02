@@ -50,7 +50,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.nido.desc"),
       alt: t("collections.nido.alt"),
-      categoryLink: "/prodotti?cat=fedi",
+      categoryLink: "/prodotti/fedi-nuziali",
     },
     {
       image: mareeImage,
@@ -58,7 +58,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.maree.desc"),
       alt: t("collections.maree.alt"),
-      categoryLink: "/prodotti?cat=senza_pietre",
+      categoryLink: "/prodotti/anelli-senza-pietre",
     },
     {
       image: kintsugiImage,
@@ -66,7 +66,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.kintsugi.desc"),
       alt: t("collections.kintsugi.alt"),
-      categoryLink: "/prodotti?cat=pietre",
+      categoryLink: "/prodotti/anelli-con-pietre",
     },
     {
       image: ariaImage,
@@ -74,7 +74,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.aria.desc"),
       alt: t("collections.aria.alt"),
-      categoryLink: "/prodotti?cat=filamento",
+      categoryLink: "/prodotti/anelli-in-filamento",
     },
   ];
 
