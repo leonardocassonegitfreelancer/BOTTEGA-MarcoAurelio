@@ -67,6 +67,10 @@ const Prodotti = () => {
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const cat = categoria && slugToCategory[categoria];
     if (cat) {
       setActive(cat);
