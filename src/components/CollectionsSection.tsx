@@ -105,6 +105,21 @@ const CollectionsSection = () => {
             <CollectionCard key={col.title} {...col} index={i} />
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-16"
+        >
+          <Link
+            to="/prodotti"
+            className="inline-block border border-gold text-gold px-10 py-4 text-sm tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+          >
+            {t("nav.products")}
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
