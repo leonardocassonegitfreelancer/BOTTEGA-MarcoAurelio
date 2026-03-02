@@ -352,15 +352,17 @@ const Prodotti = () => {
 
                       <div className="max-w-3xl mx-auto space-y-6 text-center">
                         <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
-                          Non nascondo nulla, tutto ciò che ho vissuto è oro.
+                          {t("products.pietre.kintsugi.motto")}
                         </p>
                         <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
                           KINTSUGI<span className="text-gold">.</span>
                         </h3>
-                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
-                          Luce e frattura.<br />
-                          La materia si spezza, l'oro non nasconde: <span className="text-gold not-italic">rivela</span>.<br />
-                          Ogni segno inciso è una dichiarazione.
+                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                          {t("products.pietre.kintsugi.story").split("{gold}").map((part, i) => {
+                            if (i === 0) return part;
+                            const [gold, rest] = part.split("{/gold}");
+                            return <span key={i}><span className="text-gold not-italic">{gold}</span>{rest}</span>;
+                          })}
                         </p>
                         <div className="w-12 h-px bg-gold/40 mx-auto" />
                         <div className="flex items-center justify-center gap-6 md:gap-8">
@@ -368,34 +370,23 @@ const Prodotti = () => {
                             金<br />継<br />層
                           </p>
                           <div className="text-left">
-                            <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">Strati</p>
-                            <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md">
-                              Questo Kintsugi non ha un solo livello.<br />
-                              Ha strati. Come le storie che non si risolvono mai in una volta sola.
+                            <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">{t("products.pietre.kintsugi.strati.title")}</p>
+                            <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md whitespace-pre-line">
+                              {t("products.pietre.kintsugi.strati.desc")}
                             </p>
                           </div>
                         </div>
                         <div className="w-12 h-px bg-gold/40 mx-auto" />
                         <div className="space-y-4 text-left max-w-lg mx-auto">
-                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                            <span className="text-gold font-display">Primo strato:</span> l'anello. La forma che regge tutto.
-                          </p>
-                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                            <span className="text-gold font-display">Secondo strato:</span> diamante. Non per brillare. Decide il disegno.
-                          </p>
-                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                            <span className="text-gold font-display">Terzo strato:</span> l'incisione profonda. Qui l'oro non è decorazione: viene depositato dentro la ferita.
-                          </p>
-                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                            <span className="text-gold font-display">Quarto strato:</span> una seconda incisione, fitta, da 0,2 millimetri. Microsolchi ravvicinati, bruniti e ossidati a nero in profondità. È la memoria che resta sotto.
-                          </p>
-                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                            <span className="text-gold font-display">Quinto strato:</span> carteggio a bianco delle superfici. Il nero superficiale arretra. Restano le incisioni nere, il loro contrasto con l'oro, la materia viva. È l'aspetto definitivo.
-                          </p>
+                          {[1, 2, 3, 4, 5].map((n) => (
+                            <p key={n} className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                              <span className="text-gold font-display">{t(`products.pietre.kintsugi.layerLabel${n}`)}</span> {t(`products.pietre.kintsugi.layer${n}`)}
+                            </p>
+                          ))}
                         </div>
                         <div className="w-12 h-px bg-gold/40 mx-auto" />
                         <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
-                          Quello che il metallo raggiunge solo col tempo, indossandolo.
+                          {t("products.pietre.kintsugi.closing")}
                         </p>
                         <button
                           onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
