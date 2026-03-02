@@ -799,10 +799,24 @@ const Prodotti = () => {
                 </h3>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-                {categories
-                  .filter((cat) => cat.key !== active)
-                  .slice(0, 3)
-                  .map((cat) => {
+                {(() => {
+                  const activeIdx = categories.findIndex((c) => c.key === active);
+                  const prevCat = categories[(activeIdx - 1 + categories.length) % categories.length];
+                  const nextCat = categories[(activeIdx + 1) % categories.length];
+                  const pezziUnici = categories.find((c) => c.key === "pezzi_unici")!;
+                  
+                  // Build related: prev, next, then always pezzi_unici last (deduplicated)
+                  const related = [prevCat, nextCat].filter((c) => c.key !== "pezzi_unici" && c.key !== active);
+                  // Ensure exactly 2 before pezzi_unici
+                  if (related.length < 2) {
+                    const extras = categories.filter((c) => c.key !== active && c.key !== "pezzi_unici" && !related.includes(c));
+                    while (related.length < 2 && extras.length > 0) related.push(extras.shift()!);
+                  }
+                  const finalRelated = active === "pezzi_unici" 
+                    ? [prevCat, nextCat, categories.filter((c) => c.key !== active && c.key !== prevCat.key && c.key !== nextCat.key)[0]].filter(Boolean)
+                    : [...related.slice(0, 2), pezziUnici];
+                  
+                  return finalRelated.map((cat) => {
                     const representativeImage: Record<Category, string> = {
                       fedi: nidoImage,
                       pietre: kintsugiImage,
@@ -833,7 +847,8 @@ const Prodotti = () => {
                         </div>
                       </button>
                     );
-                  })}
+                  });
+                })()}
               </div>
             </div>
 
