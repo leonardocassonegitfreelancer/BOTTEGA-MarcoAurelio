@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 const links = [
   { label: "La Bottega", href: "#about" },
   { label: "Collezioni", href: "#collezioni" },
-  { label: "Ricicla il tuo Argento", href: "#baratto" },
+  { label: "Baratto", href: "#baratto" },
   { label: "Contatti", href: "#contatti" },
 ];
 
