@@ -104,6 +104,15 @@ const translations: Record<Language, Record<string, string>> = {
     "products.cat.filamento": "Anelli in Filamento",
     "products.cat.pendenti": "Pendenti",
     "products.cat.bracciali": "Bracciali",
+    "products.cat.pezzi_unici": "Pezzi Unici",
+
+    "products.pezzi_unici.subtitle": "Pezzi Unici",
+    "products.pezzi_unici.desc": "Qui trovi tutti i pezzi che seguono uno stile unico, irripetibile, inclassificabile — e per questo meraviglioso. Se sei in cerca di idee, sei nel posto giusto.",
+    "products.pezzi_unici.maree.name": "MAREE — inprofvndvmmaris",
+    "products.pezzi_unici.maree.desc": "MAREE nasce dal mare, dalle onde, dal movimento che non si ferma mai. Il metallo è vivo, non ha trattamenti: respira, cambia insieme a chi lo indossa.",
+    "products.pezzi_unici.maree.poem": "Che poi il Mare\nla prima volta\nma anche ogni tanto\na caso\nma credo la prima volta\nil Mare la prima volta andrebbe visto con gli occhi chiusi\nascoltato\nrespirato\nsentito con la pelle\nil suo movimento immenso\nimmenso anche quando è calmo\nche calmo non è fermo\ne qualche gabbiano\nanche loro il suo respiro\necco\nogni tanto\no la prima volta\nma credo la prima volta\nil Mare andrebbe visto ad occhi chiusi\nche poi\nforse\nnon sarebbe proprio vederlo\nma credo di si\nperché vederlo anche con gli occhi\nla prima volta\nil Mare\nè troppo.",
+    "products.pezzi_unici.maree.poemCredit": "\"Che poi il Mare\" © 2015 Marco Aurelio Lorenzo Gerardi Olivetti",
+    "products.pezzi_unici.maree.theme": "\"Che poi il Mare\", Tema.",
 
     "products.fedi.subtitle": "Fedi Nuziali",
     "products.fedi.desc": "Fedi forgiate a mano, intrecci organici incisi nel metallo. Un'opera di pazienza, forza e destino condiviso.",
@@ -322,6 +331,15 @@ const translations: Record<Language, Record<string, string>> = {
     "products.cat.filamento": "Wire Rings",
     "products.cat.pendenti": "Pendants",
     "products.cat.bracciali": "Bracelets",
+    "products.cat.pezzi_unici": "Unique Pieces",
+
+    "products.pezzi_unici.subtitle": "Unique Pieces",
+    "products.pezzi_unici.desc": "Here you'll find pieces that follow a unique, unrepeatable, unclassifiable style — and that's what makes them wonderful. If you're looking for inspiration, you're in the right place.",
+    "products.pezzi_unici.maree.name": "MAREE — inprofvndvmmaris",
+    "products.pezzi_unici.maree.desc": "MAREE is born from the sea, from the waves, from the movement that never stops. The metal is alive, untreated: it breathes, it changes with the one who wears it.",
+    "products.pezzi_unici.maree.poem": "Che poi il Mare\nla prima volta\nma anche ogni tanto\na caso\nma credo la prima volta\nil Mare la prima volta andrebbe visto con gli occhi chiusi\nascoltato\nrespirato\nsentito con la pelle\nil suo movimento immenso\nimmenso anche quando è calmo\nche calmo non è fermo\ne qualche gabbiano\nanche loro il suo respiro\necco\nogni tanto\no la prima volta\nma credo la prima volta\nil Mare andrebbe visto ad occhi chiusi\nche poi\nforse\nnon sarebbe proprio vederlo\nma credo di si\nperché vederlo anche con gli occhi\nla prima volta\nil Mare\nè troppo.",
+    "products.pezzi_unici.maree.poemCredit": "\"Che poi il Mare\" © 2015 Marco Aurelio Lorenzo Gerardi Olivetti",
+    "products.pezzi_unici.maree.theme": "\"Che poi il Mare\", Theme.",
 
     "products.fedi.subtitle": "Wedding Bands",
     "products.fedi.desc": "Hand-forged wedding bands with organic woven patterns etched in metal. A work of patience, strength and shared destiny.",

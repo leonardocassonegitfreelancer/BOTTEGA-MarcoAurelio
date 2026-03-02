@@ -44,8 +44,8 @@ const CollectionsSection = () => {
   const { t, lang } = useLanguage();
 
   const slugs = lang === "en"
-    ? { fedi: "wedding-bands", pietre: "circular-rings", senza_pietre: "square-rings", filamento: "wire-rings" }
-    : { fedi: "fedi-nuziali", pietre: "anelli-circolari", senza_pietre: "anelli-quadrati", filamento: "anelli-in-filamento" };
+    ? { fedi: "wedding-bands", pietre: "circular-rings", senza_pietre: "square-rings", filamento: "wire-rings", pezzi_unici: "unique-pieces" }
+    : { fedi: "fedi-nuziali", pietre: "anelli-circolari", senza_pietre: "anelli-quadrati", filamento: "anelli-in-filamento", pezzi_unici: "pezzi-unici" };
 
   const collections = [
     {
@@ -79,6 +79,16 @@ const CollectionsSection = () => {
       description: t("collections.aria.desc"),
       alt: t("collections.aria.alt"),
       categoryLink: `/prodotti/${slugs.filamento}`,
+    },
+    {
+      image: mareeImage,
+      title: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
+      subtitle: t("collections.subtitle"),
+      description: lang === "en"
+        ? "Unique, unrepeatable, unclassifiable pieces — and that's what makes them wonderful."
+        : "Pezzi unici, irripetibili, inclassificabili — e per questo meravigliosi.",
+      alt: lang === "en" ? "MAREE unique ring — handcrafted sea-inspired jewel, Rome" : "Anello MAREE pezzo unico — gioiello artigianale ispirato al mare, Roma",
+      categoryLink: `/prodotti/${slugs.pezzi_unici}`,
     },
   ];
 
