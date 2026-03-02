@@ -208,7 +208,7 @@ const Prodotti = () => {
 
                   <div className="w-12 h-px bg-gold/40 mx-auto" />
 
-                  <p className="text-cream-muted font-body text-[11px] md:text-xs leading-relaxed">
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed font-medium">
                     Manifattura: <span className="text-gold">790 €</span> ≈ ~440 gr di rottami d'argento 925<br />
                     <span className="text-cream-muted/60">(valutazione +10% rispetto alla quotazione di ritiro media a Roma – 22-02-26)</span>
                   </p>
