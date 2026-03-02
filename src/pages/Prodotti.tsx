@@ -188,7 +188,10 @@ const Prodotti = () => {
                     loop
                     muted
                     playsInline
+                    preload="auto"
+                    poster=""
                     className="w-full h-full object-cover"
+                    style={{ backgroundColor: 'hsl(var(--background))' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
