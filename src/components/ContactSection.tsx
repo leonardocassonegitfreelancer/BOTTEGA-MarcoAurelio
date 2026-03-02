@@ -42,7 +42,7 @@ const ContactSection = () => {
             <MessageCircle className="w-5 h-5 text-gold mt-1 shrink-0" />
             <div>
               <h3 className="font-display text-xl text-cream mb-1 group-hover:text-gold transition-colors">{t("contact.whatsapp")}</h3>
-              <p className="text-cream-muted font-body text-sm">348.27.62.842</p>
+              <a href="sms:+393482762842" className="text-cream-muted hover:text-gold font-body text-sm transition-colors">348.27.62.842</a>
               <p className="text-cream-muted font-body text-xs mt-1">{t("contact.whatsappNote")}</p>
             </div>
           </a>
