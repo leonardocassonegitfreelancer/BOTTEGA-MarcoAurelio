@@ -181,7 +181,7 @@ const Prodotti = () => {
                 transition={{ duration: 0.8 }}
                 className="mb-12 md:mb-16"
               >
-                <div className="relative w-full aspect-video overflow-hidden mb-8 md:mb-12">
+                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12">
                   <video
                     src="/aria-intro.mp4"
                     autoPlay
