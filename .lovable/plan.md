@@ -1,15 +1,13 @@
 
 
-## Piano: Aggiungere SMS come opzione di contatto
+## Piano: Aggiungere la foto dell'anello blu alla collezione Maree
 
-Modifica minima alla sezione Contatti: aggiornare la card WhatsApp per indicare che si può anche inviare un SMS allo stesso numero.
+La foto caricata (anello con pietra blu) verrà usata nella collezione **Maree** — sia nella sezione collezioni della homepage che nella pagina Prodotti.
 
 ### Modifiche:
-1. **`src/contexts/LanguageContext.tsx`** — Aggiornare le traduzioni:
-   - IT: `"contact.whatsappNote"` → `"Messaggi WhatsApp o SMS"`
-   - EN: `"contact.whatsappNote"` → `"WhatsApp or SMS messages"`
+1. **Salvare l'immagine** come `src/assets/maree-ring.png` (dalla foto caricata)
+2. **`src/components/CollectionsSection.tsx`** — Sostituire `mareeImage` con la nuova foto nella card Maree della homepage
+3. **`src/pages/Prodotti.tsx`** — Usare la nuova foto come immagine principale o per uno degli anelli nella sezione Maree (es. "Maree Onda")
 
-2. **`src/components/ContactSection.tsx`** — Aggiungere un link `sms:` o `tel:` accanto al numero, oppure semplicemente rendere il testo più chiaro che SMS è accettato. Il link `href` del card potrebbe diventare `href="https://wa.me/3482762842"` (resta WhatsApp come default), con il numero visibile che funge anche da indicazione per SMS.
-
-Nessun componente nuovo, solo testo aggiornato.
+Modifica minimale: solo sostituzione/aggiunta immagine, nessun cambiamento di layout.
 
