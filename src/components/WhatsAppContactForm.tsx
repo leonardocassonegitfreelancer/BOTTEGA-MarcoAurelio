@@ -111,6 +111,9 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
         </div>
 
         <div>
+          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
+            {lang === "it" ? "Collezione" : "Collection"}
+          </label>
           <select
             value={collection}
             onChange={(e) => setCollection(e.target.value)}
@@ -129,6 +132,9 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
         </div>
 
         <div>
+          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
+            {lang === "it" ? "Titolo di Opera" : "Work Title"}
+          </label>
           <select
             value={category}
             onChange={(e) => setCategory(e.target.value)}
