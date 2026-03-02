@@ -157,6 +157,13 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.kintsugi.layerLabel5": "Quinto strato:",
     "products.pietre.kintsugi.closing": "Quello che il metallo raggiunge solo col tempo, indossandolo.",
 
+    // MVTARA NEBVLA ZERO
+    "products.pietre.mvtara.name": "MVTARA NEBVLA ZERO",
+    "products.pietre.mvtara.desc": "Argento e oro. Fusio Primigenia — la frattura come condizione, il Kintsugi come struttura.",
+    "products.pietre.mvtara.subtitle": "Nome sconosciuto nella nostra Galassia.",
+    "products.pietre.mvtara.story": "Una nebulosa densa e mutevole, che interferisce con la percezione, basata su fenomeni astronomici reali.\n\nIn questa versione ZERO, la frattura non è un meccanismo ma una condizione:\nquando l'anello è in asse, non esiste separazione.\n\nLe incisioni in oro seguono il principio del Kintsugi:\nla rottura non viene nascosta, ma resa struttura.\nCiò che divide è ciò che tiene insieme.\n\nL'anello nasce da Fusio Primigenia (Fusio Archetypum):\nuna fusione che conserva le tracce del fuoco e della materia.\nVenature, irregolarità e tensioni non sono difetti,\nma la firma irripetibile del metallo nel momento in cui prende forma.\n\nOgni MVTARA NEBVLA ZERO è unico.\nNon replicabile. Non correggibile. Autentico.",
+    "products.pietre.mvtara.material": "Argento e oro",
+
     "products.senza_pietre.subtitle": "Quadrati",
     "products.senza_pietre.desc": "Sezione quadrata, spigoli vivi — la geometria che non scende a compromessi. INITIVM abita qui.",
     "products.senza_pietre.item1.name": "Fascia Pura",
@@ -362,6 +369,13 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.kintsugi.layerLabel4": "Fourth layer:",
     "products.pietre.kintsugi.layerLabel5": "Fifth layer:",
     "products.pietre.kintsugi.closing": "What the metal achieves only with time, by wearing it.",
+
+    // MVTARA NEBVLA ZERO
+    "products.pietre.mvtara.name": "MVTARA NEBVLA ZERO",
+    "products.pietre.mvtara.desc": "Silver and gold. Fusio Primigenia — fracture as condition, Kintsugi as structure.",
+    "products.pietre.mvtara.subtitle": "A name unknown in our Galaxy.",
+    "products.pietre.mvtara.story": "A dense and shifting nebula, interfering with perception, based on real astronomical phenomena.\n\nIn this ZERO version, the fracture is not a mechanism but a condition:\nwhen the ring is aligned, no separation exists.\n\nThe gold engravings follow the Kintsugi principle:\nthe break is not hidden, but made into structure.\nWhat divides is what holds together.\n\nThe ring is born from Fusio Primigenia (Fusio Archetypum):\na fusion that preserves the traces of fire and matter.\nVeins, irregularities and tensions are not defects,\nbut the unrepeatable signature of the metal at the moment it takes shape.\n\nEvery MVTARA NEBVLA ZERO is unique.\nNot replicable. Not correctable. Authentic.",
+    "products.pietre.mvtara.material": "Silver and gold",
 
     "products.senza_pietre.subtitle": "Square",
     "products.senza_pietre.desc": "Square cross-section, sharp edges — geometry that makes no compromises. INITIVM lives here.",
