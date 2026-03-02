@@ -20,6 +20,7 @@ import mareeFullImage from "@/assets/maree.jpg";
 import kintsugiStratiImage from "@/assets/kintsugi-strati.png";
 import kintsugiStratiDetailImage from "@/assets/kintsugi-strati-detail.png";
 import initivmImage from "@/assets/initivm.png";
+import kintsugiKatanaImage from "@/assets/kintsugi-katana.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -140,7 +141,7 @@ const Prodotti = () => {
       subtitle: t("products.pietre.subtitle"),
       description: t("products.pietre.desc"),
       items: pietreSubCollection === "kintsugi" ? [
-        { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
+        { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage, kintsugiKatanaImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
       ] : [
         { image: initivmImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") },
       ],
