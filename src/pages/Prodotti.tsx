@@ -30,6 +30,7 @@ import navtilvs1Image from "@/assets/navtilvs-1.png";
 import navtilvs2Image from "@/assets/navtilvs-2.png";
 import mareeDetail1Image from "@/assets/maree-detail-1.png";
 import mareeDetail2Image from "@/assets/maree-detail-2.png";
+import mareePezziUniciImage from "@/assets/maree-pezzi-unici.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
@@ -820,11 +821,11 @@ const Prodotti = () => {
                     const representativeImage: Record<Category, string> = {
                       fedi: nidoImage,
                       pietre: kintsugiImage,
-                      senza_pietre: anelliLisciImage,
+                      senza_pietre: initivmImage,
                       filamento: ariaImage,
                       pendenti: sbilanciamentoBiancoImage,
                       bracciali: mareeFullImage,
-                      pezzi_unici: mareeImage,
+                      pezzi_unici: mareePezziUniciImage,
                     };
                     return (
                       <button
@@ -852,8 +853,15 @@ const Prodotti = () => {
               </div>
             </div>
 
+            {/* ◆ Diamond separator before form */}
+            <div className="flex items-center gap-4 mt-16 md:mt-24 mb-12 md:mb-16">
+              <div className="flex-1 h-px bg-gold/30" />
+              <span className="text-gold text-xs">◆</span>
+              <div className="flex-1 h-px bg-gold/30" />
+            </div>
+
             {/* WhatsApp form (AFTER recommended) */}
-            <div className="mt-16 md:mt-20">
+            <div>
               <div id="contact-form" className="scroll-mt-28 border border-gold/20 p-6 md:p-10 max-w-xl mx-auto">
                 <div className="text-center mb-6">
                   <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">
