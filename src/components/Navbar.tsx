@@ -68,7 +68,16 @@ const Navbar = () => {
                 <a
                   key={l.href}
                   href={l.href}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMenuOpen(false);
+                    const target = document.querySelector(l.href);
+                    if (target) {
+                      setTimeout(() => {
+                        target.scrollIntoView({ behavior: "smooth" });
+                      }, 300);
+                    }
+                  }}
                   className="text-sm tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors"
                 >
                   {l.label}
