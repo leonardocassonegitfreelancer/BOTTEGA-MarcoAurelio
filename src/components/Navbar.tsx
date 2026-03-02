@@ -4,8 +4,8 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "La Bottega", href: "#about" },
-  { label: "Baratto", href: "#baratto" },
   { label: "Collezioni", href: "#collezioni" },
+  { label: "Baratto", href: "#baratto" },
   { label: "Contatti", href: "#contatti" },
 ];
 
