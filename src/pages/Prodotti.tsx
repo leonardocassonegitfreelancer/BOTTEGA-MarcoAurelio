@@ -159,7 +159,7 @@ const Prodotti = () => {
       <div className="pt-24 md:pt-36 pb-4 md:pb-12">
         <div className="container max-w-6xl px-6">
           <Link
-            to="/"
+            to={lang === "en" ? "/home/en" : "/home"}
             className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors mb-6 md:mb-8"
           >
             <ArrowLeft className="w-4 h-4" />

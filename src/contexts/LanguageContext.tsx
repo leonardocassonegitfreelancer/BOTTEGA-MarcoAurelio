@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 
 type Language = "it" | "en";
 
@@ -299,6 +299,16 @@ export const useLanguage = () => {
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [lang, setLang] = useState<Language>("it");
+
+  // Sync language from URL
+  useEffect(() => {
+    const path = window.location.pathname;
+    if (path === "/home/en" || path.startsWith("/home/en/")) {
+      setLang("en");
+    } else {
+      setLang("it");
+    }
+  }, []);
 
   const t = (key: string) => translations[lang][key] ?? key;
 
