@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
@@ -11,6 +12,7 @@ const Navbar = () => {
   const links = [
     { label: t("nav.bottega"), href: "#about" },
     { label: t("nav.collections"), href: "#collezioni" },
+    { label: t("nav.products"), href: "/prodotti", isRoute: true },
     { label: t("nav.baratto"), href: "#baratto" },
     { label: t("nav.contact"), href: "#contatti" },
   ];
@@ -46,16 +48,26 @@ const Navbar = () => {
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-10">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={(e) => handleNavClick(e, l.href)}
-              className="text-xs tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors duration-300"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.isRoute ? (
+              <Link
+                key={l.href}
+                to={l.href}
+                className="text-xs tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors duration-300"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={(e) => handleNavClick(e, l.href)}
+                className="text-xs tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors duration-300"
+              >
+                {l.label}
+              </a>
+            )
+          )}
           {/* Language toggle */}
           <button
             onClick={() => setLang(lang === "it" ? "en" : "it")}
@@ -93,16 +105,27 @@ const Navbar = () => {
             className="md:hidden bg-background/95 backdrop-blur-md border-b border-border overflow-hidden"
           >
             <div className="flex flex-col items-center gap-6 py-8">
-              {links.map((l) => (
-                <a
-                  key={l.href}
-                  href={l.href}
-                  onClick={(e) => handleNavClick(e, l.href)}
-                  className="text-sm tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors"
-                >
-                  {l.label}
-                </a>
-              ))}
+              {links.map((l) =>
+                l.isRoute ? (
+                  <Link
+                    key={l.href}
+                    to={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-sm tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors"
+                  >
+                    {l.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    onClick={(e) => handleNavClick(e, l.href)}
+                    className="text-sm tracking-[0.2em] uppercase font-body text-cream-muted hover:text-gold transition-colors"
+                  >
+                    {l.label}
+                  </a>
+                )
+              )}
             </div>
           </motion.div>
         )}
