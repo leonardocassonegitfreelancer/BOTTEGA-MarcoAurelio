@@ -77,7 +77,7 @@ const translations: Record<Language, Record<string, string>> = {
     "products.label": "Le Opere",
     "products.title": "I Nostri Gioielli",
     "products.back": "Torna alla home",
-    "nav.products": "Prodotti",
+    "nav.products": "Tutte le Opere",
 
     // Product categories
     "products.cat.fedi": "Fedi Nuziali",
@@ -216,7 +216,7 @@ const translations: Record<Language, Record<string, string>> = {
     "products.label": "The Works",
     "products.title": "Our Jewellery",
     "products.back": "Back to home",
-    "nav.products": "Products",
+    "nav.products": "All Works",
 
     // Product categories
     "products.cat.fedi": "Wedding Bands",
