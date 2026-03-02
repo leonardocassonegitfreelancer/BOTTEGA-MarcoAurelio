@@ -1,26 +1,23 @@
 
 
-## Piano: Aggiungere la Collezione ARIA (con alt text SEO)
+## Piano: Video di sfondo nella Hero Section
+
+Il video è perfetto — corto, d'atmosfera, ideale come sfondo. Ecco il piano:
 
 ### Modifiche
 
-1. **Salvare l'immagine** caricata come `src/assets/aria.webp`
+1. **Salvare il video** in `public/hero-video.mp4` (nella cartella public perché i video sono pesanti e non vanno bundlati da Vite)
 
-2. **Traduzioni** (`src/contexts/LanguageContext.tsx`) — aggiungere chiavi IT/EN:
-   - `collections.aria.title`: "ARIA"
-   - `collections.aria.desc` (IT): "Decine, centinaia di elementi uniti in aria, senza supporto — come un mosaico sospeso nel vuoto. La struttura regge sé stessa. Il risultato è un gioiello trasparente, leggero come l'aria che lo attraversa."
-   - `collections.aria.desc` (EN): "Tens, hundreds of elements joined mid-air, without support — like a mosaic suspended in the void. The structure holds itself. The result is a transparent jewel, light as the air that passes through it."
-   - `collections.aria.alt` (IT): "Anello ARIA in oro traforato — gioiello artigianale trasparente realizzato a mano a Roma"
-   - `collections.aria.alt` (EN): "ARIA openwork gold ring — handcrafted transparent jewel made in Rome"
-   - `products.aria.*`: titolo, sottotitolo, descrizione, 3 item con nomi e descrizioni
+2. **HeroSection.tsx** — sostituire l'`<img>` di sfondo con un `<video>` autoplay:
+   - Attributi: `autoPlay muted loop playsInline` (obbligatori per autoplay su mobile)
+   - `poster={heroImage}` come fallback istantaneo mentre il video carica
+   - Stessa classe CSS dell'immagine attuale (`w-full h-full object-cover opacity-40`)
+   - Mantenere lo stesso overlay gradient sopra
 
-3. **CollectionCard** (`src/components/CollectionsSection.tsx`):
-   - Aggiungere prop `alt` opzionale all'interfaccia `CollectionCardProps`
-   - Usare `alt` dedicato nell'`<img>` invece di `title`
-   - Aggiungere ARIA come quarta collezione
-   - Griglia: `md:grid-cols-2 lg:grid-cols-4`
+3. **Funziona su tutti i dispositivi** — mobile incluso, purché il video sia `muted` (requisito browser per autoplay). Nessun bisogno di nasconderlo su mobile, anzi come dici spacca.
 
-4. **Pagina Prodotti** (`src/pages/Prodotti.tsx`) — aggiungere sezione ARIA con 3 item placeholder usando `aria.webp`
-
-5. **Alt text SEO** per tutte le collezioni esistenti — aggiungere chiavi `collections.*.alt` dedicate anche per NiDO, Maree e Kintsugi (attualmente usano solo il titolo come alt)
+### Dettagli tecnici
+- Il video viene servito da `public/` quindi il path sarà `/hero-video.mp4`
+- L'immagine statica resta come `poster` per caricamento istantaneo
+- Nessun JavaScript aggiuntivo necessario
 
