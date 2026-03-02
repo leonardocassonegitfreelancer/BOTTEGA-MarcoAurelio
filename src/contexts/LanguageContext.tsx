@@ -10,26 +10,20 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   it: {
-    // Navbar
+    // Navbar, Hero, About, Collections, Baratto, Contact, Contact form, Products related, Products page, Product categories
     "nav.bottega": "La Bottega",
     "nav.collections": "Collezioni",
     "nav.baratto": "Baratto",
     "nav.contact": "Contatti",
-
-    // Hero
     "hero.subtitle": "Laboratorio Banco Orafo · Roma",
     "hero.tagline": "Qui i gioielli non sono prodotti in serie: nascono a banco, uno alla volta.",
     "hero.cta": "Scopri",
     "hero.imgAlt": "Gioiello artigianale",
-
-    // About
     "about.label": "La Bottega",
     "about.title": "Nel cuore di Roma, un laboratorio dove il metallo rinasce",
     "about.p1": "Bottega MarcoAurelio è un Laboratorio Banco Orafo indipendente nel Centro Storico, nel cuore di Roma. L'accesso è su appuntamento, per garantire tempo, attenzione e ascolto a ogni persona.",
     "about.p2": "Tutte le opere esposte sono fatte da noi, da zero. Tutti pezzi unici. Non è una gemma da inserire in uno stampo già pronto — è la pietra che detta le proporzioni, il ritmo, l'equilibrio.",
     "about.imgAlt": "Laboratorio orafo",
-
-    // Collections
     "collections.label": "Le Opere",
     "collections.title": "Collezioni",
     "collections.subtitle": "Collezione",
@@ -41,13 +35,10 @@ const translations: Record<Language, Record<string, string>> = {
     "collections.kintsugi.desc": "Luce e frattura. La materia si spezza, l'oro non nasconde: rivela. Strati di incisione, diamante e fuoco — ciò che si è rotto non torna com'era. Diventa più vero.",
     "collections.aria.title": "ARIA",
     "collections.aria.desc": "Decine, centinaia di elementi uniti in aria, senza supporto — come un mosaico sospeso nel vuoto. La struttura regge sé stessa. Il risultato è un gioiello trasparente, leggero come l'aria che lo attraversa.",
-
     "collections.nido.alt": "Fedi NiDO intrecciate a mano — fedi nuziali artigianali in oro e argento, Roma",
     "collections.maree.alt": "Anello Maree con superficie ondulata — gioiello artigianale ispirato al mare, Roma",
     "collections.kintsugi.alt": "Gioiello Kintsugi con venature dorate — arte orafa giapponese rivisitata a Roma",
     "collections.aria.alt": "Anello ARIA in oro traforato — gioiello artigianale trasparente realizzato a mano a Roma",
-
-    // Baratto
     "baratto.label": "Il Baratto",
     "baratto.title": "Dai nuova vita al tuo",
     "baratto.titleAccent": "Argento",
@@ -58,8 +49,6 @@ const translations: Record<Language, Record<string, string>> = {
     "baratto.step3": "Lo trasformiamo",
     "baratto.quote": "\"Cambiagli la forma. Dagli un nuovo significato.\"",
     "baratto.imgAlt": "Baratto - trasformazione dell'argento",
-
-    // Contact
     "contact.label": "Su Appuntamento",
     "contact.title": "Visite e Ordini",
     "contact.subtitle": "L'accesso è su appuntamento, per garantire tempo, attenzione e ascolto a ogni persona.",
@@ -72,8 +61,6 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.address2": "Campo de' Fiori, Roma",
     "contact.distance": "A 29 min a piedi dal Colosseo",
     "contact.instagram": "Instagram",
-
-    // Contact form
     "form.label": "Scrivici",
     "form.title": "Invia un Messaggio",
     "form.name": "Il tuo nome",
@@ -86,18 +73,12 @@ const translations: Record<Language, Record<string, string>> = {
     "form.error.category": "Seleziona un tipo di opera",
     "form.error.message": "Inserisci un messaggio",
     "form.sizeReminder": "Per realizzare il tuo gioiello su misura avremo bisogno della tua misura (dito o polso). Non preoccuparti, ne parleremo insieme e ti guideremo passo passo!",
-
-    // Products related
     "products.related.label": "Esplora",
     "products.related.title": "Ti potrebbero interessare anche",
-
-    // Products page
     "products.label": "Le Opere",
     "products.title": "I Nostri Gioielli",
     "products.back": "Torna alla home",
     "nav.products": "Tutte le Opere",
-
-    // Product categories
     "products.cat.fedi": "Fedi Nuziali",
     "products.cat.pietre": "Anelli Circolari",
     "products.cat.senza_pietre": "Anelli Quadrati",
@@ -105,7 +86,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.cat.pendenti": "Pendenti",
     "products.cat.bracciali": "Bracciali",
     "products.cat.pezzi_unici": "Pezzi Unici",
-
     "products.pezzi_unici.subtitle": "Pezzi Unici",
     "products.pezzi_unici.desc": "Qui trovi tutti i pezzi che seguono uno stile unico, \nirripetibile, inclassificabile \n e per questo meraviglioso. \nSe sei in cerca di idee,\nsei nel posto giusto.",
     "products.pezzi_unici.maree.name": "MAREE — inprofvndvmmaris",
@@ -113,7 +93,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pezzi_unici.maree.poem": "Che poi il Mare\nla prima volta\nma anche ogni tanto\na caso\nma credo la prima volta\nil Mare la prima volta andrebbe visto con gli occhi chiusi\nascoltato\nrespirato\nsentito con la pelle\nil suo movimento immenso\nimmenso anche quando è calmo\nche calmo non è fermo\ne qualche gabbiano\nanche loro il suo respiro\necco\nogni tanto\no la prima volta\nma credo la prima volta\nil Mare andrebbe visto ad occhi chiusi\nche poi\nforse\nnon sarebbe proprio vederlo\nma credo di si\nperché vederlo anche con gli occhi\nla prima volta\nil Mare\nè troppo.",
     "products.pezzi_unici.maree.poemCredit": "\"Che poi il Mare\" © 2015 Marco Aurelio Lorenzo Gerardi Olivetti",
     "products.pezzi_unici.maree.theme": "\"Che poi il Mare\", Tema.",
-
     "products.fedi.subtitle": "Fedi Nuziali",
     "products.fedi.desc": "Fedi forgiate a mano, intrecci organici incisi nel metallo. Un'opera di pazienza, forza e destino condiviso.",
     "products.fedi.item1.name": "NiDO Classica",
@@ -122,7 +101,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.fedi.item2.desc": "Fede in oro giallo 18kt con texture rami intrecciati.",
     "products.fedi.item3.name": "NiDO Sottile",
     "products.fedi.item3.desc": "Versione sottile, ideale come fede di promessa o quotidiana.",
-
     "products.pietre.subtitle": "Circolari",
     "products.pietre.desc": "Anelli a sezione circolare — la forma che avvolge, senza spigoli. Kintsugi abita qui.",
     "products.pietre.item1.name": "Kintsugi Diamante",
@@ -131,8 +109,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.item2.desc": "Fascia larga con frattura dorata e rubino naturale.",
     "products.pietre.item3.name": "Solitario Maree",
     "products.pietre.item3.desc": "Anello con superficie ondulata e diamante centrale.",
-
-    // INITIVM sub-collection
     "products.pietre.initivm.title": "INITIVM",
     "products.pietre.initivm.subtitle": "Ogni inizio è una conseguenza.",
     "products.pietre.initivm.story": "La geometria cerca la perfezione.\nLa vita la colpisce.\nLe fratture non si cancellano.\nSi evidenziano.\nSi portano.\n\nQui nulla è decorativo.\nTutto è conseguenza.\n\nINITIVM non è l'inizio.\nÈ ciò che resta quando tutto il resto ha già avuto conseguenze.",
@@ -148,8 +124,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.initivm.imgAlt": "INITIVM — anello in bronzo con diamanti, geometria e fratture evidenziate, Bottega MarcoAurelio Roma",
     "products.pietre.switcher.kintsugi": "Kintsugi",
     "products.pietre.switcher.initivm": "INITIVM",
-
-    // Kintsugi storytelling
     "products.pietre.kintsugi.motto": "Non nascondo nulla, tutto ciò che ho vissuto è oro.",
     "products.pietre.kintsugi.story": "Luce e frattura.\nLa materia si spezza, l'oro non nasconde: {gold}rivela{/gold}.\nOgni segno inciso è una dichiarazione.",
     "products.pietre.kintsugi.strati.title": "Strati",
@@ -165,14 +139,11 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.kintsugi.layerLabel4": "Quarto strato:",
     "products.pietre.kintsugi.layerLabel5": "Quinto strato:",
     "products.pietre.kintsugi.closing": "Quello che il metallo raggiunge solo col tempo, indossandolo.",
-
-    // MVTARA NEBVLA ZERO
     "products.pietre.mvtara.name": "MVTARA NEBVLA ZERO",
     "products.pietre.mvtara.desc": "Argento e oro. Fusio Primigenia — la frattura come condizione, il Kintsugi come struttura.",
     "products.pietre.mvtara.subtitle": "Nome sconosciuto nella nostra Galassia.",
     "products.pietre.mvtara.story": "Una nebulosa densa e mutevole, che interferisce con la percezione, basata su fenomeni astronomici reali.\n\nIn questa versione ZERO, la frattura non è un meccanismo ma una condizione:\nquando l'anello è in asse, non esiste separazione.\n\nLe incisioni in oro seguono il principio del Kintsugi:\nla rottura non viene nascosta, ma resa struttura.\nCiò che divide è ciò che tiene insieme.\n\nL'anello nasce da Fusio Primigenia (Fusio Archetypum):\nuna fusione che conserva le tracce del fuoco e della materia.\nVenature, irregolarità e tensioni non sono difetti,\nma la firma irripetibile del metallo nel momento in cui prende forma.\n\nOgni MVTARA NEBVLA ZERO è unico.\nNon replicabile. Non correggibile. Autentico.",
     "products.pietre.mvtara.material": "Argento e oro",
-
     "products.senza_pietre.subtitle": "Quadrati",
     "products.senza_pietre.desc": "Sezione quadrata, spigoli vivi — la geometria che non scende a compromessi. INITIVM abita qui.",
     "products.senza_pietre.item1.name": "Fascia Pura",
@@ -181,7 +152,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.senza_pietre.item2.desc": "Anello in argento con superficie ondulata, finitura lucida.",
     "products.senza_pietre.item3.name": "Profilo Piatto",
     "products.senza_pietre.item3.desc": "Anello a sezione piatta in argento, stile contemporaneo.",
-
     "products.filamento.subtitle": "Filamento",
     "products.filamento.desc": "Decine di elementi uniti in aria, senza supporto\n\"Come un mosaico sospeso nel vuoto.\"\nIl risultato è un gioiello trasparente, leggero come l'aria.",
     "products.filamento.item1.name": "ARIA Anello",
@@ -195,7 +165,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.filamento.navtilvs.subtitle": "Collezione ARIA",
     "products.filamento.navtilvs.material": "Argento, Onice, Diamante",
     "products.filamento.navtilvs.story": "Una spirale sospesa nel vuoto.\nL'Onice è il silenzio al centro, il diamante è il punto di consapevolezza.\nIntorno, decine di elementi uniti senza sostegno,\ncome materia che ha dimenticato il peso.\n\nSembra fragile.\nIn realtà è addestrato alla resistenza.\n\nARIA: Decine, centinaia di pezzi come in un Mosaico\nuniti in \"aereo\", SENZA \"supporto\"\nTRASPARENTI, come ARIA.",
-
     "products.pendenti.subtitle": "Pendenti",
     "products.pendenti.desc": "Opere sospese, forgiate a mano. Ogni pezzo è unico.",
     "products.pendenti.item1.name": "Goccia Maree",
@@ -207,7 +176,11 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pendenti.sbilanciamento.name": "Uno Sbilanciamento di Bianco",
     "products.pendenti.sbilanciamento.material": "Oro bianco e diamante",
     "products.pendenti.sbilanciamento.story": "Uno sbilanciamento del bianco\".\nSi presenta come assenza di colore,\nma pretende precisione assoluta.\n\nPer anni l'ho trattato come si fa con le superfici difficili:\npulito, controllato, ridotto all'essenziale.\nIl bianco doveva sparire.\nLasciare spazio alla forma, alla pietra, al gesto.\nMa il bianco non sparisce mai davvero.\nSi limita ad aspettare.\n\nQuesto pendente nasce da un errore apparente:\nsei lati.\nOtto sfaccettature.\nFuori asse.\nPer necessità.\n\nIntorno alla pietra, il bianco non fa cornice.\nFa da cassa di risonanza.\nOgni piano intercetta la luce in modo leggermente diverso,\nla spezza, la rimanda, la distorce.\nNon racconta la pietra.\nLa costringe a raccontarsi.\n\nLa base è piatta.\nO almeno così sembra.\nIn realtà è inclinata quanto basta\nper non essere mai neutra.\nPer prendere sempre la luce migliore,\nanche quando la luce non collabora.\n\nIl bianco, qui, non è purezza.\nÈ tensione.\nÈ la somma di riflessi che non coincidono.\nÈ il momento in cui capisci che l'equilibrio perfetto\nuccide la luce,\nmentre una lieve asimmetria\nla mette in movimento.\n\nIn laboratorio i colori restano tre.\nBianco, nero, rosso.\nSì, no, fuoco.\nSenza sfumature.\nMa il bianco, più degli altri,\nva tenuto sotto controllo.\nPerché basta poco\nperché smetta di essere sfondo\ne diventi protagonista.\n\nUno sbilanciamento del bianco\nnon è una scelta estetica.\nÈ una dichiarazione di metodo.\nSignifica accettare che la luce\nnon vada mai domata del tutto.\nSolo accompagnata,\nfinché decide da sola\ndove fermarsi.",
-
+    "products.pendenti.sangue.name": "SANGUE",
+    "products.pendenti.sangue.subtitle": "Colore: Rosso Arrakis. (Sotto due Soli)",
+    "products.pendenti.sangue.material": "Argento e pietra rossa",
+    "products.pendenti.sangue.desc": "Strumento estratto da un manuale antico. Chi legge il corpo apre la roccia.",
+    "products.pendenti.sangue.story": "SANGUE. Colore: ROSSO ARRAKIS.\n(Sotto due Soli)\nQuesti oggetti non nascono come gioielli.\nNascono come strumenti.\nSu Arrakis la funzione precede sempre la forma.\nOgni elemento è pensato per resistere, misurare, orientare.\nNulla è superfluo, nulla è decorazione.\nCerchi, assi, nodi, corpi centrali:\nCerchi come Soli e Lune.\nStrutture concepite per leggere lo spazio,\nper tracciare posizioni, riferimento.\nNel metallo segni di un uso antico.\nMemoria funzionale.\nGli stessi segni\nsul corpo.\nNella pietra.\nLinguaggio compatibile.\nAllineano.\nRosso.\nDenso, raro.\nNon si estrae senza conseguenze.\nSotto due soli, il sangue diventa misura.\nSimbolo di sopravvivenza.\nEssi non appartengono a un’epoca riconoscibile.\nReliquie di una tecnologia che ha superato la propria origine,\nstrumenti sopravvissuti alla funzione generante.\nDa pietra a corpo raccontano traiettorie, meccanismi.\nNon per essere mostrati,\nma per essere riconosciuti.\nNon per insegnamento diretto, ma per custodia.\nContinuità di funzione.\nSimboli.\nNon raccontano storia: la implicano.\nStrumenti fuori dal tempo.\nFunzione non scomparsa, trasformata.",
     "products.bracciali.subtitle": "Bracciali",
     "products.bracciali.desc": "Fasce e catene forgiate a banco — bracciali che raccontano la forza e la delicatezza del metallo lavorato a mano.",
     "products.bracciali.item1.name": "Onda Bracciale",
@@ -216,12 +189,8 @@ const translations: Record<Language, Record<string, string>> = {
     "products.bracciali.item2.desc": "Bracciale a fascia minimale in argento satinato.",
     "products.bracciali.item3.name": "Catena Maree",
     "products.bracciali.item3.desc": "Bracciale a catena con maglie organiche, finitura ossidata.",
-
-    // Testimonial
     "testimonial.quote": "\"Opere d'arte uniche, capolavori.\nUna persona eccezionale.\nNel laboratorio si assapora la passione di chi ha dedicato la vita a un'arte che sta scomparendo.\nPerché qui si parla di un artista vero.\"",
     "testimonial.author": "Valerio S.",
-
-    // FAQ
     "faq.label": "Domande Frequenti",
     "faq.title": "Tutto quello che vuoi sapere",
     "faq.q1": "Spedite i gioielli in tutto il mondo?",
@@ -232,31 +201,22 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.a3": "Dipende dalla disponibilità dei materiali e dalla complessità dell'opera. Ogni creazione ha i suoi tempi — ne parliamo insieme per trovare la soluzione migliore.",
     "faq.q4": "Posso discutere ogni dettaglio con voi?",
     "faq.a4": "Certamente, siamo aperti a discutere ogni dettaglio con te. Nessun problema, nessuna fretta. Il dialogo è parte del processo creativo.",
-
-    // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Roma",
   },
   en: {
-    // Navbar
     "nav.bottega": "The Workshop",
     "nav.collections": "Collections",
     "nav.baratto": "Silver Trade",
     "nav.contact": "Contact",
-
-    // Hero
     "hero.subtitle": "Goldsmith Bench Workshop · Rome",
     "hero.tagline": "Our jewels are not mass-produced: they are born at the bench, one at a time.",
     "hero.cta": "Discover",
     "hero.imgAlt": "Handcrafted jewellery",
-
-    // About
     "about.label": "The Workshop",
     "about.title": "In the heart of Rome, a workshop where metal is reborn",
     "about.p1": "Bottega MarcoAurelio is an independent Goldsmith Bench Workshop in the Historic Centre of Rome. Access is by appointment only, to ensure time, attention and care for every person.",
     "about.p2": "Every piece on display is made by us, from scratch. All unique. It's not a gem to be set in a ready-made mould — it's the stone that dictates the proportions, rhythm and balance.",
     "about.imgAlt": "Goldsmith workshop",
-
-    // Collections
     "collections.label": "The Works",
     "collections.title": "Collections",
     "collections.subtitle": "Collection",
@@ -268,13 +228,10 @@ const translations: Record<Language, Record<string, string>> = {
     "collections.kintsugi.desc": "Light and fracture. The metal breaks, gold does not conceal: it reveals. Layers of engraving, diamond and fire — what was broken does not return as it was. It becomes more true.",
     "collections.aria.title": "ARIA",
     "collections.aria.desc": "Tens, hundreds of elements joined mid-air, without support — like a mosaic suspended in the void. The structure holds itself. The result is a transparent jewel, light as the air that passes through it.",
-
     "collections.nido.alt": "Handwoven NiDO wedding bands — artisan gold and silver rings, Rome",
     "collections.maree.alt": "Maree ring with wave-textured surface — sea-inspired handcrafted jewel, Rome",
     "collections.kintsugi.alt": "Kintsugi jewel with golden veins — Japanese-inspired goldsmith art in Rome",
     "collections.aria.alt": "ARIA openwork gold ring — handcrafted transparent jewel made in Rome",
-
-    // Baratto
     "baratto.label": "Silver Trade",
     "baratto.title": "Give new life to your",
     "baratto.titleAccent": "Silver",
@@ -285,8 +242,6 @@ const translations: Record<Language, Record<string, string>> = {
     "baratto.step3": "We transform it",
     "baratto.quote": "\"Change its shape. Give it a new meaning.\"",
     "baratto.imgAlt": "Silver trade - silver transformation",
-
-    // Contact
     "contact.label": "By Appointment",
     "contact.title": "Visits & Orders",
     "contact.subtitle": "Access is by appointment only, to ensure time, attention and care for every person.",
@@ -299,8 +254,6 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.address2": "Campo de' Fiori, Rome",
     "contact.distance": "29 min walk from the Colosseum",
     "contact.instagram": "Instagram",
-
-    // Contact form
     "form.label": "Get in Touch",
     "form.title": "Send a Message",
     "form.name": "Your name",
@@ -313,18 +266,12 @@ const translations: Record<Language, Record<string, string>> = {
     "form.error.category": "Please select a type",
     "form.error.message": "Please enter a message",
     "form.sizeReminder": "To create your custom piece we'll need your size (finger or wrist). Don't worry, we'll discuss it together and guide you step by step!",
-
-    // Products related
     "products.related.label": "Explore",
     "products.related.title": "You might also like",
-
-    // Products page
     "products.label": "The Works",
     "products.title": "Our Jewellery",
     "products.back": "Back to home",
     "nav.products": "All Works",
-
-    // Product categories
     "products.cat.fedi": "Wedding Bands",
     "products.cat.pietre": "Circular Rings",
     "products.cat.senza_pietre": "Square Rings",
@@ -332,7 +279,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.cat.pendenti": "Pendants",
     "products.cat.bracciali": "Bracelets",
     "products.cat.pezzi_unici": "Unique Pieces",
-
     "products.pezzi_unici.subtitle": "Unique Pieces",
     "products.pezzi_unici.desc": "Here you'll find pieces that follow a unique, \nunrepeatable, unclassifiable style \n— and that's what makes them wonderful. \nIf you're looking for inspiration,\nyou're in the right place.",
     "products.pezzi_unici.maree.name": "MAREE — inprofvndvmmaris",
@@ -340,7 +286,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pezzi_unici.maree.poem": "Che poi il Mare\nla prima volta\nma anche ogni tanto\na caso\nma credo la prima volta\nil Mare la prima volta andrebbe visto con gli occhi chiusi\nascoltato\nrespirato\nsentito con la pelle\nil suo movimento immenso\nimmenso anche quando è calmo\nche calmo non è fermo\ne qualche gabbiano\nanche loro il suo respiro\necco\nogni tanto\no la prima volta\nma credo la prima volta\nil Mare andrebbe visto ad occhi chiusi\nche poi\nforse\nnon sarebbe proprio vederlo\nma credo di si\nperché vederlo anche con gli occhi\nla prima volta\nil Mare\nè troppo.",
     "products.pezzi_unici.maree.poemCredit": "\"Che poi il Mare\" © 2015 Marco Aurelio Lorenzo Gerardi Olivetti",
     "products.pezzi_unici.maree.theme": "\"Che poi il Mare\", Theme.",
-
     "products.fedi.subtitle": "Wedding Bands",
     "products.fedi.desc": "Hand-forged wedding bands with organic woven patterns etched in metal. A work of patience, strength and shared destiny.",
     "products.fedi.item1.name": "NiDO Classic",
@@ -349,7 +294,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.fedi.item2.desc": "18kt yellow gold band with woven branch texture.",
     "products.fedi.item3.name": "NiDO Slim",
     "products.fedi.item3.desc": "Slim version, ideal as a promise or everyday band.",
-
     "products.pietre.subtitle": "Circular",
     "products.pietre.desc": "Circular cross-section rings — the form that wraps, without edges. Kintsugi lives here.",
     "products.pietre.item1.name": "Kintsugi Diamond",
@@ -358,8 +302,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.item2.desc": "Wide band with golden fracture and natural ruby.",
     "products.pietre.item3.name": "Maree Solitaire",
     "products.pietre.item3.desc": "Ring with wave-textured surface and central diamond.",
-
-    // INITIVM sub-collection
     "products.pietre.initivm.title": "INITIVM",
     "products.pietre.initivm.subtitle": "Every beginning is a consequence.",
     "products.pietre.initivm.story": "Geometry seeks perfection.\nLife strikes it.\nFractures cannot be erased.\nThey are highlighted.\nThey are worn.\n\nHere nothing is decorative.\nEverything is consequence.\n\nINITIVM is not the beginning.\nIt is what remains when everything else has already had its consequences.",
@@ -375,8 +317,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.initivm.imgAlt": "INITIVM — bronze ring with diamonds, geometry and highlighted fractures, Bottega MarcoAurelio Rome",
     "products.pietre.switcher.kintsugi": "Kintsugi",
     "products.pietre.switcher.initivm": "INITIVM",
-
-    // Kintsugi storytelling
     "products.pietre.kintsugi.motto": "I hide nothing, everything I've lived through is gold.",
     "products.pietre.kintsugi.story": "Light and fracture.\nThe metal breaks, gold does not conceal: {gold}it reveals{/gold}.\nEvery engraved mark is a declaration.",
     "products.pietre.kintsugi.strati.title": "Layers",
@@ -392,14 +332,11 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.kintsugi.layerLabel4": "Fourth layer:",
     "products.pietre.kintsugi.layerLabel5": "Fifth layer:",
     "products.pietre.kintsugi.closing": "What the metal achieves only with time, by wearing it.",
-
-    // MVTARA NEBVLA ZERO
     "products.pietre.mvtara.name": "MVTARA NEBVLA ZERO",
     "products.pietre.mvtara.desc": "Silver and gold. Fusio Primigenia — fracture as condition, Kintsugi as structure.",
     "products.pietre.mvtara.subtitle": "A name unknown in our Galaxy.",
     "products.pietre.mvtara.story": "A dense and shifting nebula, interfering with perception, based on real astronomical phenomena.\n\nIn this ZERO version, the fracture is not a mechanism but a condition:\nwhen the ring is aligned, no separation exists.\n\nThe gold engravings follow the Kintsugi principle:\nthe break is not hidden, but made into structure.\nWhat divides is what holds together.\n\nThe ring is born from Fusio Primigenia (Fusio Archetypum):\na fusion that preserves the traces of fire and matter.\nVeins, irregularities and tensions are not defects,\nbut the unrepeatable signature of the metal at the moment it takes shape.\n\nEvery MVTARA NEBVLA ZERO is unique.\nNot replicable. Not correctable. Authentic.",
     "products.pietre.mvtara.material": "Silver and gold",
-
     "products.senza_pietre.subtitle": "Square",
     "products.senza_pietre.desc": "Square cross-section, sharp edges — geometry that makes no compromises. INITIVM lives here.",
     "products.senza_pietre.item1.name": "Pure Band",
@@ -408,7 +345,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.senza_pietre.item2.desc": "Silver ring with undulating surface, polished finish.",
     "products.senza_pietre.item3.name": "Flat Profile",
     "products.senza_pietre.item3.desc": "Flat-section silver ring, contemporary style.",
-
     "products.filamento.subtitle": "Wire",
     "products.filamento.desc": "Tens of elements joined mid-air, without support — like a mosaic suspended in the void. A transparent jewel, light as air.",
     "products.filamento.item1.name": "ARIA Ring",
@@ -422,7 +358,6 @@ const translations: Record<Language, Record<string, string>> = {
     "products.filamento.navtilvs.subtitle": "ARIA Collection",
     "products.filamento.navtilvs.material": "Silver, Onyx, Diamond",
     "products.filamento.navtilvs.story": "A spiral suspended in the void.\nThe Onyx is the silence at the centre, the diamond is the point of awareness.\nAround it, tens of elements joined without support,\nlike matter that has forgotten its weight.\n\nIt looks fragile.\nIn truth, it is trained for resistance.\n\nARIA: Tens, hundreds of pieces like a Mosaic\njoined mid-air, WITHOUT \"support\"\nTRANSPARENT, like AIR.",
-
     "products.pendenti.subtitle": "Pendants",
     "products.pendenti.desc": "Suspended works, hand-forged. Every piece is unique.",
     "products.pendenti.item1.name": "Maree Drop",
@@ -434,7 +369,11 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pendenti.sbilanciamento.name": "Uno Sbilanciamento di Bianco",
     "products.pendenti.sbilanciamento.material": "White gold and diamond",
     "products.pendenti.sbilanciamento.story": "A white imbalance\".\nIt presents itself as absence of colour,\nbut demands absolute precision.\n\nFor years I treated it as one does with difficult surfaces:\nclean, controlled, reduced to the essential.\nWhite had to disappear.\nLeave room for the form, the stone, the gesture.\nBut white never truly disappears.\nIt simply waits.\n\nThis pendant is born from an apparent error:\nsix sides.\nEight facets.\nOff-axis.\nBy necessity.\n\nAround the stone, white doesn't frame.\nIt resonates.\nEvery plane intercepts light slightly differently,\nbreaks it, bounces it, distorts it.\nIt doesn't narrate the stone.\nIt forces the stone to narrate itself.\n\nThe base is flat.\nOr so it seems.\nIn truth it's tilted just enough\nto never be neutral.\nTo always catch the best light,\neven when the light doesn't cooperate.\n\nWhite, here, is not purity.\nIt's tension.\nIt's the sum of reflections that don't coincide.\nIt's the moment you realise that perfect balance\nkills the light,\nwhile a slight asymmetry\nsets it in motion.\n\nIn the workshop the colours remain three.\nWhite, black, red.\nYes, no, fire.\nNo shades.\nBut white, more than the others,\nmust be kept under control.\nBecause it takes very little\nfor it to stop being background\nand become protagonist.\n\nA white imbalance\nis not an aesthetic choice.\nIt's a declaration of method.\nIt means accepting that light\nshould never be fully tamed.\nOnly accompanied,\nuntil it decides on its own\nwhere to stop.",
-
+    "products.pendenti.sangue.name": "SANGUE",
+    "products.pendenti.sangue.subtitle": "Colour: Red Arrakis. (Under Two Suns)",
+    "products.pendenti.sangue.material": "Silver and red stone",
+    "products.pendenti.sangue.desc": "Instrument extracted from an ancient manual. Who reads the body opens the rock.",
+    "products.pendenti.sangue.story": "SANGUE. Colour: RED ARRAKIS.\n(Under Two Suns)\nThese objects are not born as jewels.\nThey are born as instruments.\nOn Arrakis, function always precedes form.\nEvery element is designed to resist, measure, orient.\nNothing is superfluous, nothing is decoration.\nCircles, axes, nodes, central bodies:\nCircles like Suns and Moons.\nStructures conceived to read space,\nto trace positions, reference.\nIn the metal, signs of ancient use.\nFunctional memory.\nThe same signs\non the body.\nIn the stone.\nCompatible language.\nThey align.\nRed.\nDense, rare.\nIt cannot be extracted without consequences.\nUnder two suns, blood becomes measure.\nSymbol of survival.\nThey do not belong to a recognisable era.\nRelics of a technology that has surpassed its own origin,\ninstruments that have outlived their generating function.\nFrom stone to body they tell trajectories, mechanisms.\nNot to be displayed,\nbut to be recognised.\nNot for direct teaching, but for safekeeping.\nContinuity of function.\nSymbols.\nThey do not tell history: they imply it.\nInstruments outside of time.\nFunction not vanished, transformed.",
     "products.bracciali.subtitle": "Bracelets",
     "products.bracciali.desc": "Bands and chains forged at the bench — bracelets that tell the story of strength and delicacy in hand-worked metal.",
     "products.bracciali.item1.name": "Wave Bracelet",
@@ -443,12 +382,8 @@ const translations: Record<Language, Record<string, string>> = {
     "products.bracciali.item2.desc": "Minimal band bracelet in satin silver.",
     "products.bracciali.item3.name": "Maree Chain",
     "products.bracciali.item3.desc": "Chain bracelet with organic links, oxidised finish.",
-
-    // Testimonial
     "testimonial.quote": "\"Unique works of art, masterpieces.\nAn exceptional person.\nIn the workshop you can taste the passion of someone who has devoted their life to an art that is disappearing.\nBecause here we are talking about a true artist.\"",
     "testimonial.author": "Valerio S.",
-
-    // FAQ
     "faq.label": "FAQ",
     "faq.title": "Everything you want to know",
     "faq.q1": "Do you ship jewellery worldwide?",
@@ -459,8 +394,6 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.a3": "It depends on the availability of materials and the complexity of the piece. Every creation has its own timeline — we discuss it together to find the best solution.",
     "faq.q4": "Can I discuss every detail with you?",
     "faq.a4": "Of course, we are open to discussing every detail with you. No problems, no rush. Dialogue is part of the creative process.",
-
-    // Footer
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Rome",
   },
 };
