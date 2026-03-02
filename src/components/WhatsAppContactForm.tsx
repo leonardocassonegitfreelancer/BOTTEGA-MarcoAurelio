@@ -5,15 +5,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { z } from "zod";
 
 interface WhatsAppContactFormProps {
-  /** Pre-select a category when used from a product page */
   defaultCategory?: string;
-  /** Compact variant for product pages */
+  defaultCollection?: string;
   compact?: boolean;
 }
 
 const PHONE = "393482762842";
 
-const WhatsAppContactForm = ({ defaultCategory, compact = false }: WhatsAppContactFormProps) => {
+const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = false }: WhatsAppContactFormProps) => {
   const { t, lang } = useLanguage();
 
   const categoryOptions = [
@@ -26,22 +25,30 @@ const WhatsAppContactForm = ({ defaultCategory, compact = false }: WhatsAppConta
     { value: "altro", label: lang === "it" ? "Altro" : "Other" },
   ];
 
+  const collectionOptions = [
+    { value: "nido", label: "NiDO" },
+    { value: "maree", label: "Maree" },
+    { value: "kintsugi", label: "Kintsugi" },
+    { value: "aria", label: "ARIA" },
+    { value: "altro", label: lang === "it" ? "Altra / Non so" : "Other / Not sure" },
+  ];
+
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [collection, setCollection] = useState(defaultCollection || "");
   const [category, setCategory] = useState(defaultCategory || "");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const schema = z.object({
     name: z.string().trim().min(1, t("form.error.name")).max(100),
-    email: z.string().trim().email(t("form.error.email")).max(255),
+    collection: z.string().min(1, lang === "it" ? "Seleziona una collezione" : "Select a collection"),
     category: z.string().min(1, t("form.error.category")),
     message: z.string().trim().min(1, t("form.error.message")).max(1000),
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const result = schema.safeParse({ name, email, category, message });
+    const result = schema.safeParse({ name, collection, category, message });
 
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -55,9 +62,10 @@ const WhatsAppContactForm = ({ defaultCategory, compact = false }: WhatsAppConta
     setErrors({});
 
     const categoryLabel = categoryOptions.find((c) => c.value === category)?.label || category;
+    const collectionLabel = collectionOptions.find((c) => c.value === collection)?.label || collection;
     const text = lang === "it"
-      ? `Salve, mi chiamo ${name.trim()}.\n\nSono interessato/a a: ${categoryLabel}\n\nMessaggio: ${message.trim()}\n\nEmail per risposta: ${email.trim()}`
-      : `Hello, my name is ${name.trim()}.\n\nI'm interested in: ${categoryLabel}\n\nMessage: ${message.trim()}\n\nReply email: ${email.trim()}`;
+      ? `Salve, mi chiamo ${name.trim()}.\n\nCollezione: ${collectionLabel}\nCategoria: ${categoryLabel}\n\nMessaggio: ${message.trim()}`
+      : `Hello, my name is ${name.trim()}.\n\nCollection: ${collectionLabel}\nCategory: ${categoryLabel}\n\nMessage: ${message.trim()}`;
 
     window.open(
       `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`,
@@ -103,15 +111,21 @@ const WhatsAppContactForm = ({ defaultCategory, compact = false }: WhatsAppConta
         </div>
 
         <div>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={t("form.email")}
-            className={inputClass}
-            maxLength={255}
-          />
-          {errors.email && <p className="text-red-400 text-xs mt-1 font-body">{errors.email}</p>}
+          <select
+            value={collection}
+            onChange={(e) => setCollection(e.target.value)}
+            className={`${inputClass} ${!collection ? "text-cream-muted/40" : ""}`}
+          >
+            <option value="" disabled>
+              {lang === "it" ? "Collezione" : "Collection"}
+            </option>
+            {collectionOptions.map((opt) => (
+              <option key={opt.value} value={opt.value} className="bg-background text-cream">
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          {errors.collection && <p className="text-red-400 text-xs mt-1 font-body">{errors.collection}</p>}
         </div>
 
         <div>
