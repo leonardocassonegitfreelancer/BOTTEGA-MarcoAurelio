@@ -1,23 +1,16 @@
 
 
-## Piano: Video di sfondo nella Hero Section
+## Piano aggiornato: Sezione "Ti potrebbero interessare anche"
 
-Il video è perfetto — corto, d'atmosfera, ideale come sfondo. Ecco il piano:
+Mostrare solo **3 categorie** invece di tutte le rimanenti (che sarebbero 5). Si selezionano le 3 più affini alla categoria attiva, oppure semplicemente le prime 3 dall'elenco filtrato. Questo mantiene la sezione leggera e non dispersiva.
 
-### Modifiche
+### Interventi
 
-1. **Salvare il video** in `public/hero-video.mp4` (nella cartella public perché i video sono pesanti e non vanno bundlati da Vite)
+**`src/pages/Prodotti.tsx`**:
+- Filtrare le categorie escludendo quella attiva, poi prendere solo le prime 3 con `.slice(0, 3)`
+- Griglia a 3 colonne su desktop, 1 colonna su mobile
+- Card minimali: immagine rappresentativa, nome categoria, click naviga a `/prodotti/{slug}`
 
-2. **HeroSection.tsx** — sostituire l'`<img>` di sfondo con un `<video>` autoplay:
-   - Attributi: `autoPlay muted loop playsInline` (obbligatori per autoplay su mobile)
-   - `poster={heroImage}` come fallback istantaneo mentre il video carica
-   - Stessa classe CSS dell'immagine attuale (`w-full h-full object-cover opacity-40`)
-   - Mantenere lo stesso overlay gradient sopra
-
-3. **Funziona su tutti i dispositivi** — mobile incluso, purché il video sia `muted` (requisito browser per autoplay). Nessun bisogno di nasconderlo su mobile, anzi come dici spacca.
-
-### Dettagli tecnici
-- Il video viene servito da `public/` quindi il path sarà `/hero-video.mp4`
-- L'immagine statica resta come `poster` per caricamento istantaneo
-- Nessun JavaScript aggiuntivo necessario
+**`src/contexts/LanguageContext.tsx`**:
+- Aggiungere chiavi `products.related.label` (IT: "Esplora", EN: "Explore") e `products.related.title` (IT: "Ti potrebbero interessare anche", EN: "You might also like")
 
