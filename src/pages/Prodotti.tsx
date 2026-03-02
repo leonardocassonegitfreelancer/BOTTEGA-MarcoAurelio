@@ -9,10 +9,12 @@ import Footer from "@/components/Footer";
 import WhatsAppContactForm from "@/components/WhatsAppContactForm";
 import CategoryCarousel from "@/components/CategoryCarousel";
 import { useIsMobile } from "@/hooks/use-mobile";
+import ProductImageCarousel from "@/components/ProductImageCarousel";
 import nidoImage from "@/assets/nido.jpg";
 import mareeImage from "@/assets/maree-ring.png";
 import anelliLisciImage from "@/assets/anelli-lisci.jpg";
 import ariaImage from "@/assets/aria.webp";
+import ariaLetteraDImage from "@/assets/aria-lettera-d.png";
 import kintsugiImage from "@/assets/kintsugi.jpg";
 import mareeFullImage from "@/assets/maree.jpg";
 
@@ -55,6 +57,7 @@ const categoryToSlugEn: Record<Category, string> = {
 
 interface ProductItem {
   image: string;
+  images?: string[];
   name: string;
   desc: string;
 }
@@ -132,7 +135,7 @@ const Prodotti = () => {
       subtitle: t("products.filamento.subtitle"),
       description: t("products.filamento.desc"),
       items: [
-        { image: ariaImage, name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
+        { image: ariaImage, images: [ariaImage, ariaLetteraDImage], name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
       ],
     },
     pendenti: {
@@ -290,12 +293,16 @@ const Prodotti = () => {
                   className="group"
                 >
                   <div className="relative overflow-hidden mb-4">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500" />
+                    {item.images && item.images.length > 1 ? (
+                      <ProductImageCarousel images={item.images} alt={item.name} />
+                    ) : (
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
+                      />
+                    )}
+                    <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
                   </div>
                   <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{item.name}</h3>
                   <p className="text-cream-muted font-body text-xs leading-relaxed">{item.desc}</p>
