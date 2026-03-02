@@ -38,7 +38,7 @@ const translations: Record<Language, Record<string, string>> = {
     "collections.maree.title": "Collezione Maree",
     "collections.maree.desc": "Ispirata al mare, al moto ondoso e agli abissi. La superficie increspata ricorda le onde che si infrangono sulla riva, un simbolo dell'eterno ciclo della vita.",
     "collections.kintsugi.title": "KINTSUGI",
-    "collections.kintsugi.desc": "Luce e frattura. Le crepe diventano linee preziose che esaltano l'unicità della forma, rendendo la fragilità un atto di bellezza consapevole.",
+    "collections.kintsugi.desc": "Luce e frattura. La materia si spezza, l'oro non nasconde: rivela. Strati di incisione, diamante e fuoco — ciò che si è rotto non torna com'era. Diventa più vero.",
     "collections.aria.title": "ARIA",
     "collections.aria.desc": "Decine, centinaia di elementi uniti in aria, senza supporto — come un mosaico sospeso nel vuoto. La struttura regge sé stessa. Il risultato è un gioiello trasparente, leggero come l'aria che lo attraversa.",
 
@@ -151,7 +151,7 @@ const translations: Record<Language, Record<string, string>> = {
     "collections.maree.title": "Maree Collection",
     "collections.maree.desc": "Inspired by the sea, by waves and the deep. The rippled surface recalls waves breaking on the shore — a symbol of life's eternal cycle.",
     "collections.kintsugi.title": "KINTSUGI",
-    "collections.kintsugi.desc": "Light and fracture. The cracks become precious lines that celebrate the uniqueness of form, making fragility a conscious act of beauty.",
+    "collections.kintsugi.desc": "Light and fracture. The metal breaks, gold does not conceal: it reveals. Layers of engraving, diamond and fire — what was broken does not return as it was. It becomes more true.",
     "collections.aria.title": "ARIA",
     "collections.aria.desc": "Tens, hundreds of elements joined mid-air, without support — like a mosaic suspended in the void. The structure holds itself. The result is a transparent jewel, light as the air that passes through it.",
 
