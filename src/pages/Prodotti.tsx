@@ -682,12 +682,6 @@ const Prodotti = () => {
                 className="mb-12 md:mb-16"
               >
                 <div className="max-w-3xl mx-auto space-y-6 text-center">
-                  <p className="text-cream font-body text-sm md:text-base leading-[2] italic whitespace-pre-line">
-                    {t("products.pezzi_unici.maree.poem")}
-                  </p>
-
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-
                   <p className="text-cream-muted font-body text-[10px] md:text-xs tracking-[0.2em]">
                     {t("products.pezzi_unici.maree.poemCredit")}
                   </p>
