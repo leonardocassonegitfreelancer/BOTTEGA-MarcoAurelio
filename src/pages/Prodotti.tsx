@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useSearchParams } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -29,6 +29,7 @@ const Prodotti = () => {
     ? (searchParams.get("cat") as Category)
     : "fedi";
   const [active, setActive] = useState<Category>(initialCat);
+  const ariaVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const cat = searchParams.get("cat") as Category;
@@ -37,6 +38,11 @@ const Prodotti = () => {
     }
   }, [searchParams]);
 
+  useEffect(() => {
+    if (active === "filamento") {
+      ariaVideoRef.current?.load();
+    }
+  }, [active]);
   const categories: { key: Category; label: string }[] = [
     { key: "fedi", label: t("products.cat.fedi") },
     { key: "pietre", label: t("products.cat.pietre") },
@@ -183,15 +189,16 @@ const Prodotti = () => {
               >
                 <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12">
                   <video
+                    ref={ariaVideoRef}
                     src="/aria-intro.mp4"
                     autoPlay
                     loop
                     muted
                     playsInline
                     preload="auto"
-                    poster=""
+                    poster={ariaImage}
                     className="w-full h-full object-cover"
-                    style={{ backgroundColor: 'hsl(var(--background))' }}
+                    style={{ backgroundColor: "hsl(var(--background))" }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
