@@ -21,6 +21,7 @@ import kintsugiStratiImage from "@/assets/kintsugi-strati.png";
 import kintsugiStratiDetailImage from "@/assets/kintsugi-strati-detail.png";
 import initivmImage from "@/assets/initivm.png";
 import kintsugiKatanaImage from "@/assets/kintsugi-katana.png";
+import sbilanciamentoBiancoImage from "@/assets/sbilanciamento-bianco.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
@@ -166,6 +167,7 @@ const Prodotti = () => {
       subtitle: t("products.pendenti.subtitle"),
       description: t("products.pendenti.desc"),
       items: [
+        { image: sbilanciamentoBiancoImage, name: t("products.pendenti.sbilanciamento.name"), desc: t("products.pendenti.sbilanciamento.material") },
         { image: mareeFullImage, name: t("products.pendenti.item1.name"), desc: t("products.pendenti.item1.desc") },
         { image: kintsugiImage, name: t("products.pendenti.item2.name"), desc: t("products.pendenti.item2.desc") },
         { image: mareeFullImage, name: t("products.pendenti.item3.name"), desc: t("products.pendenti.item3.desc") },
@@ -469,6 +471,48 @@ const Prodotti = () => {
               </motion.div>
             )}
 
+            {/* Sbilanciamento di Bianco intro */}
+            {active === "pendenti" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 md:mb-16"
+              >
+                <div className="max-w-xl mx-auto mb-10">
+                  <img
+                    src={sbilanciamentoBiancoImage}
+                    alt="Uno Sbilanciamento di Bianco — pendente in oro bianco e diamante"
+                    className="w-full aspect-[3/4] object-cover"
+                  />
+                </div>
+
+                <div className="max-w-3xl mx-auto space-y-6 text-center">
+                  <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
+                    Uno Sbilanciamento di Bianco<span className="text-gold">.</span>
+                  </h3>
+                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
+                    {t("products.pendenti.sbilanciamento.material")}
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                    {t("products.pendenti.sbilanciamento.story")}
+                  </p>
+
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                  <button
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                  >
+                    {t("form.title")}
+                  </button>
+                </div>
+              </motion.div>
+            )}
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
               {current.items.map((item, i) => (
                 <motion.div
@@ -537,7 +581,7 @@ const Prodotti = () => {
                       pietre: kintsugiImage,
                       senza_pietre: anelliLisciImage,
                       filamento: ariaImage,
-                      pendenti: mareeFullImage,
+                      pendenti: sbilanciamentoBiancoImage,
                       bracciali: mareeFullImage,
                     };
                     return (
