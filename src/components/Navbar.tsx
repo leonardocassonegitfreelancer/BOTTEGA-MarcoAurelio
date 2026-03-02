@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang, setLang, t } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const homePath = lang === "en" ? "/home/en" : "/home";
 
   const links = [
     { label: t("nav.bottega"), href: "#about" },
@@ -41,10 +44,10 @@ const Navbar = () => {
       }`}
     >
       <div className="container max-w-6xl px-6 flex items-center justify-between h-16 md:h-20">
-        <a href="#" className="font-display text-xl md:text-2xl tracking-wide text-cream">
+        <Link to={homePath} className="font-display text-xl md:text-2xl tracking-wide text-cream">
           <span className="gradient-gold-text font-semibold">BOTTEGA</span>{" "}
           <span className="font-light italic">MarcoAurelio</span>
-        </a>
+        </Link>
 
         {/* Desktop */}
         <div className="hidden md:flex items-center gap-10">
@@ -70,7 +73,14 @@ const Navbar = () => {
           )}
           {/* Language toggle */}
           <button
-            onClick={() => setLang(lang === "it" ? "en" : "it")}
+            onClick={() => {
+              const newLang = lang === "it" ? "en" : "it";
+              setLang(newLang);
+              const isOnHome = location.pathname === "/home" || location.pathname === "/home/en";
+              if (isOnHome) {
+                navigate(newLang === "en" ? "/home/en" : "/home");
+              }
+            }}
             className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-3 py-1.5 hover:border-gold hover:text-gold transition-colors duration-300 text-cream-muted"
           >
             {lang === "it" ? "EN" : "IT"}
@@ -80,7 +90,14 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-3">
           <button
-            onClick={() => setLang(lang === "it" ? "en" : "it")}
+            onClick={() => {
+              const newLang = lang === "it" ? "en" : "it";
+              setLang(newLang);
+              const isOnHome = location.pathname === "/home" || location.pathname === "/home/en";
+              if (isOnHome) {
+                navigate(newLang === "en" ? "/home/en" : "/home");
+              }
+            }}
             className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-2 py-1 text-cream-muted hover:text-gold transition-colors"
           >
             {lang === "it" ? "EN" : "IT"}

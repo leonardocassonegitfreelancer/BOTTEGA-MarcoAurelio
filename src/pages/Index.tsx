@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
@@ -8,6 +11,12 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
 const Index = () => {
+  const { setLang } = useLanguage();
+  const location = useLocation();
+
+  useEffect(() => {
+    setLang(location.pathname === "/home/en" ? "en" : "it");
+  }, [location.pathname, setLang]);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
