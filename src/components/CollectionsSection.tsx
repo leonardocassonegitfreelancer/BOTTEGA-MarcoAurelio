@@ -44,8 +44,8 @@ const CollectionsSection = () => {
   const { t, lang } = useLanguage();
 
   const slugs = lang === "en"
-    ? { fedi: "wedding-bands", pietre: "rings-with-stones", senza_pietre: "rings-without-stones", filamento: "wire-rings" }
-    : { fedi: "fedi-nuziali", pietre: "anelli-con-pietre", senza_pietre: "anelli-senza-pietre", filamento: "anelli-in-filamento" };
+    ? { fedi: "wedding-bands", pietre: "circular-rings", senza_pietre: "square-rings", filamento: "wire-rings" }
+    : { fedi: "fedi-nuziali", pietre: "anelli-circolari", senza_pietre: "anelli-quadrati", filamento: "anelli-in-filamento" };
 
   const collections = [
     {

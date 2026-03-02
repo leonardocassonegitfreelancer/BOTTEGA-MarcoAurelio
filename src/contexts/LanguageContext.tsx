@@ -99,8 +99,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Product categories
     "products.cat.fedi": "Fedi Nuziali",
-    "products.cat.pietre": "Anelli con Pietre",
-    "products.cat.senza_pietre": "Anelli senza Pietre",
+    "products.cat.pietre": "Anelli Circolari",
+    "products.cat.senza_pietre": "Anelli Quadrati",
     "products.cat.filamento": "Anelli in Filamento",
     "products.cat.pendenti": "Pendenti",
     "products.cat.bracciali": "Bracciali",
@@ -114,8 +114,8 @@ const translations: Record<Language, Record<string, string>> = {
     "products.fedi.item3.name": "NiDO Sottile",
     "products.fedi.item3.desc": "Versione sottile, ideale come fede di promessa o quotidiana.",
 
-    "products.pietre.subtitle": "Con Pietre",
-    "products.pietre.desc": "Pietre naturali incastonate a mano — la gemma detta le proporzioni, il ritmo, l'equilibrio dell'opera.",
+    "products.pietre.subtitle": "Circolari",
+    "products.pietre.desc": "Anelli a sezione circolare — la forma che avvolge, senza spigoli. Kintsugi abita qui.",
     "products.pietre.item1.name": "Kintsugi Diamante",
     "products.pietre.item1.desc": "Anello con venature dorate e diamante incastonato.",
     "products.pietre.item2.name": "Kintsugi Rubino",
@@ -157,8 +157,8 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.kintsugi.layerLabel5": "Quinto strato:",
     "products.pietre.kintsugi.closing": "Quello che il metallo raggiunge solo col tempo, indossandolo.",
 
-    "products.senza_pietre.subtitle": "Essenziali",
-    "products.senza_pietre.desc": "La purezza della forma senza pietre. Superfici levigate che esaltano la materia nuda — argento, oro, le loro sfumature.",
+    "products.senza_pietre.subtitle": "Quadrati",
+    "products.senza_pietre.desc": "Sezione quadrata, spigoli vivi — la geometria che non scende a compromessi. INITIVM abita qui.",
     "products.senza_pietre.item1.name": "Fascia Pura",
     "products.senza_pietre.item1.desc": "Anello a fascia in argento lucido, linea pulita e minimale.",
     "products.senza_pietre.item2.name": "Maree Onda",
@@ -305,8 +305,8 @@ const translations: Record<Language, Record<string, string>> = {
 
     // Product categories
     "products.cat.fedi": "Wedding Bands",
-    "products.cat.pietre": "Rings with Stones",
-    "products.cat.senza_pietre": "Rings without Stones",
+    "products.cat.pietre": "Circular Rings",
+    "products.cat.senza_pietre": "Square Rings",
     "products.cat.filamento": "Wire Rings",
     "products.cat.pendenti": "Pendants",
     "products.cat.bracciali": "Bracelets",
@@ -320,8 +320,8 @@ const translations: Record<Language, Record<string, string>> = {
     "products.fedi.item3.name": "NiDO Slim",
     "products.fedi.item3.desc": "Slim version, ideal as a promise or everyday band.",
 
-    "products.pietre.subtitle": "With Stones",
-    "products.pietre.desc": "Natural stones set by hand — the gem dictates the proportions, rhythm and balance of the piece.",
+    "products.pietre.subtitle": "Circular",
+    "products.pietre.desc": "Circular cross-section rings — the form that wraps, without edges. Kintsugi lives here.",
     "products.pietre.item1.name": "Kintsugi Diamond",
     "products.pietre.item1.desc": "Ring with golden veins and set diamond.",
     "products.pietre.item2.name": "Kintsugi Ruby",
@@ -363,8 +363,8 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.kintsugi.layerLabel5": "Fifth layer:",
     "products.pietre.kintsugi.closing": "What the metal achieves only with time, by wearing it.",
 
-    "products.senza_pietre.subtitle": "Essentials",
-    "products.senza_pietre.desc": "The purity of form without stones. Polished surfaces that celebrate raw material — silver, gold, and their shades.",
+    "products.senza_pietre.subtitle": "Square",
+    "products.senza_pietre.desc": "Square cross-section, sharp edges — geometry that makes no compromises. INITIVM lives here.",
     "products.senza_pietre.item1.name": "Pure Band",
     "products.senza_pietre.item1.desc": "Polished silver band, clean and minimal line.",
     "products.senza_pietre.item2.name": "Maree Wave",

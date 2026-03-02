@@ -28,24 +28,29 @@ type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | 
 const slugToCategory: Record<string, Category> = {
   // Italian slugs
   "fedi-nuziali": "fedi",
-  "anelli-con-pietre": "pietre",
-  "anelli-senza-pietre": "senza_pietre",
+  "anelli-circolari": "pietre",
+  "anelli-quadrati": "senza_pietre",
   "anelli-in-filamento": "filamento",
   "pendenti": "pendenti",
   "bracciali": "bracciali",
   // English slugs
   "wedding-bands": "fedi",
-  "rings-with-stones": "pietre",
-  "rings-without-stones": "senza_pietre",
+  "circular-rings": "pietre",
+  "square-rings": "senza_pietre",
   "wire-rings": "filamento",
   "pendants": "pendenti",
   "bracelets": "bracciali",
+  // Legacy slugs (backwards compatibility)
+  "anelli-con-pietre": "pietre",
+  "anelli-senza-pietre": "senza_pietre",
+  "rings-with-stones": "pietre",
+  "rings-without-stones": "senza_pietre",
 };
 
 const categoryToSlugIt: Record<Category, string> = {
   fedi: "fedi-nuziali",
-  pietre: "anelli-con-pietre",
-  senza_pietre: "anelli-senza-pietre",
+  pietre: "anelli-circolari",
+  senza_pietre: "anelli-quadrati",
   filamento: "anelli-in-filamento",
   pendenti: "pendenti",
   bracciali: "bracciali",
@@ -53,8 +58,8 @@ const categoryToSlugIt: Record<Category, string> = {
 
 const categoryToSlugEn: Record<Category, string> = {
   fedi: "wedding-bands",
-  pietre: "rings-with-stones",
-  senza_pietre: "rings-without-stones",
+  pietre: "circular-rings",
+  senza_pietre: "square-rings",
   filamento: "wire-rings",
   pendenti: "pendants",
   bracciali: "bracelets",
@@ -67,12 +72,7 @@ interface ProductItem {
   desc: string;
 }
 
-type PietreSubCollection = "kintsugi" | "initivm";
 
-const validSubCollections: Record<string, PietreSubCollection> = {
-  kintsugi: "kintsugi",
-  initivm: "initivm",
-};
 
 const Prodotti = () => {
   const { t, lang } = useLanguage();
@@ -80,9 +80,7 @@ const Prodotti = () => {
   const navigate = useNavigate();
   const categoryToSlug = lang === "en" ? categoryToSlugEn : categoryToSlugIt;
   const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
-  const resolvedSub = (subcollezione && validSubCollections[subcollezione.toLowerCase()]) || "kintsugi";
   const [active, setActive] = useState<Category>(resolvedCat);
-  const [pietreSubCollection, setPietreSubCollection] = useState<PietreSubCollection>(resolvedSub);
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
   const kintsugiVideoRef = useRef<HTMLVideoElement>(null);
   const isMobile = useIsMobile();
@@ -96,16 +94,7 @@ const Prodotti = () => {
     if (cat) {
       setActive(cat);
     }
-    if (cat === "pietre" && subcollezione) {
-      const sub = validSubCollections[subcollezione.toLowerCase()];
-      if (sub) setPietreSubCollection(sub);
-    }
-  }, [categoria, subcollezione]);
-
-  const handleSubCollectionChange = (sub: PietreSubCollection) => {
-    setPietreSubCollection(sub);
-    navigate(`/prodotti/${categoryToSlug["pietre"]}/${sub}`, { replace: true });
-  };
+  }, [categoria]);
 
   const handleCategoryChange = (key: Category) => {
     setActive(key);
@@ -141,19 +130,15 @@ const Prodotti = () => {
     pietre: {
       subtitle: t("products.pietre.subtitle"),
       description: t("products.pietre.desc"),
-      items: pietreSubCollection === "kintsugi" ? [
+      items: [
         { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage, kintsugiKatanaImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
-      ] : [
-        { image: initivmImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") },
       ],
     },
     senza_pietre: {
       subtitle: t("products.senza_pietre.subtitle"),
       description: t("products.senza_pietre.desc"),
       items: [
-        { image: anelliLisciImage, name: t("products.senza_pietre.item1.name"), desc: t("products.senza_pietre.item1.desc") },
-        { image: mareeImage, name: t("products.senza_pietre.item2.name"), desc: t("products.senza_pietre.item2.desc") },
-        { image: anelliLisciImage, name: t("products.senza_pietre.item3.name"), desc: t("products.senza_pietre.item3.desc") },
+        { image: initivmImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") },
       ],
     },
     filamento: {
@@ -320,151 +305,121 @@ const Prodotti = () => {
                 transition={{ duration: 0.8 }}
                 className="mb-12 md:mb-16"
               >
-                {/* Sub-collection switcher */}
-                <div className="flex justify-center mb-8 md:mb-12">
-                  <div className="inline-flex border border-gold/30 overflow-hidden">
-                    {(["kintsugi", "initivm"] as PietreSubCollection[]).map((sub) => (
-                      <button
-                        key={sub}
-                        onClick={() => handleSubCollectionChange(sub)}
-                        className={`px-6 md:px-10 py-2.5 md:py-3 text-xs tracking-[0.2em] uppercase font-body transition-all duration-300 ${
-                          pietreSubCollection === sub
-                            ? "bg-gold/15 text-gold border-gold"
-                            : "text-cream-muted hover:text-cream hover:bg-gold/5"
-                        }`}
-                      >
-                        {t(`products.pietre.switcher.${sub}`)}
-                      </button>
-                    ))}
-                  </div>
+                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                  <video
+                    ref={kintsugiVideoRef}
+                    src="/kintsugi-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    poster={kintsugiStratiImage}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
 
-                <AnimatePresence mode="wait">
-                  {pietreSubCollection === "kintsugi" ? (
-                    <motion.div
-                      key="kintsugi"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
-                        <video
-                          ref={kintsugiVideoRef}
-                          src="/kintsugi-intro.mp4"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="auto"
-                          poster={kintsugiStratiImage}
-                          className="w-full h-full object-cover"
-                          style={{ backgroundColor: "hsl(var(--background))" }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                      </div>
+                <div className="max-w-3xl mx-auto space-y-6 text-center">
+                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                    {t("products.pietre.kintsugi.motto")}
+                  </p>
+                  <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
+                    KINTSUGI<span className="text-gold">.</span>
+                  </h3>
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                    {t("products.pietre.kintsugi.story").split("{gold}").map((part, i) => {
+                      if (i === 0) return part;
+                      const [gold, rest] = part.split("{/gold}");
+                      return <span key={i}><span className="text-gold not-italic">{gold}</span>{rest}</span>;
+                    })}
+                  </p>
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  <div className="flex items-center justify-center gap-6 md:gap-8">
+                    <p className="text-gold font-display text-2xl md:text-3xl leading-tight tracking-wide">
+                      金<br />継<br />層
+                    </p>
+                    <div className="text-left">
+                      <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">{t("products.pietre.kintsugi.strati.title")}</p>
+                      <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md whitespace-pre-line">
+                        {t("products.pietre.kintsugi.strati.desc")}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  <div className="space-y-4 text-left max-w-lg mx-auto">
+                    {[1, 2, 3, 4, 5].map((n) => (
+                      <p key={n} className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                        <span className="text-gold font-display">{t(`products.pietre.kintsugi.layerLabel${n}`)}</span> {t(`products.pietre.kintsugi.layer${n}`)}
+                      </p>
+                    ))}
+                  </div>
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
+                    {t("products.pietre.kintsugi.closing")}
+                  </p>
+                  <button
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                  >
+                    {t("form.title")}
+                  </button>
+                </div>
+              </motion.div>
+            )}
 
-                      <div className="max-w-3xl mx-auto space-y-6 text-center">
-                        <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
-                          {t("products.pietre.kintsugi.motto")}
-                        </p>
-                        <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
-                          KINTSUGI<span className="text-gold">.</span>
-                        </h3>
-                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
-                          {t("products.pietre.kintsugi.story").split("{gold}").map((part, i) => {
-                            if (i === 0) return part;
-                            const [gold, rest] = part.split("{/gold}");
-                            return <span key={i}><span className="text-gold not-italic">{gold}</span>{rest}</span>;
-                          })}
-                        </p>
-                        <div className="w-12 h-px bg-gold/40 mx-auto" />
-                        <div className="flex items-center justify-center gap-6 md:gap-8">
-                          <p className="text-gold font-display text-2xl md:text-3xl leading-tight tracking-wide">
-                            金<br />継<br />層
-                          </p>
-                          <div className="text-left">
-                            <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">{t("products.pietre.kintsugi.strati.title")}</p>
-                            <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md whitespace-pre-line">
-                              {t("products.pietre.kintsugi.strati.desc")}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="w-12 h-px bg-gold/40 mx-auto" />
-                        <div className="space-y-4 text-left max-w-lg mx-auto">
-                          {[1, 2, 3, 4, 5].map((n) => (
-                            <p key={n} className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                              <span className="text-gold font-display">{t(`products.pietre.kintsugi.layerLabel${n}`)}</span> {t(`products.pietre.kintsugi.layer${n}`)}
-                            </p>
-                          ))}
-                        </div>
-                        <div className="w-12 h-px bg-gold/40 mx-auto" />
-                        <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
-                          {t("products.pietre.kintsugi.closing")}
-                        </p>
-                        <button
-                          onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                          className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
-                        >
-                          {t("form.title")}
-                        </button>
-                      </div>
-                    </motion.div>
-                  ) : (
-                    <motion.div
-                      key="initivm"
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -20 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      {/* INITIVM intro video */}
-                      <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
-                        <video
-                          src="/initivm-intro.mp4"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          preload="auto"
-                          poster={initivmImage}
-                          className="w-full h-full object-cover"
-                          style={{ backgroundColor: "hsl(var(--background))" }}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
-                      </div>
+            {/* INITIVM intro for square rings */}
+            {active === "senza_pietre" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="mb-12 md:mb-16"
+              >
+                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                  <video
+                    src="/initivm-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    poster={initivmImage}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                </div>
 
-                      <div className="max-w-3xl mx-auto space-y-6 text-center">
-                        <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
-                          {t("products.pietre.initivm.subtitle")}
-                        </p>
-                        <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
-                          INITIVM<span className="text-gold">.</span>
-                        </h3>
-                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
-                          {t("products.pietre.initivm.story")}
-                        </p>
+                <div className="max-w-3xl mx-auto space-y-6 text-center">
+                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                    {t("products.pietre.initivm.subtitle")}
+                  </p>
+                  <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
+                    INITIVM<span className="text-gold">.</span>
+                  </h3>
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                    {t("products.pietre.initivm.story")}
+                  </p>
 
-                        <div className="w-12 h-px bg-gold/40 mx-auto" />
+                  <div className="w-12 h-px bg-gold/40 mx-auto" />
 
-                        <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed">
-                          {t("products.pietre.initivm.material")}
-                        </p>
+                  <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed">
+                    {t("products.pietre.initivm.material")}
+                  </p>
 
-                        <p className="text-cream font-body text-sm md:text-base leading-relaxed font-medium">
-                          Manifattura: <span className="text-gold">{t("products.pietre.initivm.price")}</span> ≈ {t("products.pietre.initivm.priceAlt")}
-                        </p>
+                  <p className="text-cream font-body text-sm md:text-base leading-relaxed font-medium">
+                    Manifattura: <span className="text-gold">{t("products.pietre.initivm.price")}</span> ≈ {t("products.pietre.initivm.priceAlt")}
+                  </p>
 
-                        <button
-                          onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                          className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
-                        >
-                          {t("form.title")}
-                        </button>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                  <button
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                  >
+                    {t("form.title")}
+                  </button>
+                </div>
               </motion.div>
             )}
 
@@ -557,8 +512,8 @@ const Prodotti = () => {
                 </div>
                 <WhatsAppContactForm defaultCategory={active} defaultCollection={
                   active === "fedi" ? "nido" :
-                  active === "pietre" ? pietreSubCollection :
-                  active === "senza_pietre" ? "maree" :
+                  active === "pietre" ? "kintsugi" :
+                  active === "senza_pietre" ? "initivm" :
                   active === "filamento" ? "aria" :
                   ""
                 } compact />
