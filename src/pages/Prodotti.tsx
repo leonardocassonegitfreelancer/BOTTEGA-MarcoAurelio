@@ -212,6 +212,15 @@ const Prodotti = () => {
                     Manifattura: <span className="text-gold">790 €</span> ≈ ~440 gr di rottami d'argento 925<br />
                     <span className="text-cream-muted/60">(valutazione +10% rispetto alla quotazione di ritiro media a Roma – 22-02-26)</span>
                   </p>
+
+                  <a
+                    href={`https://wa.me/393482762842?text=${encodeURIComponent("Salve, sono interessato a questo anello in filamento.\n\nUlteriori dettagli: scrivi qui gli ulteriori dettagli")}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-4 px-8 py-4 bg-gold text-background font-body text-sm md:text-base tracking-[0.15em] uppercase font-medium hover:bg-gold/90 transition-colors duration-300"
+                  >
+                    Richiedi Informazioni
+                  </a>
                 </div>
               </motion.div>
             )}
