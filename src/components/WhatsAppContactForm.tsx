@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Send } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Send, Ruler } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { z } from "zod";
 
@@ -140,6 +140,26 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
           </select>
           {errors.category && <p className="text-red-400 text-xs mt-1 font-body">{errors.category}</p>}
         </div>
+
+        {/* Promemoria misura */}
+        <AnimatePresence>
+          {["fedi", "pietre", "senza_pietre", "filamento", "bracciali"].includes(category) && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="overflow-hidden"
+            >
+              <div className="flex items-start gap-3 p-4 border border-gold/20 bg-gold/5 rounded-sm">
+                <Ruler className="w-4 h-4 text-gold mt-0.5 shrink-0" />
+                <p className="text-xs text-cream-muted font-body leading-relaxed">
+                  {t("form.sizeReminder")}
+                </p>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {/* Collezione (dopo) */}
         <div>
