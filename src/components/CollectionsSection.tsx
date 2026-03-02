@@ -41,7 +41,11 @@ const CollectionCard = ({ image, title, subtitle, description, alt, index, categ
 );
 
 const CollectionsSection = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
+
+  const slugs = lang === "en"
+    ? { fedi: "wedding-bands", pietre: "rings-with-stones", senza_pietre: "rings-without-stones", filamento: "wire-rings" }
+    : { fedi: "fedi-nuziali", pietre: "anelli-con-pietre", senza_pietre: "anelli-senza-pietre", filamento: "anelli-in-filamento" };
 
   const collections = [
     {
@@ -50,7 +54,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.nido.desc"),
       alt: t("collections.nido.alt"),
-      categoryLink: "/prodotti/fedi-nuziali",
+      categoryLink: `/prodotti/${slugs.fedi}`,
     },
     {
       image: mareeImage,
@@ -58,7 +62,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.maree.desc"),
       alt: t("collections.maree.alt"),
-      categoryLink: "/prodotti/anelli-senza-pietre",
+      categoryLink: `/prodotti/${slugs.senza_pietre}`,
     },
     {
       image: kintsugiImage,
@@ -66,7 +70,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.kintsugi.desc"),
       alt: t("collections.kintsugi.alt"),
-      categoryLink: "/prodotti/anelli-con-pietre",
+      categoryLink: `/prodotti/${slugs.pietre}`,
     },
     {
       image: ariaImage,
@@ -74,7 +78,7 @@ const CollectionsSection = () => {
       subtitle: t("collections.subtitle"),
       description: t("collections.aria.desc"),
       alt: t("collections.aria.alt"),
-      categoryLink: "/prodotti/anelli-in-filamento",
+      categoryLink: `/prodotti/${slugs.filamento}`,
     },
   ];
 

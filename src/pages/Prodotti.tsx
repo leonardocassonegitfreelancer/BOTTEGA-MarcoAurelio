@@ -16,21 +16,38 @@ import mareeFullImage from "@/assets/maree.jpg";
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
 const slugToCategory: Record<string, Category> = {
+  // Italian slugs
   "fedi-nuziali": "fedi",
   "anelli-con-pietre": "pietre",
   "anelli-senza-pietre": "senza_pietre",
   "anelli-in-filamento": "filamento",
   "pendenti": "pendenti",
   "bracciali": "bracciali",
+  // English slugs
+  "wedding-bands": "fedi",
+  "rings-with-stones": "pietre",
+  "rings-without-stones": "senza_pietre",
+  "wire-rings": "filamento",
+  "pendants": "pendenti",
+  "bracelets": "bracciali",
 };
 
-const categoryToSlug: Record<Category, string> = {
+const categoryToSlugIt: Record<Category, string> = {
   fedi: "fedi-nuziali",
   pietre: "anelli-con-pietre",
   senza_pietre: "anelli-senza-pietre",
   filamento: "anelli-in-filamento",
   pendenti: "pendenti",
   bracciali: "bracciali",
+};
+
+const categoryToSlugEn: Record<Category, string> = {
+  fedi: "wedding-bands",
+  pietre: "rings-with-stones",
+  senza_pietre: "rings-without-stones",
+  filamento: "wire-rings",
+  pendenti: "pendants",
+  bracciali: "bracelets",
 };
 
 interface ProductItem {
@@ -40,9 +57,10 @@ interface ProductItem {
 }
 
 const Prodotti = () => {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const { categoria } = useParams<{ categoria?: string }>();
   const navigate = useNavigate();
+  const categoryToSlug = lang === "en" ? categoryToSlugEn : categoryToSlugIt;
   const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
   const [active, setActive] = useState<Category>(resolvedCat);
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
