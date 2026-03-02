@@ -14,8 +14,8 @@ const TestimonialSection = () => {
         >
           <Quote className="w-8 h-8 text-gold mx-auto mb-8 opacity-60" />
 
-          <blockquote className="text-lg md:text-2xl font-display font-light text-cream leading-relaxed md:leading-relaxed mb-8">
-            "Opere d'arte uniche, capolavori. Una persona eccezionale. Nel laboratorio si assapora la passione di chi ha dedicato la vita a un'arte che sta scomparendo. Perché qui si parla di un artista vero."
+          <blockquote className="text-lg md:text-2xl font-display font-light text-cream leading-relaxed md:leading-relaxed mb-8 whitespace-pre-line">
+            {"\"Opere d'arte uniche, capolavori.\nUna persona eccezionale.\nNel laboratorio si assapora la passione di chi ha dedicato la vita a un'arte che sta scomparendo.\nPerché qui si parla di un artista vero.\""}
           </blockquote>
 
           <div className="flex items-center justify-center gap-3">
