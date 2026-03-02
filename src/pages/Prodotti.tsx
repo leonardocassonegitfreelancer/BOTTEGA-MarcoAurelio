@@ -280,7 +280,7 @@ const Prodotti = () => {
                   </p>
 
                   <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" })}
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
                     className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
                   >
                     {t("form.title")}
