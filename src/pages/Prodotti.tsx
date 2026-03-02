@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -15,6 +15,24 @@ import mareeFullImage from "@/assets/maree.jpg";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali";
 
+const slugToCategory: Record<string, Category> = {
+  "fedi-nuziali": "fedi",
+  "anelli-con-pietre": "pietre",
+  "anelli-senza-pietre": "senza_pietre",
+  "anelli-in-filamento": "filamento",
+  "pendenti": "pendenti",
+  "bracciali": "bracciali",
+};
+
+const categoryToSlug: Record<Category, string> = {
+  fedi: "fedi-nuziali",
+  pietre: "anelli-con-pietre",
+  senza_pietre: "anelli-senza-pietre",
+  filamento: "anelli-in-filamento",
+  pendenti: "pendenti",
+  bracciali: "bracciali",
+};
+
 interface ProductItem {
   image: string;
   name: string;
@@ -23,26 +41,30 @@ interface ProductItem {
 
 const Prodotti = () => {
   const { t } = useLanguage();
-  const [searchParams] = useSearchParams();
-  const validCategories: Category[] = ["fedi", "pietre", "senza_pietre", "filamento", "pendenti", "bracciali"];
-  const initialCat = validCategories.includes(searchParams.get("cat") as Category)
-    ? (searchParams.get("cat") as Category)
-    : "fedi";
-  const [active, setActive] = useState<Category>(initialCat);
+  const { categoria } = useParams<{ categoria?: string }>();
+  const navigate = useNavigate();
+  const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
+  const [active, setActive] = useState<Category>(resolvedCat);
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    const cat = searchParams.get("cat") as Category;
-    if (validCategories.includes(cat)) {
+    const cat = categoria && slugToCategory[categoria];
+    if (cat) {
       setActive(cat);
     }
-  }, [searchParams]);
+  }, [categoria]);
+
+  const handleCategoryChange = (key: Category) => {
+    setActive(key);
+    navigate(`/prodotti/${categoryToSlug[key]}`, { replace: true });
+  };
 
   useEffect(() => {
     if (active === "filamento") {
       ariaVideoRef.current?.load();
     }
   }, [active]);
+
   const categories: { key: Category; label: string }[] = [
     { key: "fedi", label: t("products.cat.fedi") },
     { key: "pietre", label: t("products.cat.pietre") },
@@ -146,7 +168,7 @@ const Prodotti = () => {
           {categories.map((cat) => (
             <button
               key={cat.key}
-              onClick={() => setActive(cat.key)}
+              onClick={() => handleCategoryChange(cat.key)}
               className={`px-3 md:px-4 py-1.5 md:py-2 text-[10px] md:text-xs tracking-[0.12em] md:tracking-[0.15em] uppercase font-body border transition-all duration-300 whitespace-nowrap flex-shrink-0 ${
                 active === cat.key
                   ? "border-gold text-gold bg-gold/10"
