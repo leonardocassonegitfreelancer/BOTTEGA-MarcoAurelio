@@ -122,6 +122,19 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.item3.name": "Solitario Maree",
     "products.pietre.item3.desc": "Anello con superficie ondulata e diamante centrale.",
 
+    // INITIVM sub-collection
+    "products.pietre.initivm.title": "INITIVM",
+    "products.pietre.initivm.subtitle": "Un nuovo inizio scritto nel metallo.",
+    "products.pietre.initivm.story": "Ogni pietra è un punto di partenza. INITIVM nasce dove la materia grezza incontra l'intenzione — un gesto che segna l'origine di qualcosa che non esisteva prima.",
+    "products.pietre.initivm.item1.name": "INITIVM Anello",
+    "products.pietre.initivm.item1.desc": "Anello con pietra naturale incastonata, forgiato a mano.",
+    "products.pietre.initivm.item2.name": "INITIVM Fascia",
+    "products.pietre.initivm.item2.desc": "Fascia con pietra preziosa, finitura satinata e oro.",
+    "products.pietre.initivm.item3.name": "INITIVM Solitario",
+    "products.pietre.initivm.item3.desc": "Solitario con gemma centrale, design essenziale.",
+    "products.pietre.switcher.kintsugi": "Kintsugi",
+    "products.pietre.switcher.initivm": "INITIVM",
+
     "products.senza_pietre.subtitle": "Essenziali",
     "products.senza_pietre.desc": "La purezza della forma senza pietre. Superfici levigate che esaltano la materia nuda — argento, oro, le loro sfumature.",
     "products.senza_pietre.item1.name": "Fascia Pura",
@@ -277,6 +290,19 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pietre.item2.desc": "Wide band with golden fracture and natural ruby.",
     "products.pietre.item3.name": "Maree Solitaire",
     "products.pietre.item3.desc": "Ring with wave-textured surface and central diamond.",
+
+    // INITIVM sub-collection
+    "products.pietre.initivm.title": "INITIVM",
+    "products.pietre.initivm.subtitle": "A new beginning written in metal.",
+    "products.pietre.initivm.story": "Every stone is a starting point. INITIVM is born where raw material meets intention — a gesture that marks the origin of something that didn't exist before.",
+    "products.pietre.initivm.item1.name": "INITIVM Ring",
+    "products.pietre.initivm.item1.desc": "Ring with natural stone setting, hand-forged.",
+    "products.pietre.initivm.item2.name": "INITIVM Band",
+    "products.pietre.initivm.item2.desc": "Band with precious stone, satin and gold finish.",
+    "products.pietre.initivm.item3.name": "INITIVM Solitaire",
+    "products.pietre.initivm.item3.desc": "Solitaire with central gem, essential design.",
+    "products.pietre.switcher.kintsugi": "Kintsugi",
+    "products.pietre.switcher.initivm": "INITIVM",
 
     "products.senza_pietre.subtitle": "Essentials",
     "products.senza_pietre.desc": "The purity of form without stones. Polished surfaces that celebrate raw material — silver, gold, and their shades.",

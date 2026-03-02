@@ -64,6 +64,8 @@ interface ProductItem {
   desc: string;
 }
 
+type PietreSubCollection = "kintsugi" | "initivm";
+
 const Prodotti = () => {
   const { t, lang } = useLanguage();
   const { categoria } = useParams<{ categoria?: string }>();
@@ -71,7 +73,9 @@ const Prodotti = () => {
   const categoryToSlug = lang === "en" ? categoryToSlugEn : categoryToSlugIt;
   const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
   const [active, setActive] = useState<Category>(resolvedCat);
+  const [pietreSubCollection, setPietreSubCollection] = useState<PietreSubCollection>("kintsugi");
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
+  const kintsugiVideoRef = useRef<HTMLVideoElement>(null);
   const isMobile = useIsMobile();
 
   useEffect(() => {
@@ -119,8 +123,12 @@ const Prodotti = () => {
     pietre: {
       subtitle: t("products.pietre.subtitle"),
       description: t("products.pietre.desc"),
-      items: [
+      items: pietreSubCollection === "kintsugi" ? [
         { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
+      ] : [
+        { image: kintsugiImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") },
+        { image: kintsugiImage, name: t("products.pietre.initivm.item2.name"), desc: t("products.pietre.initivm.item2.desc") },
+        { image: kintsugiImage, name: t("products.pietre.initivm.item3.name"), desc: t("products.pietre.initivm.item3.desc") },
       ],
     },
     senza_pietre: {
@@ -291,7 +299,6 @@ const Prodotti = () => {
               </motion.div>
             )}
 
-            {/* KINTSUGI collection intro */}
             {active === "pietre" && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -299,85 +306,142 @@ const Prodotti = () => {
                 transition={{ duration: 0.8 }}
                 className="mb-12 md:mb-16"
               >
-                <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
-                  <video
-                    src="/kintsugi-intro.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    poster={kintsugiStratiImage}
-                    className="w-full h-full object-cover"
-                    style={{ backgroundColor: "hsl(var(--background))" }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                {/* Sub-collection switcher */}
+                <div className="flex justify-center mb-8 md:mb-12">
+                  <div className="inline-flex border border-gold/30 overflow-hidden">
+                    {(["kintsugi", "initivm"] as PietreSubCollection[]).map((sub) => (
+                      <button
+                        key={sub}
+                        onClick={() => setPietreSubCollection(sub)}
+                        className={`px-6 md:px-10 py-2.5 md:py-3 text-xs tracking-[0.2em] uppercase font-body transition-all duration-300 ${
+                          pietreSubCollection === sub
+                            ? "bg-gold/15 text-gold border-gold"
+                            : "text-cream-muted hover:text-cream hover:bg-gold/5"
+                        }`}
+                      >
+                        {t(`products.pietre.switcher.${sub}`)}
+                      </button>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="max-w-3xl mx-auto space-y-6 text-center">
-                  <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
-                    Non nascondo nulla, tutto ciò che ho vissuto è oro.
-                  </p>
+                <AnimatePresence mode="wait">
+                  {pietreSubCollection === "kintsugi" ? (
+                    <motion.div
+                      key="kintsugi"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                        <video
+                          ref={kintsugiVideoRef}
+                          src="/kintsugi-intro.mp4"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          preload="auto"
+                          poster={kintsugiStratiImage}
+                          className="w-full h-full object-cover"
+                          style={{ backgroundColor: "hsl(var(--background))" }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                      </div>
 
-                  <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
-                    KINTSUGI<span className="text-gold">.</span>
-                  </h3>
+                      <div className="max-w-3xl mx-auto space-y-6 text-center">
+                        <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                          Non nascondo nulla, tutto ciò che ho vissuto è oro.
+                        </p>
+                        <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
+                          KINTSUGI<span className="text-gold">.</span>
+                        </h3>
+                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                          Luce e frattura.<br />
+                          La materia si spezza, l'oro non nasconde: <span className="text-gold not-italic">rivela</span>.<br />
+                          Ogni segno inciso è una dichiarazione.
+                        </p>
+                        <div className="w-12 h-px bg-gold/40 mx-auto" />
+                        <div className="flex items-center justify-center gap-6 md:gap-8">
+                          <p className="text-gold font-display text-2xl md:text-3xl leading-tight tracking-wide">
+                            金<br />継<br />層
+                          </p>
+                          <div className="text-left">
+                            <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">Strati</p>
+                            <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md">
+                              Questo Kintsugi non ha un solo livello.<br />
+                              Ha strati. Come le storie che non si risolvono mai in una volta sola.
+                            </p>
+                          </div>
+                        </div>
+                        <div className="w-12 h-px bg-gold/40 mx-auto" />
+                        <div className="space-y-4 text-left max-w-lg mx-auto">
+                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                            <span className="text-gold font-display">Primo strato:</span> l'anello. La forma che regge tutto.
+                          </p>
+                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                            <span className="text-gold font-display">Secondo strato:</span> diamante. Non per brillare. Decide il disegno.
+                          </p>
+                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                            <span className="text-gold font-display">Terzo strato:</span> l'incisione profonda. Qui l'oro non è decorazione: viene depositato dentro la ferita.
+                          </p>
+                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                            <span className="text-gold font-display">Quarto strato:</span> una seconda incisione, fitta, da 0,2 millimetri. Microsolchi ravvicinati, bruniti e ossidati a nero in profondità. È la memoria che resta sotto.
+                          </p>
+                          <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                            <span className="text-gold font-display">Quinto strato:</span> carteggio a bianco delle superfici. Il nero superficiale arretra. Restano le incisioni nere, il loro contrasto con l'oro, la materia viva. È l'aspetto definitivo.
+                          </p>
+                        </div>
+                        <div className="w-12 h-px bg-gold/40 mx-auto" />
+                        <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
+                          Quello che il metallo raggiunge solo col tempo, indossandolo.
+                        </p>
+                        <button
+                          onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                          className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                        >
+                          {t("form.title")}
+                        </button>
+                      </div>
+                    </motion.div>
+                  ) : (
+                    <motion.div
+                      key="initivm"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -20 }}
+                      transition={{ duration: 0.4 }}
+                    >
+                      {/* INITIVM intro — placeholder video/image */}
+                      <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                        <div className="w-full h-full flex items-center justify-center bg-background border border-gold/10">
+                          <p className="text-cream-muted font-body text-xs tracking-[0.2em] uppercase">Video in arrivo</p>
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                      </div>
 
-                  <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
-                    Luce e frattura.<br />
-                    La materia si spezza, l'oro non nasconde: <span className="text-gold not-italic">rivela</span>.<br />
-                    Ogni segno inciso è una dichiarazione.
-                  </p>
-
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-
-                  {/* Strati */}
-                  <div className="flex items-center justify-center gap-6 md:gap-8">
-                    <p className="text-gold font-display text-2xl md:text-3xl leading-tight tracking-wide">
-                      金<br />継<br />層
-                    </p>
-                    <div className="text-left">
-                      <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">Strati</p>
-                      <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed max-w-md">
-                        Questo Kintsugi non ha un solo livello.<br />
-                        Ha strati. Come le storie che non si risolvono mai in una volta sola.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-
-                  <div className="space-y-4 text-left max-w-lg mx-auto">
-                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                      <span className="text-gold font-display">Primo strato:</span> l'anello. La forma che regge tutto.
-                    </p>
-                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                      <span className="text-gold font-display">Secondo strato:</span> diamante. Non per brillare. Decide il disegno.
-                    </p>
-                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                      <span className="text-gold font-display">Terzo strato:</span> l'incisione profonda. Qui l'oro non è decorazione: viene depositato dentro la ferita.
-                    </p>
-                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                      <span className="text-gold font-display">Quarto strato:</span> una seconda incisione, fitta, da 0,2 millimetri. Microsolchi ravvicinati, bruniti e ossidati a nero in profondità. È la memoria che resta sotto.
-                    </p>
-                    <p className="text-cream font-body text-xs md:text-sm leading-relaxed">
-                      <span className="text-gold font-display">Quinto strato:</span> carteggio a bianco delle superfici. Il nero superficiale arretra. Restano le incisioni nere, il loro contrasto con l'oro, la materia viva. È l'aspetto definitivo.
-                    </p>
-                  </div>
-
-                  <div className="w-12 h-px bg-gold/40 mx-auto" />
-
-                  <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
-                    Quello che il metallo raggiunge solo col tempo, indossandolo.
-                  </p>
-
-                  <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
-                  >
-                    {t("form.title")}
-                  </button>
-                </div>
+                      <div className="max-w-3xl mx-auto space-y-6 text-center">
+                        <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase mb-2">
+                          {t("products.pietre.initivm.subtitle")}
+                        </p>
+                        <h3 className="text-3xl md:text-5xl font-display font-light text-cream">
+                          INITIVM<span className="text-gold">.</span>
+                        </h3>
+                        <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
+                          {t("products.pietre.initivm.story")}
+                        </p>
+                        <div className="w-12 h-px bg-gold/40 mx-auto" />
+                        <button
+                          onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                          className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                        >
+                          {t("form.title")}
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
             )}
 
