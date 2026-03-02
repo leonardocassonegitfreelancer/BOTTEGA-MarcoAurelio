@@ -17,6 +17,10 @@ const Index = () => {
   useEffect(() => {
     setLang(location.pathname === "/home/en" ? "en" : "it");
   }, [location.pathname, setLang]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <Navbar />

@@ -264,9 +264,6 @@ const Prodotti = () => {
                     <span className="text-cream-muted/60">(valutazione +10% rispetto alla quotazione di ritiro media a Roma – 22-02-26)</span>
                   </p>
 
-                  <div className="mt-8">
-                    <WhatsAppContactForm defaultCategory="filamento" compact />
-                  </div>
                 </div>
               </motion.div>
             )}
