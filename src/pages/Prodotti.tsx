@@ -35,6 +35,10 @@ import sangue1Image from "@/assets/sangue-1.png";
 import sangue2Image from "@/assets/sangue-2.png";
 import sangue3Image from "@/assets/sangue-3.png";
 import sangue4Image from "@/assets/sangue-4.png";
+import sbilBianco1Image from "@/assets/sbilanciamento-bianco-1.png";
+import sbilBianco2Image from "@/assets/sbilanciamento-bianco-2.png";
+import sbilBianco3Image from "@/assets/sbilanciamento-bianco-3.png";
+import sbilBianco4Image from "@/assets/sbilanciamento-bianco-4.png";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
@@ -671,9 +675,25 @@ const Prodotti = () => {
 
                   <div className="w-12 h-px bg-gold/40 mx-auto" />
 
+                </div>
+
+                {/* Sbilanciamento di Bianco product carousel */}
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 mt-10 md:mt-14">
+                  <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="group">
+                    <div className="relative overflow-hidden mb-4">
+                      <ProductImageCarousel images={[sbilBianco1Image, sbilBianco2Image, sbilBianco3Image, sbilBianco4Image]} alt="Uno Sbilanciamento di Bianco" />
+                      <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
+                    </div>
+                    <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">Uno Sbilanciamento di Bianco</h3>
+                    <p className="text-cream-muted font-body text-xs leading-relaxed">{t("products.pendenti.sbilanciamento.material")}</p>
+                  </motion.div>
+                </div>
+
+                {/* CTA */}
+                <div className="text-center mt-10 md:mt-14">
                   <button
                     onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
                   >
                     {t("form.title")}
                   </button>
