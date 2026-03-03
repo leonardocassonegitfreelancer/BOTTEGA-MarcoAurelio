@@ -63,7 +63,7 @@ const slugToCategory: Record<string, Category> = {
   "anelli-con-pietre": "pietre",
   "anelli-senza-pietre": "senza_pietre",
   "rings-with-stones": "pietre",
-  "rings-without-stones": "senza_pietre",
+  "rings-without-stones": "senza_pietre"
 };
 
 const categoryToSlugIt: Record<Category, string> = {
@@ -73,7 +73,7 @@ const categoryToSlugIt: Record<Category, string> = {
   filamento: "anelli-in-filamento",
   pendenti: "pendenti",
   bracciali: "bracciali",
-  pezzi_unici: "pezzi-unici",
+  pezzi_unici: "pezzi-unici"
 };
 
 const categoryToSlugEn: Record<Category, string> = {
@@ -83,7 +83,7 @@ const categoryToSlugEn: Record<Category, string> = {
   filamento: "wire-rings",
   pendenti: "pendants",
   bracciali: "bracelets",
-  pezzi_unici: "unique-pieces",
+  pezzi_unici: "unique-pieces"
 };
 
 interface ProductItem {
@@ -97,10 +97,10 @@ interface ProductItem {
 
 const Prodotti = () => {
   const { t, lang } = useLanguage();
-  const { categoria, subcollezione } = useParams<{ categoria?: string; subcollezione?: string }>();
+  const { categoria, subcollezione } = useParams<{categoria?: string;subcollezione?: string;}>();
   const navigate = useNavigate();
   const categoryToSlug = lang === "en" ? categoryToSlugEn : categoryToSlugIt;
-  const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
+  const resolvedCat = categoria && slugToCategory[categoria] || "fedi";
   const [active, setActive] = useState<Category>(resolvedCat);
   const [pendantSelection, setPendantSelection] = useState("");
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
@@ -130,73 +130,73 @@ const Prodotti = () => {
     }
   }, [active]);
 
-  const categories: { key: Category; label: string }[] = [
-    { key: "fedi", label: t("products.cat.fedi") },
-    { key: "pietre", label: t("products.cat.pietre") },
-    { key: "senza_pietre", label: t("products.cat.senza_pietre") },
-    { key: "filamento", label: t("products.cat.filamento") },
-    { key: "pendenti", label: t("products.cat.pendenti") },
-    { key: "bracciali", label: t("products.cat.bracciali") },
-    { key: "pezzi_unici", label: t("products.cat.pezzi_unici") },
-  ];
+  const categories: {key: Category;label: string;}[] = [
+  { key: "fedi", label: t("products.cat.fedi") },
+  { key: "pietre", label: t("products.cat.pietre") },
+  { key: "senza_pietre", label: t("products.cat.senza_pietre") },
+  { key: "filamento", label: t("products.cat.filamento") },
+  { key: "pendenti", label: t("products.cat.pendenti") },
+  { key: "bracciali", label: t("products.cat.bracciali") },
+  { key: "pezzi_unici", label: t("products.cat.pezzi_unici") }];
 
-  const products: Record<Category, { subtitle: string; description: string; items: ProductItem[] }> = {
+
+  const products: Record<Category, {subtitle: string;description: string;items: ProductItem[];}> = {
     fedi: {
       subtitle: t("products.fedi.subtitle"),
       description: t("products.fedi.desc"),
       items: [
-        { image: nidoImage, name: t("products.fedi.item1.name"), desc: t("products.fedi.item1.desc") },
-        { image: nidoImage, name: t("products.fedi.item2.name"), desc: t("products.fedi.item2.desc") },
-        { image: nidoImage, name: t("products.fedi.item3.name"), desc: t("products.fedi.item3.desc") },
-      ],
+      { image: nidoImage, name: t("products.fedi.item1.name"), desc: t("products.fedi.item1.desc") },
+      { image: nidoImage, name: t("products.fedi.item2.name"), desc: t("products.fedi.item2.desc") },
+      { image: nidoImage, name: t("products.fedi.item3.name"), desc: t("products.fedi.item3.desc") }]
+
     },
     pietre: {
       subtitle: t("products.pietre.subtitle"),
       description: t("products.pietre.desc"),
       items: [
-        { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage, kintsugiKatanaImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
-        { image: mvtaraNebvla1Image, images: [mvtaraNebvla1Image, mvtaraNebvla2Image], name: t("products.pietre.mvtara.name"), desc: t("products.pietre.mvtara.desc") },
-      ],
+      { image: kintsugiImage, images: [kintsugiImage, kintsugiStratiDetailImage, kintsugiKatanaImage], name: t("products.pietre.item1.name"), desc: t("products.pietre.item1.desc") },
+      { image: mvtaraNebvla1Image, images: [mvtaraNebvla1Image, mvtaraNebvla2Image], name: t("products.pietre.mvtara.name"), desc: t("products.pietre.mvtara.desc") }]
+
     },
     senza_pietre: {
       subtitle: t("products.senza_pietre.subtitle"),
       description: t("products.senza_pietre.desc"),
       items: [
-        { image: initivmImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") },
-      ],
+      { image: initivmImage, name: t("products.pietre.initivm.item1.name"), desc: t("products.pietre.initivm.item1.desc") }]
+
     },
     filamento: {
       subtitle: t("products.filamento.subtitle"),
       description: t("products.filamento.desc"),
       items: [
-        { image: ariaImage, images: [ariaImage, ariaLetteraDImage], name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
-        { image: navtilvs1Image, images: [navtilvs1Image, navtilvs2Image], name: t("products.filamento.navtilvs.name"), desc: t("products.filamento.navtilvs.desc") },
-      ],
+      { image: ariaImage, images: [ariaImage, ariaLetteraDImage], name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
+      { image: navtilvs1Image, images: [navtilvs1Image, navtilvs2Image], name: t("products.filamento.navtilvs.name"), desc: t("products.filamento.navtilvs.desc") }]
+
     },
     pendenti: {
       subtitle: t("products.pendenti.subtitle"),
       description: t("products.pendenti.desc"),
       items: [
-        { image: sbilanciamentoBiancoImage, images: [sbilanciamentoBiancoImage, sbilanciamentoLateraleImage, sbilanciamentoDettaglioImage], name: t("products.pendenti.sbilanciamento.name"), desc: t("products.pendenti.sbilanciamento.material") },
-        { image: sangue1Image, images: [sangue1Image, sangue2Image, sangue3Image, sangue4Image], name: t("products.pendenti.sangue.name"), desc: t("products.pendenti.sangue.material") },
-      ],
+      { image: sbilanciamentoBiancoImage, images: [sbilanciamentoBiancoImage, sbilanciamentoLateraleImage, sbilanciamentoDettaglioImage], name: t("products.pendenti.sbilanciamento.name"), desc: t("products.pendenti.sbilanciamento.material") },
+      { image: sangue1Image, images: [sangue1Image, sangue2Image, sangue3Image, sangue4Image], name: t("products.pendenti.sangue.name"), desc: t("products.pendenti.sangue.material") }]
+
     },
     bracciali: {
       subtitle: t("products.bracciali.subtitle"),
       description: t("products.bracciali.desc"),
       items: [
-        { image: mareeFullImage, name: t("products.bracciali.item1.name"), desc: t("products.bracciali.item1.desc") },
-        { image: anelliLisciImage, name: t("products.bracciali.item2.name"), desc: t("products.bracciali.item2.desc") },
-        { image: mareeFullImage, name: t("products.bracciali.item3.name"), desc: t("products.bracciali.item3.desc") },
-      ],
+      { image: mareeFullImage, name: t("products.bracciali.item1.name"), desc: t("products.bracciali.item1.desc") },
+      { image: anelliLisciImage, name: t("products.bracciali.item2.name"), desc: t("products.bracciali.item2.desc") },
+      { image: mareeFullImage, name: t("products.bracciali.item3.name"), desc: t("products.bracciali.item3.desc") }]
+
     },
     pezzi_unici: {
       subtitle: t("products.pezzi_unici.subtitle"),
       description: t("products.pezzi_unici.desc"),
       items: [
-        { image: mareeImage, images: [mareeImage, mareeDetail1Image, mareeDetail2Image], name: t("products.pezzi_unici.maree.name"), desc: t("products.pezzi_unici.maree.desc") },
-      ],
-    },
+      { image: mareeImage, images: [mareeImage, mareeDetail1Image, mareeDetail2Image], name: t("products.pezzi_unici.maree.name"), desc: t("products.pezzi_unici.maree.desc") }]
+
+    }
   };
 
   const current = products[active];
@@ -210,16 +210,16 @@ const Prodotti = () => {
         <div className="container max-w-6xl px-6">
           <Link
             to={lang === "en" ? "/home/en" : "/home"}
-            className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors mb-6 md:mb-8"
-          >
+            className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors mb-6 md:mb-8">
+            
             <ArrowLeft className="w-4 h-4" />
             {t("products.back")}
           </Link>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
+            transition={{ duration: 0.8 }}>
+            
             <p className="text-xs md:text-sm tracking-[0.3em] uppercase text-gold font-body mb-2 md:mb-4">
               {t("products.label")}
             </p>
@@ -232,29 +232,29 @@ const Prodotti = () => {
 
       {/* Category Tabs */}
       <div className="container max-w-6xl px-6 mb-10 md:mb-16">
-        {isMobile ? (
-          <CategoryCarousel
-            categories={categories}
-            active={active}
-            onCategoryChange={handleCategoryChange}
-          />
-        ) : (
-          <div className="flex gap-3 flex-wrap">
-            {categories.map((cat) => (
-              <button
-                key={cat.key}
-                onClick={() => handleCategoryChange(cat.key)}
-                className={`px-4 py-2 text-xs tracking-[0.15em] uppercase font-body border transition-all duration-300 whitespace-nowrap ${
-                  active === cat.key
-                    ? "border-gold text-gold bg-gold/10"
-                    : "border-cream-muted/20 text-cream-muted hover:border-gold/50 hover:text-cream"
-                }`}
-              >
+        {isMobile ?
+        <CategoryCarousel
+          categories={categories}
+          active={active}
+          onCategoryChange={handleCategoryChange} /> :
+
+
+        <div className="flex gap-3 flex-wrap">
+            {categories.map((cat) =>
+          <button
+            key={cat.key}
+            onClick={() => handleCategoryChange(cat.key)}
+            className={`px-4 py-2 text-xs tracking-[0.15em] uppercase font-body border transition-all duration-300 whitespace-nowrap ${
+            active === cat.key ?
+            "border-gold text-gold bg-gold/10" :
+            "border-cream-muted/20 text-cream-muted hover:border-gold/50 hover:text-cream"}`
+            }>
+            
                 {cat.label}
               </button>
-            ))}
+          )}
           </div>
-        )}
+        }
       </div>
 
       {/* Product Grid */}
@@ -265,8 +265,8 @@ const Prodotti = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.4 }}
-          >
+            transition={{ duration: 0.4 }}>
+            
             <div className="mb-8 md:mb-12 text-center">
               <p className="text-[10px] md:text-xs tracking-[0.3em] uppercase text-gold font-body mb-2 md:mb-3">{current.subtitle}</p>
               <h2 className="text-2xl md:text-5xl font-display font-light text-cream mb-3 md:mb-4">
@@ -277,27 +277,27 @@ const Prodotti = () => {
               </p>
             </div>
 
-            {active === "filamento" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              >
+            {active === "filamento" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}>
+              
                 {/* --- ARIA Lettera D block --- */}
                 <div className="mb-12 md:mb-16">
                   <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12">
                     <video
-                      ref={ariaVideoRef}
-                      src="/aria-intro.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      poster={ariaImage}
-                      className="w-full h-full object-cover"
-                      style={{ backgroundColor: "hsl(var(--background))" }}
-                    />
+                    ref={ariaVideoRef}
+                    src="/aria-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    poster={ariaImage}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }} />
+                  
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
 
@@ -336,9 +336,9 @@ const Prodotti = () => {
                   {/* CTA */}
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -356,16 +356,16 @@ const Prodotti = () => {
                   <div className="max-w-3xl mx-auto space-y-6 text-center">
                     <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                       <video
-                        src="/navtilvs-intro.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                        poster={navtilvs1Image}
-                        className="w-full h-full object-cover"
-                        style={{ backgroundColor: "hsl(var(--background))" }}
-                      />
+                      src="/navtilvs-intro.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      poster={navtilvs1Image}
+                      className="w-full h-full object-cover"
+                      style={{ backgroundColor: "hsl(var(--background))" }} />
+                    
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                     </div>
 
@@ -403,9 +403,9 @@ const Prodotti = () => {
                   {/* CTA */}
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -418,29 +418,29 @@ const Prodotti = () => {
                   <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
-            )}
+            }
 
-            {active === "pietre" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              >
+            {active === "pietre" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}>
+              
                 {/* --- Kintsugi block --- */}
                 <div className="mb-12 md:mb-16">
                   <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                     <video
-                      ref={kintsugiVideoRef}
-                      src="/kintsugi-intro.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      poster={kintsugiStratiImage}
-                      className="w-full h-full object-cover"
-                      style={{ backgroundColor: "hsl(var(--background))" }}
-                    />
+                    ref={kintsugiVideoRef}
+                    src="/kintsugi-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    poster={kintsugiStratiImage}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }} />
+                  
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
 
@@ -453,10 +453,10 @@ const Prodotti = () => {
                     </h3>
                     <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
                       {t("products.pietre.kintsugi.story").split("{gold}").map((part, i) => {
-                        if (i === 0) return part;
-                        const [gold, rest] = part.split("{/gold}");
-                        return <span key={i}><span className="text-gold not-italic">{gold}</span>{rest}</span>;
-                      })}
+                      if (i === 0) return part;
+                      const [gold, rest] = part.split("{/gold}");
+                      return <span key={i}><span className="text-gold not-italic">{gold}</span>{rest}</span>;
+                    })}
                     </p>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
                     <div className="flex items-center justify-center gap-6 md:gap-8">
@@ -472,11 +472,11 @@ const Prodotti = () => {
                     </div>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
                     <div className="space-y-4 text-left max-w-lg mx-auto">
-                      {[1, 2, 3, 4, 5].map((n) => (
-                        <p key={n} className="text-cream font-body text-xs md:text-sm leading-relaxed">
+                      {[1, 2, 3, 4, 5].map((n) =>
+                    <p key={n} className="text-cream font-body text-xs md:text-sm leading-relaxed">
                           <span className="text-gold font-display">{t(`products.pietre.kintsugi.layerLabel${n}`)}</span> {t(`products.pietre.kintsugi.layer${n}`)}
                         </p>
-                      ))}
+                    )}
                     </div>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
                     <p className="text-cream-muted font-body text-xs md:text-sm leading-relaxed italic">
@@ -499,9 +499,9 @@ const Prodotti = () => {
                   {/* CTA */}
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -519,16 +519,16 @@ const Prodotti = () => {
                   <div className="max-w-3xl mx-auto space-y-6 text-center">
                     <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                       <video
-                        src="/mvtara-nebvla-intro.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        preload="auto"
-                        poster={mvtaraNebvla1Image}
-                        className="w-full h-full object-cover"
-                        style={{ backgroundColor: "hsl(var(--background))" }}
-                      />
+                      src="/mvtara-nebvla-intro.mp4"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      preload="auto"
+                      poster={mvtaraNebvla1Image}
+                      className="w-full h-full object-cover"
+                      style={{ backgroundColor: "hsl(var(--background))" }} />
+                    
                       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                     </div>
 
@@ -566,9 +566,9 @@ const Prodotti = () => {
                   {/* CTA */}
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -581,28 +581,28 @@ const Prodotti = () => {
                   <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* INITIVM intro for square rings */}
-            {active === "senza_pietre" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="mb-12 md:mb-16"
-              >
+            {active === "senza_pietre" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-12 md:mb-16">
+              
                 <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                   <video
-                    src="/initivm-intro.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    poster={initivmImage}
-                    className="w-full h-full object-cover"
-                    style={{ backgroundColor: "hsl(var(--background))" }}
-                  />
+                  src="/initivm-intro.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  poster={initivmImage}
+                  className="w-full h-full object-cover"
+                  style={{ backgroundColor: "hsl(var(--background))" }} />
+                
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
 
@@ -627,36 +627,36 @@ const Prodotti = () => {
                     Manifattura: <span className="text-gold">{t("products.pietre.initivm.price")}</span> ≈ {t("products.pietre.initivm.priceAlt")}
                   </p>
 
-                  <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300 mt-2"
-                  >
-                    {t("form.title")}
-                  </button>
+                  
+
+
+
+
+                
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* Sbilanciamento di Bianco intro */}
-            {active === "pendenti" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-                className="mb-12 md:mb-16"
-              >
+            {active === "pendenti" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}
+              className="mb-12 md:mb-16">
+              
                 <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                   <video
-                    src="/sbilanciamento-intro.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    poster={sbilanciamentoBiancoImage}
-                    className="w-full h-full object-cover"
-                    style={{ backgroundColor: "hsl(var(--background))" }}
-                  />
+                  src="/sbilanciamento-intro.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  poster={sbilanciamentoBiancoImage}
+                  className="w-full h-full object-cover"
+                  style={{ backgroundColor: "hsl(var(--background))" }} />
+                
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                 </div>
 
@@ -693,25 +693,25 @@ const Prodotti = () => {
                 {/* CTA */}
                 <div className="text-center mt-10 md:mt-14">
                   <button
-                    onClick={() => {
-                      setPendantSelection("sbilanciamento_bianco");
-                      document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }}
-                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                  >
+                  onClick={() => {
+                    setPendantSelection("sbilanciamento_bianco");
+                    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                  
                     {t("form.title")}
                   </button>
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* --- SANGUE block (under pendenti) --- */}
-            {active === "pendenti" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
+            {active === "pendenti" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}>
+              
                 {/* ◆ Diamond separator */}
                 <div className="flex items-center gap-4 my-12 md:my-16">
                   <div className="flex-1 h-px bg-gold/30" />
@@ -722,16 +722,16 @@ const Prodotti = () => {
                 <div className="mb-12 md:mb-16">
                   <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                     <video
-                      src="/sangue-intro.mp4"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      preload="auto"
-                      poster={sangue1Image}
-                      className="w-full h-full object-cover"
-                      style={{ backgroundColor: "hsl(var(--background))" }}
-                    />
+                    src="/sangue-intro.mp4"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    poster={sangue1Image}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }} />
+                  
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
 
@@ -767,9 +767,9 @@ const Prodotti = () => {
                   {/* CTA */}
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -782,61 +782,61 @@ const Prodotti = () => {
                   <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* --- Pezzi Unici --- */}
-            {active === "pezzi_unici" && !subcollezione && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              >
+            {active === "pezzi_unici" && !subcollezione &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}>
+              
                 <div className="grid md:grid-cols-3 gap-6 md:gap-10">
                   {[
-                    { slug: "maree", title: "MAREE", subtitle: "inprofvndvmmaris", image: mareeImage },
-                    { slug: "art-deco", title: "ART DECO", subtitle: lang === "en" ? "Unique piece" : "Pezzo unico", image: mareePezziUniciImage },
-                    { slug: "legione", title: "LEGIONE", subtitle: lang === "en" ? "Unique piece" : "Pezzo unico", image: mareeFullImage },
-                  ].map((sub, i) => (
-                    <motion.div
-                      key={sub.slug}
-                      initial={{ opacity: 0, y: 30 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.5, delay: i * 0.15 }}
-                      className="group"
-                    >
+                { slug: "maree", title: "MAREE", subtitle: "inprofvndvmmaris", image: mareeImage },
+                { slug: "art-deco", title: "ART DECO", subtitle: lang === "en" ? "Unique piece" : "Pezzo unico", image: mareePezziUniciImage },
+                { slug: "legione", title: "LEGIONE", subtitle: lang === "en" ? "Unique piece" : "Pezzo unico", image: mareeFullImage }].
+                map((sub, i) =>
+                <motion.div
+                  key={sub.slug}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.15 }}
+                  className="group">
+                  
                       <Link
-                        to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/${sub.slug}`}
-                        className="block"
-                      >
+                    to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/${sub.slug}`}
+                    className="block">
+                    
                         <div className="relative overflow-hidden mb-4">
                           <img
-                            src={sub.image}
-                            alt={sub.title}
-                            className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
+                        src={sub.image}
+                        alt={sub.title}
+                        className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105" />
+                      
                           <div className="absolute inset-0 bg-background/30 group-hover:bg-background/0 transition-colors duration-500" />
                         </div>
                         <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">{sub.subtitle}</p>
                         <h3 className="text-xl md:text-2xl font-display font-light text-cream group-hover:text-gold transition-colors duration-300">{sub.title}</h3>
                       </Link>
                     </motion.div>
-                  ))}
+                )}
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* --- Pezzi Unici: MAREE sub --- */}
-            {active === "pezzi_unici" && subcollezione === "maree" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              >
+            {active === "pezzi_unici" && subcollezione === "maree" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}>
+              
                 <div className="mb-4">
                   <Link
-                    to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
-                    className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors"
-                  >
+                  to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
+                  className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors">
+                  
                     <ArrowLeft className="w-3 h-3" />
                     {lang === "en" ? "Unique Pieces" : "Pezzi Unici"}
                   </Link>
@@ -844,12 +844,12 @@ const Prodotti = () => {
                 <div className="mb-12 md:mb-16">
                   <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
                     <video
-                      src="/maree-intro.mp4"
-                      autoPlay loop muted playsInline preload="auto"
-                      poster={mareeImage}
-                      className="w-full h-full object-cover"
-                      style={{ backgroundColor: "hsl(var(--background))" }}
-                    />
+                    src="/maree-intro.mp4"
+                    autoPlay loop muted playsInline preload="auto"
+                    poster={mareeImage}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }} />
+                  
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
 
@@ -887,9 +887,9 @@ const Prodotti = () => {
 
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -901,20 +901,20 @@ const Prodotti = () => {
                   <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* --- Pezzi Unici: ART DECO sub --- */}
-            {active === "pezzi_unici" && subcollezione === "art-deco" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              >
+            {active === "pezzi_unici" && subcollezione === "art-deco" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}>
+              
                 <div className="mb-4">
                   <Link
-                    to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
-                    className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors"
-                  >
+                  to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
+                  className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors">
+                  
                     <ArrowLeft className="w-3 h-3" />
                     {lang === "en" ? "Unique Pieces" : "Pezzi Unici"}
                   </Link>
@@ -929,18 +929,18 @@ const Prodotti = () => {
                     </p>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
                     <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
-                      {lang === "en"
-                        ? "A unique piece born from the encounter between geometry and craftsmanship. Coming soon."
-                        : "Un pezzo unico nato dall'incontro tra geometria e manifattura. In arrivo."}
+                      {lang === "en" ?
+                    "A unique piece born from the encounter between geometry and craftsmanship. Coming soon." :
+                    "Un pezzo unico nato dall'incontro tra geometria e manifattura. In arrivo."}
                     </p>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
                   </div>
 
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -952,20 +952,20 @@ const Prodotti = () => {
                   <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* --- Pezzi Unici: LEGIONE sub --- */}
-            {active === "pezzi_unici" && subcollezione === "legione" && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.8 }}
-              >
+            {active === "pezzi_unici" && subcollezione === "legione" &&
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.8 }}>
+              
                 <div className="mb-4">
                   <Link
-                    to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
-                    className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors"
-                  >
+                  to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
+                  className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors">
+                  
                     <ArrowLeft className="w-3 h-3" />
                     {lang === "en" ? "Unique Pieces" : "Pezzi Unici"}
                   </Link>
@@ -980,18 +980,18 @@ const Prodotti = () => {
                     </p>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
                     <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
-                      {lang === "en"
-                        ? "A unique piece forged in the spirit of the legion. Coming soon."
-                        : "Un pezzo unico forgiato nello spirito della legione. In arrivo."}
+                      {lang === "en" ?
+                    "A unique piece forged in the spirit of the legion. Coming soon." :
+                    "Un pezzo unico forgiato nello spirito della legione. In arrivo."}
                     </p>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
                   </div>
 
                   <div className="text-center mt-10 md:mt-14">
                     <button
-                      onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                      className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                    >
+                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                    
                       {t("form.title")}
                     </button>
                   </div>
@@ -1003,49 +1003,49 @@ const Prodotti = () => {
                   <div className="flex-1 h-px bg-gold/30" />
                 </div>
               </motion.div>
-            )}
+            }
 
             {/* Product grid (categories with unified grid only) */}
-            {active !== "pietre" && active !== "filamento" && active !== "pezzi_unici" && active !== "pendenti" && (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-                {current.items.map((item, i) => (
-                  <motion.div
-                    key={item.name}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: i * 0.1 }}
-                    className="group"
-                  >
+            {active !== "pietre" && active !== "filamento" && active !== "pezzi_unici" && active !== "pendenti" &&
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+                {current.items.map((item, i) =>
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group">
+                
                     <div className="relative overflow-hidden mb-4">
-                      {item.images && item.images.length > 1 ? (
-                        <ProductImageCarousel images={item.images} alt={item.name} />
-                      ) : (
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                      )}
+                      {item.images && item.images.length > 1 ?
+                  <ProductImageCarousel images={item.images} alt={item.name} /> :
+
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105" />
+
+                  }
                       <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
                     </div>
                     <h3 className="text-lg md:text-xl font-display font-light text-cream mb-2">{item.name}</h3>
                     <p className="text-cream-muted font-body text-xs leading-relaxed">{item.desc}</p>
                   </motion.div>
-                ))}
+              )}
               </div>
-            )}
+            }
 
             {/* CTA after INITIVM product grid */}
-            {active === "senza_pietre" && (
-              <div className="text-center mt-10 md:mt-14">
+            {active === "senza_pietre" &&
+            <div className="text-center mt-10 md:mt-14">
                 <button
-                  onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
-                  className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
-                >
+                onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300">
+                
                   {t("form.title")}
                 </button>
               </div>
-            )}
+            }
 
             {/* ◆ Diamond separator before recommendations */}
             <div className="flex items-center gap-4 mt-16 md:mt-24 mb-12 md:mb-16">
@@ -1070,7 +1070,7 @@ const Prodotti = () => {
                   const prevCat = categories[(activeIdx - 1 + categories.length) % categories.length];
                   const nextCat = categories[(activeIdx + 1) % categories.length];
                   const pezziUnici = categories.find((c) => c.key === "pezzi_unici")!;
-                  
+
                   // Build related: prev, next, then always pezzi_unici last (deduplicated)
                   const related = [prevCat, nextCat].filter((c) => c.key !== "pezzi_unici" && c.key !== active);
                   // Ensure exactly 2 before pezzi_unici
@@ -1078,10 +1078,10 @@ const Prodotti = () => {
                     const extras = categories.filter((c) => c.key !== active && c.key !== "pezzi_unici" && !related.includes(c));
                     while (related.length < 2 && extras.length > 0) related.push(extras.shift()!);
                   }
-                  const finalRelated = active === "pezzi_unici" 
-                    ? [prevCat, nextCat, categories.filter((c) => c.key !== active && c.key !== prevCat.key && c.key !== nextCat.key)[0]].filter(Boolean)
-                    : [...related.slice(0, 2), pezziUnici];
-                  
+                  const finalRelated = active === "pezzi_unici" ?
+                  [prevCat, nextCat, categories.filter((c) => c.key !== active && c.key !== prevCat.key && c.key !== nextCat.key)[0]].filter(Boolean) :
+                  [...related.slice(0, 2), pezziUnici];
+
                   return finalRelated.map((cat) => {
                     const representativeImage: Record<Category, string> = {
                       fedi: nidoImage,
@@ -1090,20 +1090,20 @@ const Prodotti = () => {
                       filamento: ariaImage,
                       pendenti: sbilanciamentoBiancoImage,
                       bracciali: mareeFullImage,
-                      pezzi_unici: mareePezziUniciImage,
+                      pezzi_unici: mareePezziUniciImage
                     };
                     return (
                       <button
                         key={cat.key}
                         onClick={() => handleCategoryChange(cat.key)}
-                        className="group relative overflow-hidden border border-gold/20 hover:border-gold/50 transition-all duration-500"
-                      >
+                        className="group relative overflow-hidden border border-gold/20 hover:border-gold/50 transition-all duration-500">
+                        
                         <div className="aspect-[4/3] overflow-hidden">
                           <img
                             src={representativeImage[cat.key]}
                             alt={cat.label}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80"
-                          />
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60 group-hover:opacity-80" />
+                          
                           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
                         </div>
                         <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
@@ -1111,8 +1111,8 @@ const Prodotti = () => {
                             {cat.label}
                           </p>
                         </div>
-                      </button>
-                    );
+                      </button>);
+
                   });
                 })()}
               </div>
@@ -1137,13 +1137,13 @@ const Prodotti = () => {
                   </h3>
                 </div>
                 <WhatsAppContactForm defaultCategory={active} defaultCollection={
-                  active === "fedi" ? "nido" :
-                  active === "pietre" ? "kintsugi" :
-                  active === "senza_pietre" ? "initivm" :
-                  active === "filamento" ? "aria" :
-                  active === "pendenti" ? pendantSelection :
-                  active === "pezzi_unici" ? "maree" :
-                  ""
+                active === "fedi" ? "nido" :
+                active === "pietre" ? "kintsugi" :
+                active === "senza_pietre" ? "initivm" :
+                active === "filamento" ? "aria" :
+                active === "pendenti" ? pendantSelection :
+                active === "pezzi_unici" ? "maree" :
+                ""
                 } compact />
               </div>
             </div>
@@ -1152,8 +1152,8 @@ const Prodotti = () => {
       </div>
 
       <Footer />
-    </div>
-  );
+    </div>);
+
 };
 
 export default Prodotti;
