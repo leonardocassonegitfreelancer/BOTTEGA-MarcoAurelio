@@ -90,7 +90,7 @@ const Navbar = () => {
             }}
             className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-3 py-1.5 hover:border-gold hover:text-gold transition-colors duration-300 text-cream-muted"
           >
-            {lang === "it" ? "EN" : "IT"}
+            {lang === "it" ? "IT" : "EN"}
           </button>
         </div>
 
@@ -107,7 +107,7 @@ const Navbar = () => {
             }}
             className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-2 py-1 text-cream-muted hover:text-gold transition-colors"
           >
-            {lang === "it" ? "EN" : "IT"}
+            {lang === "it" ? "IT" : "EN"}
           </button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
