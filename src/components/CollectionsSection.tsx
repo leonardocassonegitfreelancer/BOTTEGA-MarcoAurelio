@@ -297,7 +297,7 @@ const CollectionsSection = () => {
             to="/collezioni"
             className="inline-block border border-gold text-gold px-10 py-4 text-sm tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
           >
-            {lang === "en" ? "All Collections" : "Tutte le Collezioni"}
+            {lang === "en" ? "All Works" : "Tutte le Opere"}
           </Link>
         </motion.div>
       </div>
