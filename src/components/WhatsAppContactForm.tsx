@@ -25,6 +25,12 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
     { value: "altro", label: lang === "it" ? "Altro" : "Other" },
   ];
 
+  const pendantsOptions = [
+    { value: "sbilanciamento_bianco", label: "Uno Sbilanciamento di Bianco" },
+    { value: "sangue", label: "SANGUE" },
+    { value: "altro", label: lang === "it" ? "Altro / Non so" : "Other / Not sure" },
+  ];
+
   const collectionOptions = [
     { value: "nido", label: "NiDO" },
     { value: "maree", label: "Maree" },
@@ -37,6 +43,8 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
   const [name, setName] = useState("");
   const [collection, setCollection] = useState(defaultCollection || "");
   const [category, setCategory] = useState(defaultCategory || "");
+
+  const activeCollectionOptions = category === "pendenti" ? pendantsOptions : collectionOptions;
 
   useEffect(() => {
     if (defaultCollection) setCollection(defaultCollection);
@@ -126,7 +134,7 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
           </label>
           <select
             value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => { setCategory(e.target.value); setCollection(""); }}
             className={`${inputClass} ${!category ? "text-cream-muted/40" : ""}`}
           >
             <option value="" disabled>
@@ -161,10 +169,12 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
           )}
         </AnimatePresence>
 
-        {/* Collezione (dopo) */}
+        {/* Collezione / Pendente (dopo) */}
         <div>
           <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
-            {lang === "it" ? "Collezione" : "Collection"}
+            {category === "pendenti"
+              ? (lang === "it" ? "Opera" : "Piece")
+              : (lang === "it" ? "Collezione" : "Collection")}
           </label>
           <select
             value={collection}
@@ -172,9 +182,11 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
             className={`${inputClass} ${!collection ? "text-cream-muted/40" : ""}`}
           >
             <option value="" disabled>
-              {lang === "it" ? "Collezione" : "Collection"}
+              {category === "pendenti"
+                ? (lang === "it" ? "Scegli il pendente" : "Choose the pendant")
+                : (lang === "it" ? "Collezione" : "Collection")}
             </option>
-            {collectionOptions.map((opt) => (
+            {activeCollectionOptions.map((opt) => (
               <option key={opt.value} value={opt.value} className="bg-background text-cream">
                 {opt.label}
               </option>

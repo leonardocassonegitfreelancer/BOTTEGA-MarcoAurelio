@@ -102,6 +102,7 @@ const Prodotti = () => {
   const categoryToSlug = lang === "en" ? categoryToSlugEn : categoryToSlugIt;
   const resolvedCat = (categoria && slugToCategory[categoria]) || "fedi";
   const [active, setActive] = useState<Category>(resolvedCat);
+  const [pendantSelection, setPendantSelection] = useState("");
   const ariaVideoRef = useRef<HTMLVideoElement>(null);
   const kintsugiVideoRef = useRef<HTMLVideoElement>(null);
   const isMobile = useIsMobile();
@@ -692,7 +693,10 @@ const Prodotti = () => {
                 {/* CTA */}
                 <div className="text-center mt-10 md:mt-14">
                   <button
-                    onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                    onClick={() => {
+                      setPendantSelection("sbilanciamento_bianco");
+                      document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
                     className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
                   >
                     {t("form.title")}
@@ -1137,6 +1141,7 @@ const Prodotti = () => {
                   active === "pietre" ? "kintsugi" :
                   active === "senza_pietre" ? "initivm" :
                   active === "filamento" ? "aria" :
+                  active === "pendenti" ? pendantSelection :
                   active === "pezzi_unici" ? "maree" :
                   ""
                 } compact />
