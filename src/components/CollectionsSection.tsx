@@ -213,12 +213,12 @@ const CollectionsSection = () => {
         </motion.div>
 
         {/* Tab Switcher */}
-        <div className="flex flex-wrap justify-center gap-3 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 sm:mb-16 px-2">
           {tabs.map((tab) => (
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`px-6 py-2.5 text-xs tracking-[0.15em] uppercase font-body border transition-all duration-300 ${
+              className={`px-4 sm:px-6 py-2 sm:py-2.5 text-[11px] sm:text-xs tracking-[0.12em] sm:tracking-[0.15em] uppercase font-body border transition-all duration-300 ${
                 activeTab === tab.key
                   ? "border-gold text-gold bg-gold/10"
                   : "border-cream-muted/20 text-cream-muted/60 hover:border-cream-muted/40 hover:text-cream-muted"
