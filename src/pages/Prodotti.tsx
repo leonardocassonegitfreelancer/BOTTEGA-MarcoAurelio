@@ -873,8 +873,27 @@ const Prodotti = () => {
               </div>
             )}
 
+            {/* CTA after INITIVM product grid */}
+            {active === "senza_pietre" && (
+              <div className="text-center mt-10 md:mt-14">
+                <button
+                  onClick={() => document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                  className="inline-block border border-gold text-gold px-8 py-3 text-xs tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
+                >
+                  {t("form.title")}
+                </button>
+              </div>
+            )}
+
+            {/* ◆ Diamond separator before recommendations */}
+            <div className="flex items-center gap-4 mt-16 md:mt-24 mb-12 md:mb-16">
+              <div className="flex-1 h-px bg-gold/30" />
+              <span className="text-gold text-xs">◆</span>
+              <div className="flex-1 h-px bg-gold/30" />
+            </div>
+
             {/* Related categories (BEFORE form) */}
-            <div className="mt-16 md:mt-24">
+            <div>
               <div className="text-center mb-8 md:mb-10">
                 <p className="text-[10px] tracking-[0.3em] uppercase text-gold font-body mb-1">
                   {t("products.related.label")}
