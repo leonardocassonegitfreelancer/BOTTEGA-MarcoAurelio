@@ -15,7 +15,7 @@ import anelliLisciImage from "@/assets/anelli-lisci.jpg";
 import mvtaraNebvla1Image from "@/assets/mvtara-nebvla-1.png";
 import navtilvs1Image from "@/assets/navtilvs-1.png";
 
-type HomeCategoryKey = "anelli" | "fedi" | "bracciali" | "pendenti";
+type HomeCategoryKey = "anelli" | "fedi" | "bracciali" | "pendenti" | "pezzi_unici";
 
 interface CollectionCardData {
   image: string;
@@ -63,6 +63,7 @@ const CollectionsSection = () => {
     { key: "fedi", label: lang === "en" ? "Wedding Bands" : "Fedi" },
     { key: "bracciali", label: lang === "en" ? "Bracelets" : "Bracciali" },
     { key: "pendenti", label: lang === "en" ? "Pendants" : "Pendenti" },
+    { key: "pezzi_unici", label: lang === "en" ? "Unique Pieces" : "Pezzi Unici" },
   ];
 
   const slugs = lang === "en"
@@ -87,15 +88,6 @@ const CollectionsSection = () => {
 
   const cardsByTab: Record<HomeCategoryKey, CollectionCardData[]> = {
     anelli: [
-      {
-        image: mareePezziUniciImage,
-        title: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
-        subtitle: lang === "en" ? "Collection" : "Collezione",
-        description: lang === "en"
-          ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces."
-          : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili.",
-        categoryLink: `/prodotti/${slugs.pezzi_unici}`,
-      },
       {
         image: kintsugiImage,
         title: "KINTSUGI",
@@ -188,6 +180,17 @@ const CollectionsSection = () => {
           ? "Blood red meets precious metal. A visceral, unapologetic pendant."
           : "Il rosso sangue incontra il metallo prezioso. Un pendente viscerale e senza compromessi.",
         categoryLink: `/prodotti/${slugs.pendenti}`,
+      },
+    ],
+    pezzi_unici: [
+      {
+        image: mareePezziUniciImage,
+        title: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
+        subtitle: lang === "en" ? "Collection" : "Collezione",
+        description: lang === "en"
+          ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces."
+          : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili.",
+        categoryLink: `/prodotti/${slugs.pezzi_unici}`,
       },
     ],
   };
