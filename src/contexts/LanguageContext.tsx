@@ -16,7 +16,7 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.baratto": "Baratto",
     "nav.contact": "Contatti",
     "hero.subtitle": "Laboratorio Banco Orafo · Roma",
-    "hero.tagline": "Qui i gioielli non sono prodotti in serie: nascono a banco, uno alla volta.",
+    "hero.tagline": "Qui i gioielli nascono a banco, uno alla volta.",
     "hero.cta": "Scopri",
     "hero.imgAlt": "Gioiello artigianale",
     "about.label": "La Bottega",
