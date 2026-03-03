@@ -1,10 +1,13 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import useEmblaCarousel from "embla-carousel-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 import nidoImage from "@/assets/nido.jpg";
 import kintsugiImage from "@/assets/kintsugi.jpg";
+import kintsugiStratiImage from "@/assets/kintsugi-strati.png";
+import kintsugiStratiDetailImage from "@/assets/kintsugi-strati-detail.png";
 import initivmImage from "@/assets/initivm.png";
 import ariaImage from "@/assets/aria.webp";
 import mareePezziUniciImage from "@/assets/maree-pezzi-unici.png";
@@ -18,13 +21,68 @@ import navtilvs1Image from "@/assets/navtilvs-1.png";
 type HomeCategoryKey = "anelli" | "fedi" | "bracciali" | "pendenti" | "pezzi_unici";
 
 interface CollectionCardData {
-  image: string;
+  images: string[];
   title: string;
   subtitle: string;
   description: string;
   alt?: string;
   categoryLink: string;
 }
+
+const CardImageCarousel = ({ images, alt }: { images: string[]; alt: string }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: false });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
+
+  if (images.length === 1) {
+    return (
+      <img
+        src={images[0]}
+        alt={alt}
+        className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+    );
+  }
+
+  return (
+    <div className="relative">
+      <div ref={emblaRef} className="overflow-hidden">
+        <div className="flex">
+          {images.map((img, i) => (
+            <div key={i} className="flex-[0_0_100%] min-w-0">
+              <img
+                src={img}
+                alt={`${alt} ${i + 1}`}
+                className="w-full aspect-square object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            onClick={(e) => { e.preventDefault(); emblaApi?.scrollTo(i); }}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+              i === selectedIndex ? "bg-gold w-4" : "bg-cream/40"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const CollectionCard = ({ card, index }: { card: CollectionCardData; index: number }) => (
   <motion.div
@@ -36,12 +94,8 @@ const CollectionCard = ({ card, index }: { card: CollectionCardData; index: numb
   >
     <Link to={card.categoryLink} className="block">
       <div className="relative overflow-hidden mb-6">
-        <img
-          src={card.image}
-          alt={card.alt || card.title}
-          className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500" />
+        <CardImageCarousel images={card.images} alt={card.alt || card.title} />
+        <div className="absolute inset-0 bg-background/20 group-hover:bg-background/0 transition-colors duration-500 pointer-events-none" />
       </div>
       <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">{card.subtitle}</p>
       <h3 className="text-2xl md:text-3xl font-display font-light text-cream mb-3 group-hover:text-gold transition-colors duration-300">
@@ -89,7 +143,7 @@ const CollectionsSection = () => {
   const cardsByTab: Record<HomeCategoryKey, CollectionCardData[]> = {
     anelli: [
       {
-        image: kintsugiImage,
+        images: [kintsugiImage, kintsugiStratiImage, kintsugiStratiDetailImage],
         title: "KINTSUGI",
         subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
         description: t("collections.kintsugi.desc"),
@@ -97,7 +151,7 @@ const CollectionsSection = () => {
         categoryLink: `/prodotti/${slugs.pietre}`,
       },
       {
-        image: initivmImage,
+        images: [initivmImage],
         title: "INITIVM",
         subtitle: lang === "en" ? "Square Rings" : "Anelli Quadrati",
         description: lang === "en"
@@ -106,7 +160,7 @@ const CollectionsSection = () => {
         categoryLink: `/prodotti/${slugs.senza_pietre}`,
       },
       {
-        image: ariaImage,
+        images: [ariaImage],
         title: "ARIA",
         subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
         description: t("collections.aria.desc"),
@@ -114,7 +168,7 @@ const CollectionsSection = () => {
         categoryLink: `/prodotti/${slugs.filamento}`,
       },
       {
-        image: mvtaraNebvla1Image,
+        images: [mvtaraNebvla1Image],
         title: "MVTARA NEBVLA",
         subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
         description: lang === "en"
@@ -123,7 +177,7 @@ const CollectionsSection = () => {
         categoryLink: `/prodotti/${slugs.pietre}`,
       },
       {
-        image: navtilvs1Image,
+        images: [navtilvs1Image],
         title: "NAVTILVS",
         subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
         description: lang === "en"
@@ -134,7 +188,7 @@ const CollectionsSection = () => {
     ],
     fedi: [
       {
-        image: nidoImage,
+        images: [nidoImage],
         title: t("collections.nido.title"),
         subtitle: lang === "en" ? "Wedding Bands" : "Fedi Nuziali",
         description: t("collections.nido.desc"),
@@ -144,7 +198,7 @@ const CollectionsSection = () => {
     ],
     bracciali: [
       {
-        image: mareeFullImage,
+        images: [mareeFullImage],
         title: lang === "en" ? "Maree Bracelet" : "Bracciale Maree",
         subtitle: lang === "en" ? "Bracelets" : "Bracciali",
         description: lang === "en"
@@ -153,7 +207,7 @@ const CollectionsSection = () => {
         categoryLink: `/prodotti/${slugs.bracciali}`,
       },
       {
-        image: anelliLisciImage,
+        images: [anelliLisciImage],
         title: lang === "en" ? "Smooth Bracelet" : "Bracciale Liscio",
         subtitle: lang === "en" ? "Bracelets" : "Bracciali",
         description: lang === "en"
@@ -164,7 +218,7 @@ const CollectionsSection = () => {
     ],
     pendenti: [
       {
-        image: sbilanciamentoBiancoImage,
+        images: [sbilanciamentoBiancoImage],
         title: "Uno Sbilanciamento di Bianco",
         subtitle: lang === "en" ? "Pendants" : "Pendenti",
         description: lang === "en"
@@ -173,7 +227,7 @@ const CollectionsSection = () => {
         categoryLink: `/prodotti/${slugs.pendenti}`,
       },
       {
-        image: sangue1Image,
+        images: [sangue1Image],
         title: "SANGUE",
         subtitle: lang === "en" ? "Pendants" : "Pendenti",
         description: lang === "en"
@@ -184,7 +238,7 @@ const CollectionsSection = () => {
     ],
     pezzi_unici: [
       {
-        image: mareePezziUniciImage,
+        images: [mareePezziUniciImage],
         title: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
         subtitle: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
         description: lang === "en"
