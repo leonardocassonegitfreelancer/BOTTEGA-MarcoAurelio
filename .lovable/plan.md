@@ -1,46 +1,34 @@
 
+## Piano di intervento
 
-## Piano: Nuova categoria "Pezzi Unici"
+### Cosa cambia
 
-### Concept
+**1. CTA sotto il carousel nella sezione INITIVM**
+La sezione INITIVM (anelli quadrati / `senza_pietre`) attualmente mostra: Video → Testo → CTA → Griglia prodotti → Raccomandazioni. Manca una CTA dopo la griglia prodotti. Aggiungo un pulsante "Invia un messaggio" subito dopo la griglia prodotti, specifico per quando `active === "senza_pietre"`.
 
-Una categoria per pezzi unici, irripetibili, inclassificabili — e per questo meravigliosi. Non un catalogo, ma un invito. MAREE sarà il primo pezzo, introdotto dal testo poetico "Che poi il Mare".
+**2. Separatore ◆ prima delle raccomandazioni**
+Attualmente il separatore ◆ appare solo prima del form di contatto (riga 940-945). Sposto/aggiungo un separatore ◆ anche prima della sezione "Ti potrebbero interessare anche" (riga 877), così la struttura diventa: Contenuto → ◆ → Raccomandazioni → ◆ → Form.
 
-### Descrizione della categoria
+### Modifiche tecniche in `src/pages/Prodotti.tsx`
 
-**IT**: "Qui trovi tutti i pezzi che seguono uno stile unico, irripetibile, inclassificabile — e per questo meraviglioso. Se sei in cerca di idee, sei nel posto giusto."
+1. **Riga ~875**: Inserire un separatore ◆ prima del blocco "Related categories":
+```tsx
+{/* ◆ Diamond separator before recommendations */}
+<div className="flex items-center gap-4 mt-16 md:mt-24 mb-12 md:mb-16">
+  <div className="flex-1 h-px bg-gold/30" />
+  <span className="text-gold text-xs">◆</span>
+  <div className="flex-1 h-px bg-gold/30" />
+</div>
+```
+E aggiornare il `mt` del div delle raccomandazioni per rimuovere il margine doppio.
 
-**EN**: "Here you'll find pieces that follow a unique, unrepeatable, unclassifiable style — and that's what makes them wonderful. If you're looking for inspiration, you're in the right place."
-
-### Modifiche tecniche
-
-**1. Type e slug (`Prodotti.tsx`)**
-- Estendere `Category` con `"pezzi_unici"`
-- Slug IT: `pezzi-unici` / EN: `unique-pieces`
-- Aggiungere alle 3 mappe di slug
-
-**2. Traduzioni (`LanguageContext.tsx`)**
-- Label: "Pezzi Unici" / "Unique Pieces"
-- Subtitle e description della categoria (testo sopra)
-- Testo poetico "Che poi il Mare" © 2015 Marco Aurelio Lorenzo Gerardi Olivetti
-- Descrizione MAREE: "MAREE nasce dal mare, dalle onde, dal movimento che non si ferma mai. Il metallo è vivo, non ha trattamenti: respira, cambia insieme a chi lo indossa."
-- Nome item: "MAREE — inprofvndvmmaris"
-
-**3. Asset**
-- Salvare `image-17.png` come `src/assets/maree-pezzi-unici.png`
-
-**4. Dati prodotto (`Prodotti.tsx`)**
-- Aggiungere `pezzi_unici` a `products` con MAREE come primo item
-- Aggiungere alla lista `categories` (dopo bracciali)
-
-**5. Layout sequenziale (`Prodotti.tsx`)**
-- Quando `active === "pezzi_unici"`:
-  - Blocco intro: testo poetico "Che poi il Mare" (stile simile agli altri intro, senza video)
-  - Descrizione MAREE + materiali
-  - Carousel prodotto (1 immagine per ora)
-  - CTA → scroll a `#contact-form`
-- Aggiungere `"pezzi_unici"` all'esclusione della griglia unificata
-
-**6. CollectionsSection (homepage)**
-- Aggiungere link a Pezzi Unici usando l'immagine MAREE
-
+2. **Dopo la griglia prodotti (riga ~874)**: Aggiungere un blocco CTA condizionale per `senza_pietre`:
+```tsx
+{active === "senza_pietre" && (
+  <div className="text-center mt-10 md:mt-14">
+    <button onClick={scrollToForm} className="...">
+      {t("form.title")}
+    </button>
+  </div>
+)}
+```
