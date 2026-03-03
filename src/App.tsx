@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import Prodotti from "./pages/Prodotti";
+import Collezioni from "./pages/Collezioni";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
             <Route path="/" element={<Navigate to="/home" replace />} />
             <Route path="/home" element={<Index />} />
             <Route path="/home/en" element={<Index />} />
+            <Route path="/collezioni" element={<Collezioni />} />
             <Route path="/prodotti" element={<Prodotti />} />
             <Route path="/prodotti/:categoria" element={<Prodotti />} />
             <Route path="/prodotti/:categoria/:subcollezione" element={<Prodotti />} />

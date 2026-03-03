@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const links = [
     { label: t("nav.bottega"), href: "#about" },
-    { label: t("nav.collections"), href: "#collezioni" },
+    { label: t("nav.collections"), href: "/collezioni", isRoute: true },
     { label: t("nav.products"), href: "/prodotti", isRoute: true },
     { label: t("nav.baratto"), href: "#baratto" },
     { label: t("nav.contact"), href: "#contatti" },
