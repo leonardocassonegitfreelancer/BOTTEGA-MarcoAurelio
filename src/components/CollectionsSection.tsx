@@ -60,10 +60,10 @@ const CollectionsSection = () => {
 
   const tabs: { key: HomeCategoryKey; label: string }[] = [
     { key: "anelli", label: lang === "en" ? "Rings" : "Anelli" },
-    { key: "fedi", label: lang === "en" ? "Wedding Bands" : "Fedi" },
-    { key: "bracciali", label: lang === "en" ? "Bracelets" : "Bracciali" },
-    { key: "pendenti", label: lang === "en" ? "Pendants" : "Pendenti" },
     { key: "pezzi_unici", label: lang === "en" ? "Unique Pieces" : "Pezzi Unici" },
+    { key: "fedi", label: lang === "en" ? "Wedding Bands" : "Fedi" },
+    { key: "pendenti", label: lang === "en" ? "Pendants" : "Pendenti" },
+    { key: "bracciali", label: lang === "en" ? "Bracelets" : "Bracciali" },
   ];
 
   const slugs = lang === "en"
