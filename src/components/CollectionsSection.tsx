@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import nidoImage from "@/assets/nido.jpg";
-import mareeImage from "@/assets/maree-ring.png";
 import kintsugiImage from "@/assets/kintsugi.jpg";
+import initivmImage from "@/assets/initivm.png";
 import ariaImage from "@/assets/aria.webp";
+import mareeImage from "@/assets/maree-pezzi-unici.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 interface CollectionCardProps {
@@ -35,7 +36,7 @@ const CollectionCard = ({ image, title, subtitle, description, alt, index, categ
       </div>
       <p className="text-xs tracking-[0.3em] uppercase text-gold font-body mb-2">{subtitle}</p>
       <h3 className="text-2xl md:text-3xl font-display font-light text-cream mb-3 group-hover:text-gold transition-colors duration-300">{title}</h3>
-      <p className="text-cream-muted font-body font-light text-sm leading-relaxed">{description}</p>
+      <p className="text-cream-muted font-body font-light text-sm leading-relaxed whitespace-pre-line">{description}</p>
     </Link>
   </motion.div>
 );
@@ -57,20 +58,22 @@ const CollectionsSection = () => {
       categoryLink: `/prodotti/${slugs.fedi}`,
     },
     {
-      image: mareeImage,
-      title: t("collections.maree.title"),
-      subtitle: t("collections.subtitle"),
-      description: t("collections.maree.desc"),
-      alt: t("collections.maree.alt"),
-      categoryLink: `/prodotti/${slugs.senza_pietre}`,
-    },
-    {
       image: kintsugiImage,
       title: t("collections.kintsugi.title"),
       subtitle: t("collections.subtitle"),
       description: t("collections.kintsugi.desc"),
       alt: t("collections.kintsugi.alt"),
       categoryLink: `/prodotti/${slugs.pietre}`,
+    },
+    {
+      image: initivmImage,
+      title: "INITIVM",
+      subtitle: t("collections.subtitle"),
+      description: lang === "en"
+        ? "Geometry as consequence of life. Square rings that carry the weight of an origin."
+        : "Geometria come conseguenza della vita. Anelli quadrati che portano il peso di un'origine.",
+      alt: lang === "en" ? "INITIVM square ring — handcrafted geometric jewel, Rome" : "Anello quadrato INITIVM — gioiello geometrico artigianale, Roma",
+      categoryLink: `/prodotti/${slugs.senza_pietre}`,
     },
     {
       image: ariaImage,
@@ -83,11 +86,13 @@ const CollectionsSection = () => {
     {
       image: mareeImage,
       title: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
-      subtitle: t("collections.subtitle"),
+      subtitle: lang === "en"
+        ? "Collection: Artist's Inspiration"
+        : "Collezione: Ispirazione dell'Artista",
       description: lang === "en"
-        ? "Unique, unrepeatable, unclassifiable pieces — and that's what makes them wonderful."
-        : "Pezzi unici, irripetibili, inclassificabili — e per questo meravigliosi.",
-      alt: lang === "en" ? "MAREE unique ring — handcrafted sea-inspired jewel, Rome" : "Anello MAREE pezzo unico — gioiello artigianale ispirato al mare, Roma",
+        ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces — and that's precisely what makes them extraordinary."
+        : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili — e proprio per questo straordinari.",
+      alt: lang === "en" ? "Unique pieces — handcrafted one-of-a-kind jewels, Rome" : "Pezzi unici — gioielli artigianali irripetibili, Roma",
       categoryLink: `/prodotti/${slugs.pezzi_unici}`,
     },
   ];
