@@ -186,7 +186,7 @@ const CollectionsSection = () => {
       {
         image: mareePezziUniciImage,
         title: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
-        subtitle: lang === "en" ? "Collection" : "Collezione",
+        subtitle: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
         description: lang === "en"
           ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces."
           : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili.",
