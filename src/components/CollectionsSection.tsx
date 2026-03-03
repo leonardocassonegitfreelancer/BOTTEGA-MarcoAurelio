@@ -160,29 +160,13 @@ const CollectionsSection = () => {
         categoryLink: `/prodotti/${slugs.senza_pietre}`,
       },
       {
-        images: [ariaImage],
-        title: "ARIA",
+        images: [ariaImage, navtilvs1Image],
+        title: "ARIA · NAVTILVS",
         subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
-        description: t("collections.aria.desc"),
+        description: lang === "en"
+          ? "Lightness captured in wire. From the breath of Aria to the spiral of Nautilus."
+          : "Leggerezza catturata nel filamento. Dal respiro di Aria alla spirale del Nautilus.",
         alt: t("collections.aria.alt"),
-        categoryLink: `/prodotti/${slugs.filamento}`,
-      },
-      {
-        images: [mvtaraNebvla1Image],
-        title: "MVTARA NEBVLA",
-        subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
-        description: lang === "en"
-          ? "Celestial forms captured in precious metal."
-          : "Forme celesti catturate nel metallo prezioso.",
-        categoryLink: `/prodotti/${slugs.pietre}`,
-      },
-      {
-        images: [navtilvs1Image],
-        title: "NAVTILVS",
-        subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
-        description: lang === "en"
-          ? "Spiral geometry inspired by the nautilus shell."
-          : "Geometria a spirale ispirata alla conchiglia del nautilus.",
         categoryLink: `/prodotti/${slugs.filamento}`,
       },
     ],
