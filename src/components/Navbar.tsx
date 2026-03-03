@@ -13,11 +13,12 @@ const Navbar = () => {
   const homePath = lang === "en" ? "/home/en" : "/home";
 
   const links = [
-    { label: t("nav.bottega"), href: "#about" },
-    { label: t("nav.collections"), href: "/collezioni", isRoute: true },
-    { label: t("nav.products"), href: "/prodotti", isRoute: true },
-    { label: t("nav.baratto"), href: "#baratto" },
-    { label: t("nav.contact"), href: "#contatti" },
+    { label: lang === "en" ? "The Workshop" : "La Bottega", href: "#about" },
+    { label: lang === "en" ? "All Works" : "Tutte le Opere", href: "/prodotti", isRoute: true },
+    { label: lang === "en" ? "Barter" : "Baratto", href: "#baratto" },
+    { label: "FAQ", href: "#faq" },
+    { label: lang === "en" ? "Get Inspired" : "Lasciati Ispirare", href: "/collezioni", isRoute: true },
+    { label: lang === "en" ? "Contact" : "Contatti", href: "#contatti" },
   ];
 
   useEffect(() => {
