@@ -42,7 +42,7 @@ const Collezioni = () => {
     {
       name: "INITIVM",
       image: initivmImage,
-      link: `/prodotti/${lang === "en" ? "square-rings" : "anelli-quadrati"}`,
+      link: `/gioielli/${lang === "en" ? "square-rings" : "anelli-quadrati"}`,
       subtitle: lang === "en" ? "Square Rings" : "Anelli Quadrati",
     },
     {
