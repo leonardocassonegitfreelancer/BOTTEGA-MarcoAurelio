@@ -177,7 +177,7 @@ const CollectionsSection = () => {
         subtitle: lang === "en" ? "Wedding Bands" : "Fedi Nuziali",
         description: t("collections.nido.desc"),
         alt: t("collections.nido.alt"),
-        categoryLink: `/prodotti/${slugs.fedi}`,
+        categoryLink: `/gioielli/${slugs.fedi}`,
       },
     ],
     bracciali: [
