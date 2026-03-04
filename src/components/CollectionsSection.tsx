@@ -188,7 +188,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "The wave motif extends from ring to wrist, a continuous flow of handcrafted metal."
           : "Il motivo ondoso si estende dall'anello al polso, un flusso continuo di metallo lavorato a mano.",
-        categoryLink: `/prodotti/${slugs.bracciali}`,
+        categoryLink: `/gioielli/${slugs.bracciali}`,
       },
       {
         images: [anelliLisciImage],
