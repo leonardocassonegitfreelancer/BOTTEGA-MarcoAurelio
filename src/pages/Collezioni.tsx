@@ -72,7 +72,7 @@ const Collezioni = () => {
     {
       name: "SANGUE",
       image: sangue1Image,
-      link: `/prodotti/${lang === "en" ? "pendants" : "pendenti"}`,
+      link: `/gioielli/${lang === "en" ? "pendants" : "pendenti"}`,
       subtitle: lang === "en" ? "Pendants" : "Pendenti",
     },
     {
