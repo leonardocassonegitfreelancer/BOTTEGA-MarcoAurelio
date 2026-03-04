@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import useEmblaCarousel from "embla-carousel-react";
 
 interface ProductImageCarouselProps {
   images: string[];
@@ -7,7 +8,19 @@ interface ProductImageCarouselProps {
 }
 
 const ProductImageCarousel = ({ images, alt }: ProductImageCarouselProps) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: false });
   const [current, setCurrent] = useState(0);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setCurrent(emblaApi.selectedScrollSnap());
+  }, [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", onSelect);
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi, onSelect]);
 
   if (images.length <= 1) {
     return (
@@ -21,17 +34,25 @@ const ProductImageCarousel = ({ images, alt }: ProductImageCarouselProps) => {
 
   return (
     <div className="relative w-full aspect-square">
-      <img
-        src={images[current]}
-        alt={`${alt} ${current + 1}`}
-        className="w-full h-full object-cover transition-all duration-500"
-      />
+      <div ref={emblaRef} className="overflow-hidden h-full">
+        <div className="flex h-full">
+          {images.map((img, i) => (
+            <div key={i} className="flex-[0_0_100%] min-w-0 h-full">
+              <img
+                src={img}
+                alt={`${alt} ${i + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ))}
+        </div>
+      </div>
 
       {/* Nav arrows */}
       <button
         onClick={(e) => {
           e.stopPropagation();
-          setCurrent((current - 1 + images.length) % images.length);
+          emblaApi?.scrollPrev();
         }}
         className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center bg-background/60 backdrop-blur-sm text-cream hover:bg-background/80 transition-colors rounded-full"
       >
@@ -40,7 +61,7 @@ const ProductImageCarousel = ({ images, alt }: ProductImageCarouselProps) => {
       <button
         onClick={(e) => {
           e.stopPropagation();
-          setCurrent((current + 1) % images.length);
+          emblaApi?.scrollNext();
         }}
         className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center bg-background/60 backdrop-blur-sm text-cream hover:bg-background/80 transition-colors rounded-full"
       >
@@ -54,7 +75,7 @@ const ProductImageCarousel = ({ images, alt }: ProductImageCarouselProps) => {
             key={i}
             onClick={(e) => {
               e.stopPropagation();
-              setCurrent(i);
+              emblaApi?.scrollTo(i);
             }}
             className={`rounded-full transition-all duration-300 ${
               i === current ? "w-4 h-1.5 bg-gold" : "w-1.5 h-1.5 bg-cream/50"
