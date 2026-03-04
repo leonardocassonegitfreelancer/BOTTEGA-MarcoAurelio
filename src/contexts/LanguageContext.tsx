@@ -218,7 +218,7 @@ const translations: Record<Language, Record<string, string>> = {
     "about.p2": "Every piece on display is made by us, from scratch. All unique. It's not a gem to be set in a ready-made mould — it's the stone that dictates the proportions, rhythm and balance.",
     "about.imgAlt": "Goldsmith workshop",
     "collections.label": "The Works",
-    "collections.title": "Works by Type",
+    "collections.title": "Jewelry by Type",
     "collections.subtitle": "Collection",
     "collections.nido.title": "NiDO Wedding Bands",
     "collections.nido.desc": "Organic patterns etched in metal, like branches and leaves that intertwine to protect what they hold. A work of patience, strength and shared destiny.",
