@@ -217,7 +217,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Blood red meets precious metal. A visceral, unapologetic pendant."
           : "Il rosso sangue incontra il metallo prezioso. Un pendente viscerale e senza compromessi.",
-        categoryLink: `/prodotti/${slugs.pendenti}`,
+        categoryLink: `/gioielli/${slugs.pendenti}`,
       },
     ],
     pezzi_unici: [
