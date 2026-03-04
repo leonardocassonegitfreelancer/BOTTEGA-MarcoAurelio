@@ -1,11 +1,12 @@
 
 
-## Piano: Usare il video caricato per SANGUE nei Pendenti
+## Piano: Aggiornamento Meta Tag SEO
 
-Il video caricato verrà copiato nella cartella `public/` come `sangue-intro.mp4`, sostituendo il file attualmente referenziato dal codice in `src/pages/Prodotti.tsx` (linea 725).
+### Modifiche in `index.html`
 
-### Intervento
-1. **Copiare il file** `user-uploads://QUI_vale_il_BARATTO-...mp4` → `public/sangue-intro.mp4`
+1. **Title**: da "Mockup 1" → "BOTTEGA MarcoAurelio | Laboratorio Orafo Roma"
+2. **Description**: ottimizzare il testo meta description per SEO
+3. **OG/Twitter title e description**: aggiornare di conseguenza tutti i tag Open Graph e Twitter Card
 
-Nessuna modifica al codice necessaria: il componente video in Prodotti.tsx già punta a `/sangue-intro.mp4`.
+Tutte le modifiche sono nel file `index.html`, nessun altro file coinvolto.
 
