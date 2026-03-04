@@ -30,7 +30,7 @@ const Collezioni = () => {
     {
       name: "ARIA",
       image: ariaImage,
-      link: `/prodotti/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
+      link: `/gioielli/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
       subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
     },
     {
