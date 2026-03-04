@@ -148,7 +148,7 @@ const CollectionsSection = () => {
         subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
         description: t("collections.kintsugi.desc"),
         alt: t("collections.kintsugi.alt"),
-        categoryLink: `/prodotti/${slugs.pietre}`,
+        categoryLink: `/gioielli/${slugs.pietre}`,
       },
       {
         images: [initivmImage],
@@ -157,7 +157,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Geometry as consequence of life. Square rings that carry the weight of an origin."
           : "Geometria come conseguenza della vita. Anelli quadrati che portano il peso di un'origine.",
-        categoryLink: `/prodotti/${slugs.senza_pietre}`,
+        categoryLink: `/gioielli/${slugs.senza_pietre}`,
       },
       {
         images: [ariaImage, navtilvs1Image],
@@ -167,7 +167,7 @@ const CollectionsSection = () => {
           ? "Lightness captured in wire. From the breath of Aria to the spiral of Nautilus."
           : "Leggerezza catturata nel filamento. Dal respiro di Aria alla spirale del Nautilus.",
         alt: t("collections.aria.alt"),
-        categoryLink: `/prodotti/${slugs.filamento}`,
+        categoryLink: `/gioielli/${slugs.filamento}`,
       },
     ],
     fedi: [

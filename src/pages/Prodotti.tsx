@@ -120,7 +120,7 @@ const Prodotti = () => {
 
   const handleCategoryChange = (key: Category) => {
     setActive(key);
-    navigate(`/prodotti/${categoryToSlug[key]}`, { replace: true });
+    navigate(`/gioielli/${categoryToSlug[key]}`, { replace: true });
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   };
 

@@ -23,9 +23,12 @@ const App = () => (
             <Route path="/home" element={<Index />} />
             <Route path="/home/en" element={<Index />} />
             <Route path="/collezioni" element={<Collezioni />} />
-            <Route path="/prodotti" element={<Prodotti />} />
-            <Route path="/prodotti/:categoria" element={<Prodotti />} />
-            <Route path="/prodotti/:categoria/:subcollezione" element={<Prodotti />} />
+            <Route path="/gioielli" element={<Prodotti />} />
+            <Route path="/gioielli/:categoria" element={<Prodotti />} />
+            <Route path="/gioielli/:categoria/:subcollezione" element={<Prodotti />} />
+            {/* SEO redirects from old /prodotti URLs */}
+            <Route path="/prodotti" element={<Navigate to="/gioielli" replace />} />
+            <Route path="/prodotti/*" element={<Navigate to="/gioielli" replace />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
