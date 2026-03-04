@@ -28,6 +28,8 @@ import mvtaraNebvla1Image from "@/assets/mvtara-nebvla-1.png";
 import mvtaraNebvla2Image from "@/assets/mvtara-nebvla-2.png";
 import navtilvs1Image from "@/assets/navtilvs-1.png";
 import navtilvs2Image from "@/assets/navtilvs-2.png";
+import navtilvs3Image from "@/assets/navtilvs-3.png";
+import navtilvs4Image from "@/assets/navtilvs-4.png";
 import mareeDetail1Image from "@/assets/maree-detail-1.png";
 import mareeDetail2Image from "@/assets/maree-detail-2.png";
 import mareePezziUniciImage from "@/assets/maree-pezzi-unici.png";
@@ -170,7 +172,7 @@ const Prodotti = () => {
       description: t("products.filamento.desc"),
       items: [
       { image: ariaImage, images: [ariaImage, ariaLetteraDImage], name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
-      { image: navtilvs1Image, images: [navtilvs1Image, navtilvs2Image], name: t("products.filamento.navtilvs.name"), desc: t("products.filamento.navtilvs.desc") }]
+      { image: navtilvs1Image, images: [navtilvs1Image, navtilvs2Image, navtilvs3Image, navtilvs4Image], name: t("products.filamento.navtilvs.name"), desc: t("products.filamento.navtilvs.desc") }]
 
     },
     pendenti: {
