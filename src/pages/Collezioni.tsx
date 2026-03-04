@@ -78,7 +78,7 @@ const Collezioni = () => {
     {
       name: lang === "en" ? "Uno Sbilanciamento di Bianco" : "Uno Sbilanciamento di Bianco",
       image: sbilanciamentoBiancoImage,
-      link: `/prodotti/${lang === "en" ? "pendants" : "pendenti"}`,
+      link: `/gioielli/${lang === "en" ? "pendants" : "pendenti"}`,
       subtitle: lang === "en" ? "Pendants" : "Pendenti",
     },
   ];

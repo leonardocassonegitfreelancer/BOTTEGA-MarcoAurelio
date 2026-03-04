@@ -295,11 +295,11 @@ const CollectionsSection = () => {
         >
           <Link
             to={
-              activeTab === "anelli" ? "/prodotti/anelli-circolari"
-              : activeTab === "fedi" ? "/prodotti/fedi-nuziali"
-              : activeTab === "pendenti" ? "/prodotti/pendenti"
-              : activeTab === "bracciali" ? "/prodotti/bracciali"
-              : "/prodotti/pezzi-unici"
+              activeTab === "anelli" ? "/gioielli/anelli-circolari"
+              : activeTab === "fedi" ? "/gioielli/fedi-nuziali"
+              : activeTab === "pendenti" ? "/gioielli/pendenti"
+              : activeTab === "bracciali" ? "/gioielli/bracciali"
+              : "/gioielli/pezzi-unici"
             }
             className="inline-block border border-gold text-gold px-10 py-4 text-sm tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
           >
