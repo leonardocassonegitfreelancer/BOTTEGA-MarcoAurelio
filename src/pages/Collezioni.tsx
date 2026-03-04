@@ -54,7 +54,7 @@ const Collezioni = () => {
     {
       name: "MAREE",
       image: mareePezziUniciImage,
-      link: `/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`,
+      link: `/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`,
       subtitle: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
     },
     {
