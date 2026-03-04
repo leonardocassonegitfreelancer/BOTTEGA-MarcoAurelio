@@ -25,7 +25,7 @@ const translations: Record<Language, Record<string, string>> = {
     "about.p2": "Tutte le opere esposte sono fatte da noi, da zero. Tutti pezzi unici. Non è una gemma da inserire in uno stampo già pronto — è la pietra che detta le proporzioni, il ritmo, l'equilibrio.",
     "about.imgAlt": "Laboratorio orafo",
     "collections.label": "Le Opere",
-    "collections.title": "Opere per Tipologia",
+    "collections.title": "Gioielli per Tipologia",
     "collections.subtitle": "Collezione",
     "collections.nido.title": "Fedi NiDO",
     "collections.nido.desc": "Intrecci organici incisi nel metallo, come rami e foglie che si uniscono a proteggere ciò che custodiscono. Un'opera di pazienza, forza e destino condiviso.",
