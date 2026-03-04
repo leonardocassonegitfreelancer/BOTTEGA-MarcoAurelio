@@ -36,7 +36,7 @@ const Collezioni = () => {
     {
       name: lang === "en" ? "NiDO Wedding Bands" : "Fedi NiDO",
       image: nidoImage,
-      link: `/prodotti/${lang === "en" ? "wedding-bands" : "fedi-nuziali"}`,
+      link: `/gioielli/${lang === "en" ? "wedding-bands" : "fedi-nuziali"}`,
       subtitle: lang === "en" ? "Wedding Bands" : "Fedi Nuziali",
     },
     {
