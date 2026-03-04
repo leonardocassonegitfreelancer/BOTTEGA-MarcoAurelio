@@ -197,7 +197,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Essential purity. A clean surface that speaks through form alone."
           : "Purezza essenziale. Una superficie pulita che parla solo attraverso la forma.",
-        categoryLink: `/prodotti/${slugs.bracciali}`,
+        categoryLink: `/gioielli/${slugs.bracciali}`,
       },
     ],
     pendenti: [
