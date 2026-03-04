@@ -1,12 +1,36 @@
 
 
-## Piano: Aggiornamento Meta Tag SEO
+## Piano: Rinominare le route da `/prodotti` a `/gioielli`
 
-### Modifiche in `index.html`
+### Modifiche
 
-1. **Title**: da "Mockup 1" → "BOTTEGA MarcoAurelio | Laboratorio Orafo Roma"
-2. **Description**: ottimizzare il testo meta description per SEO
-3. **OG/Twitter title e description**: aggiornare di conseguenza tutti i tag Open Graph e Twitter Card
+1. **`src/App.tsx`** — Aggiornare le route da `/prodotti` a `/gioielli` e aggiungere redirect 301 da `/prodotti/*` a `/gioielli/*` per non perdere indicizzazione SEO esistente.
 
-Tutte le modifiche sono nel file `index.html`, nessun altro file coinvolto.
+2. **`src/pages/Prodotti.tsx`** — Aggiornare tutti i `navigate()` e `<Link to=...>` interni che puntano a `/prodotti/...` → `/gioielli/...`.
+
+3. **`src/components/Navbar.tsx`** — Cambiare `href: "/prodotti"` → `href: "/gioielli"`.
+
+4. **`src/components/CollectionsSection.tsx`** — Aggiornare tutti i `categoryLink` e `<Link to=...>` da `/prodotti/...` → `/gioielli/...`.
+
+### Redirect SEO
+Aggiungere route catch-all per le vecchie URL:
+```
+<Route path="/prodotti/*" element={<Navigate to="/gioielli" replace />} />
+<Route path="/prodotti" element={<Navigate to="/gioielli" replace />} />
+```
+
+### Struttura URL risultante
+```text
+/gioielli
+/gioielli/anelli-circolari
+/gioielli/anelli-circolari/kintsugi
+/gioielli/pendenti/sangue
+/gioielli/pezzi-unici
+```
+
+### File coinvolti
+- `src/App.tsx`
+- `src/pages/Prodotti.tsx`
+- `src/components/Navbar.tsx`
+- `src/components/CollectionsSection.tsx`
 
