@@ -66,7 +66,7 @@ const Collezioni = () => {
     {
       name: "NAVTILVS",
       image: navtilvs1Image,
-      link: `/prodotti/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
+      link: `/gioielli/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
       subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
     },
     {
