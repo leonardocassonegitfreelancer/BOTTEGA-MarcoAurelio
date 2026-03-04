@@ -834,7 +834,7 @@ const Prodotti = () => {
               
                 <div className="mb-4">
                   <Link
-                  to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
+                  to={`/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
                   className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors">
                   
                     <ArrowLeft className="w-3 h-3" />
