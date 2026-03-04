@@ -120,7 +120,7 @@ const Prodotti = () => {
 
   const handleCategoryChange = (key: Category) => {
     setActive(key);
-    navigate(`/prodotti/${categoryToSlug[key]}`, { replace: true });
+    navigate(`/gioielli/${categoryToSlug[key]}`, { replace: true });
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   };
 
@@ -805,7 +805,7 @@ const Prodotti = () => {
                   className="group">
                   
                       <Link
-                    to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/${sub.slug}`}
+                    to={`/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/${sub.slug}`}
                     className="block">
                     
                         <div className="relative overflow-hidden mb-4">
@@ -834,7 +834,7 @@ const Prodotti = () => {
               
                 <div className="mb-4">
                   <Link
-                  to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
+                  to={`/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
                   className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors">
                   
                     <ArrowLeft className="w-3 h-3" />
@@ -912,7 +912,7 @@ const Prodotti = () => {
               
                 <div className="mb-4">
                   <Link
-                  to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
+                  to={`/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
                   className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors">
                   
                     <ArrowLeft className="w-3 h-3" />
@@ -963,7 +963,7 @@ const Prodotti = () => {
               
                 <div className="mb-4">
                   <Link
-                  to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
+                  to={`/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`}
                   className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors">
                   
                     <ArrowLeft className="w-3 h-3" />

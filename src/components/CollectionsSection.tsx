@@ -148,7 +148,7 @@ const CollectionsSection = () => {
         subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
         description: t("collections.kintsugi.desc"),
         alt: t("collections.kintsugi.alt"),
-        categoryLink: `/prodotti/${slugs.pietre}`,
+        categoryLink: `/gioielli/${slugs.pietre}`,
       },
       {
         images: [initivmImage],
@@ -157,7 +157,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Geometry as consequence of life. Square rings that carry the weight of an origin."
           : "Geometria come conseguenza della vita. Anelli quadrati che portano il peso di un'origine.",
-        categoryLink: `/prodotti/${slugs.senza_pietre}`,
+        categoryLink: `/gioielli/${slugs.senza_pietre}`,
       },
       {
         images: [ariaImage, navtilvs1Image],
@@ -167,7 +167,7 @@ const CollectionsSection = () => {
           ? "Lightness captured in wire. From the breath of Aria to the spiral of Nautilus."
           : "Leggerezza catturata nel filamento. Dal respiro di Aria alla spirale del Nautilus.",
         alt: t("collections.aria.alt"),
-        categoryLink: `/prodotti/${slugs.filamento}`,
+        categoryLink: `/gioielli/${slugs.filamento}`,
       },
     ],
     fedi: [
@@ -177,7 +177,7 @@ const CollectionsSection = () => {
         subtitle: lang === "en" ? "Wedding Bands" : "Fedi Nuziali",
         description: t("collections.nido.desc"),
         alt: t("collections.nido.alt"),
-        categoryLink: `/prodotti/${slugs.fedi}`,
+        categoryLink: `/gioielli/${slugs.fedi}`,
       },
     ],
     bracciali: [
@@ -188,7 +188,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "The wave motif extends from ring to wrist, a continuous flow of handcrafted metal."
           : "Il motivo ondoso si estende dall'anello al polso, un flusso continuo di metallo lavorato a mano.",
-        categoryLink: `/prodotti/${slugs.bracciali}`,
+        categoryLink: `/gioielli/${slugs.bracciali}`,
       },
       {
         images: [anelliLisciImage],
@@ -197,7 +197,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Essential purity. A clean surface that speaks through form alone."
           : "Purezza essenziale. Una superficie pulita che parla solo attraverso la forma.",
-        categoryLink: `/prodotti/${slugs.bracciali}`,
+        categoryLink: `/gioielli/${slugs.bracciali}`,
       },
     ],
     pendenti: [
@@ -208,7 +208,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "An asymmetric pendant in white gold — controlled imbalance as artistic expression."
           : "Un pendente asimmetrico in oro bianco — sbilanciamento controllato come espressione artistica.",
-        categoryLink: `/prodotti/${slugs.pendenti}`,
+        categoryLink: `/gioielli/${slugs.pendenti}`,
       },
       {
         images: [sangue1Image],
@@ -217,7 +217,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Blood red meets precious metal. A visceral, unapologetic pendant."
           : "Il rosso sangue incontra il metallo prezioso. Un pendente viscerale e senza compromessi.",
-        categoryLink: `/prodotti/${slugs.pendenti}`,
+        categoryLink: `/gioielli/${slugs.pendenti}`,
       },
     ],
     pezzi_unici: [
@@ -228,7 +228,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces."
           : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili.",
-        categoryLink: `/prodotti/${slugs.pezzi_unici}`,
+        categoryLink: `/gioielli/${slugs.pezzi_unici}`,
       },
     ],
   };
@@ -295,11 +295,11 @@ const CollectionsSection = () => {
         >
           <Link
             to={
-              activeTab === "anelli" ? "/prodotti/anelli-circolari"
-              : activeTab === "fedi" ? "/prodotti/fedi-nuziali"
-              : activeTab === "pendenti" ? "/prodotti/pendenti"
-              : activeTab === "bracciali" ? "/prodotti/bracciali"
-              : "/prodotti/pezzi-unici"
+              activeTab === "anelli" ? "/gioielli/anelli-circolari"
+              : activeTab === "fedi" ? "/gioielli/fedi-nuziali"
+              : activeTab === "pendenti" ? "/gioielli/pendenti"
+              : activeTab === "bracciali" ? "/gioielli/bracciali"
+              : "/gioielli/pezzi-unici"
             }
             className="inline-block border border-gold text-gold px-10 py-4 text-sm tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
           >

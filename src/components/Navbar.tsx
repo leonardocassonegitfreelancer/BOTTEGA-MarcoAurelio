@@ -14,7 +14,7 @@ const Navbar = () => {
 
   const links = [
     { label: lang === "en" ? "The Workshop" : "La Bottega", href: "#about" },
-    { label: lang === "en" ? "All Works" : "Tutte le Opere", href: "/prodotti", isRoute: true },
+    { label: lang === "en" ? "All Works" : "Tutte le Opere", href: "/gioielli", isRoute: true },
     { label: lang === "en" ? "Barter" : "Baratto", href: "#baratto" },
     { label: "FAQ", href: "#faq" },
     { label: lang === "en" ? "Get Inspired" : "Lasciati Ispirare", href: "/collezioni", isRoute: true },
