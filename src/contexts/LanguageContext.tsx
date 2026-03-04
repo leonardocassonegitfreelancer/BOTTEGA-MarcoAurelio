@@ -1,3 +1,4 @@
+// Language context with IT/EN translations
 import React, { createContext, useContext, useState, useEffect } from "react";
 
 type Language = "it" | "en";
