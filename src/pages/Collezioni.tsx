@@ -48,7 +48,7 @@ const Collezioni = () => {
     {
       name: "KINTSUGI",
       image: kintsugiImage,
-      link: `/prodotti/${lang === "en" ? "circular-rings" : "anelli-circolari"}`,
+      link: `/gioielli/${lang === "en" ? "circular-rings" : "anelli-circolari"}`,
       subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
     },
     {
