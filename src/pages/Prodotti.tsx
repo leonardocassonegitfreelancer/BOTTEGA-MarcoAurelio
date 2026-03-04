@@ -805,7 +805,7 @@ const Prodotti = () => {
                   className="group">
                   
                       <Link
-                    to={`/prodotti/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/${sub.slug}`}
+                    to={`/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/${sub.slug}`}
                     className="block">
                     
                         <div className="relative overflow-hidden mb-4">
