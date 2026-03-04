@@ -228,7 +228,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces."
           : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili.",
-        categoryLink: `/prodotti/${slugs.pezzi_unici}`,
+        categoryLink: `/gioielli/${slugs.pezzi_unici}`,
       },
     ],
   };
