@@ -208,7 +208,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "An asymmetric pendant in white gold — controlled imbalance as artistic expression."
           : "Un pendente asimmetrico in oro bianco — sbilanciamento controllato come espressione artistica.",
-        categoryLink: `/prodotti/${slugs.pendenti}`,
+        categoryLink: `/gioielli/${slugs.pendenti}`,
       },
       {
         images: [sangue1Image],
