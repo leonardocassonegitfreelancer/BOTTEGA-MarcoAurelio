@@ -172,7 +172,7 @@ const Prodotti = () => {
       description: t("products.filamento.desc"),
       items: [
       { image: ariaImage, images: [ariaImage, ariaLetteraDImage], name: t("products.filamento.item1.name"), desc: t("products.filamento.item1.desc") },
-      { image: navtilvs1Image, images: [navtilvs1Image, navtilvs2Image], name: t("products.filamento.navtilvs.name"), desc: t("products.filamento.navtilvs.desc") }]
+      { image: navtilvs1Image, images: [navtilvs1Image, navtilvs2Image, navtilvs3Image, navtilvs4Image], name: t("products.filamento.navtilvs.name"), desc: t("products.filamento.navtilvs.desc") }]
 
     },
     pendenti: {
