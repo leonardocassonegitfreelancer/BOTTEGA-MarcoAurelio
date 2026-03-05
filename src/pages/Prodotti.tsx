@@ -989,20 +989,60 @@ const Prodotti = () => {
                   </Link>
                 </div>
                 <div className="mb-12 md:mb-16">
+                  {/* Video placeholder */}
+                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                    <video
+                    src="/legione-intro.mp4"
+                    autoPlay loop muted playsInline preload="auto"
+                    poster={legioneImage}
+                    className="w-full h-full object-cover"
+                    style={{ backgroundColor: "hsl(var(--background))" }} />
+                  
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+                  </div>
+
                   <div className="max-w-3xl mx-auto space-y-6 text-center">
+                    <p className="text-cream font-body text-sm md:text-base leading-[2] italic whitespace-pre-line">
+                      {t("products.pezzi_unici.legione.poem")}
+                    </p>
+                    <div className="w-12 h-px bg-gold/40 mx-auto" />
+
+                    {/* ◆ separator */}
+                    <div className="flex items-center gap-4 my-6">
+                      <div className="flex-1 h-px bg-gold/30" />
+                      <span className="text-gold text-xs">◆</span>
+                      <div className="flex-1 h-px bg-gold/30" />
+                    </div>
+
                     <h3 className="text-2xl md:text-4xl font-display font-light text-cream">
                       LEGIONE<span className="text-gold">.</span>
                     </h3>
                     <p className="text-cream-muted font-body text-xs tracking-[0.25em] uppercase">
-                      {lang === "en" ? "Unique piece" : "Pezzo unico"}
+                      {lang === "en" ? "Collection" : "Collezione"}
                     </p>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
-                    <p className="text-cream font-body text-sm md:text-base leading-relaxed italic">
-                      {lang === "en" ?
-                    "A unique piece forged in the spirit of the legion. Coming soon." :
-                    "Un pezzo unico forgiato nello spirito della legione. In arrivo."}
+                    <p className="text-cream font-body text-sm md:text-base leading-relaxed italic whitespace-pre-line">
+                      {t("products.pezzi_unici.legione.desc")}
                     </p>
                     <div className="w-12 h-px bg-gold/40 mx-auto" />
+                    <p className="text-gold font-body text-xs tracking-[0.2em] uppercase">
+                      {t("products.pezzi_unici.legione.material")}
+                    </p>
+                    <p className="text-cream-muted font-body text-sm">
+                      {t("products.pezzi_unici.legione.price")}
+                    </p>
+                  </div>
+
+                  {/* Product image */}
+                  <div className="max-w-2xl mx-auto mt-10 md:mt-14">
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={legioneImage}
+                        alt="LEGIONE — Collezione in bronzo e smeraldi, Bottega MarcoAurelio Roma"
+                        className="w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-background/10" />
+                    </div>
                   </div>
 
                   <div className="text-center mt-10 md:mt-14">

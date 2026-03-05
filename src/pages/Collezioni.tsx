@@ -81,6 +81,12 @@ const Collezioni = () => {
       link: `${base}/${lang === "en" ? "pendants" : "pendenti"}`,
       subtitle: lang === "en" ? "Pendants" : "Pendenti",
     },
+    {
+      name: "LEGIONE",
+      image: legioneImage,
+      link: `${base}/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/legione`,
+      subtitle: lang === "en" ? "Collection" : "Collezione",
+    },
   ];
 
   return (
