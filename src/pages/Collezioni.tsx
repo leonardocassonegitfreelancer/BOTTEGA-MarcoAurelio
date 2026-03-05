@@ -12,6 +12,7 @@ import mvtaraNebvla1Image from "@/assets/mvtara-nebvla-1.png";
 import navtilvs1Image from "@/assets/navtilvs-1.png";
 import sangue1Image from "@/assets/sangue-1.png";
 import sbilanciamentoBiancoImage from "@/assets/sbilanciamento-bianco.png";
+import legioneImage from "@/assets/legione.webp";
 
 interface CollectionEntry {
   name: string;
@@ -79,6 +80,12 @@ const Collezioni = () => {
       image: sbilanciamentoBiancoImage,
       link: `${base}/${lang === "en" ? "pendants" : "pendenti"}`,
       subtitle: lang === "en" ? "Pendants" : "Pendenti",
+    },
+    {
+      name: "LEGIONE",
+      image: legioneImage,
+      link: `${base}/${lang === "en" ? "unique-pieces" : "pezzi-unici"}/legione`,
+      subtitle: lang === "en" ? "Collection" : "Collezione",
     },
   ];
 
