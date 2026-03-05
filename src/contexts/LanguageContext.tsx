@@ -440,13 +440,15 @@ export const getLocalizedPath = (currentPath: string, targetLang: Language): str
   }
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-export const useLanguage = () => {
-  const ctx = useContext(LanguageContext);
-  if (!ctx) throw new Error("useLanguage must be used within LanguageProvider");
-  return ctx;
+const fallbackLanguageContext: LanguageContextType = {
+  lang: "it",
+  setLang: () => {},
+  t: (key: string) => key,
 };
+
+const LanguageContext = createContext<LanguageContextType>(fallbackLanguageContext);
+
+export const useLanguage = () => useContext(LanguageContext);
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [lang, setLang] = useState<Language>("it");
