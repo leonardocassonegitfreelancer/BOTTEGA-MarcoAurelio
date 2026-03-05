@@ -993,7 +993,7 @@ const Prodotti = () => {
                   {/* Video placeholder */}
                   <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden bg-background">
                     <video
-                    src="/legione-intro.mp4"
+                    src="/legione-intro.webm"
                     autoPlay loop muted playsInline preload="auto"
                     poster={legioneViridisImage}
                     className="w-full h-full object-cover"

@@ -228,9 +228,18 @@ const CollectionsSection = () => {
         title: "Maree",
         subtitle: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
         description: lang === "en"
-          ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces."
-          : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili.",
+          ? "Maree · Art Deco\n\nUnique, unrepeatable, unclassifiable pieces."
+          : "Maree · Art Deco\n\nPezzi unici, irripetibili, inclassificabili.",
         categoryLink: `${base}/${slugs.pezzi_unici}`,
+      },
+      {
+        images: [legioneImage],
+        title: "LEGIONE",
+        subtitle: lang === "en" ? "Collection" : "Collezione",
+        description: lang === "en"
+          ? "Born from those who resist. Bronze and emeralds forged into wearable armour."
+          : "Nasce da chi resiste. Bronzo e smeraldi forgiati in un'armatura da indossare.",
+        categoryLink: `${base}/${slugs.pezzi_unici}/legione`,
       },
     ],
   };
