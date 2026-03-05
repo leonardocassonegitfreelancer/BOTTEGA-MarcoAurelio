@@ -38,7 +38,7 @@ const CategoryCarousel = ({ categories, active, onCategoryChange }: CategoryCaro
   };
 
   return (
-    <div className="relative pb-6">
+    <div className="relative pb-1">
       <div className="flex items-center justify-center gap-3">
         {/* Prev arrow + label */}
         <button
