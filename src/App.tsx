@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import Prodotti from "./pages/Prodotti";
 import Collezioni from "./pages/Collezioni";
+import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,9 @@ const App = () => (
               <Route path="jewellery/:categoria/:subcollezione" element={<Prodotti />} />
               <Route path="collections" element={<Collezioni />} />
             </Route>
+
+            {/* Sitemap (no layout, standalone) */}
+            <Route path="/sitemap" element={<Sitemap />} />
 
             {/* Legacy redirects */}
             <Route path="/home" element={<Navigate to="/" replace />} />
