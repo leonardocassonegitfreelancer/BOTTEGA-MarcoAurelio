@@ -87,7 +87,7 @@ const CategoryCarousel = ({ categories, active, onCategoryChange, showDots = fal
       </div>
 
       {/* Dots indicator */}
-      <div className={`flex justify-center gap-1.5 mt-3 transition-opacity duration-300 ${showDots ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`flex justify-center gap-1.5 transition-all duration-300 ${showDots ? 'max-h-6 mt-3 opacity-100' : 'max-h-0 mt-0 opacity-0 overflow-hidden'}`}>
         {categories.map((cat, i) => (
           <button
             key={cat.key}
