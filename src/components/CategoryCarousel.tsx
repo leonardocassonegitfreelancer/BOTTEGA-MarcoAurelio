@@ -8,9 +8,10 @@ interface CategoryCarouselProps {
   categories: { key: Category; label: string }[];
   active: Category;
   onCategoryChange: (key: Category) => void;
+  showDots?: boolean;
 }
 
-const CategoryCarousel = ({ categories, active, onCategoryChange }: CategoryCarouselProps) => {
+const CategoryCarousel = ({ categories, active, onCategoryChange, showDots = false }: CategoryCarouselProps) => {
   const activeIndex = categories.findIndex((c) => c.key === active);
   const prevIndex = (activeIndex - 1 + categories.length) % categories.length;
   const nextIndex = (activeIndex + 1) % categories.length;
@@ -86,7 +87,7 @@ const CategoryCarousel = ({ categories, active, onCategoryChange }: CategoryCaro
       </div>
 
       {/* Dots indicator */}
-      <div className="flex justify-center gap-1.5 mt-3">
+      <div className={`flex justify-center gap-1.5 mt-3 transition-opacity duration-300 ${showDots ? 'opacity-100' : 'opacity-0'}`}>
         {categories.map((cat, i) => (
           <button
             key={cat.key}
