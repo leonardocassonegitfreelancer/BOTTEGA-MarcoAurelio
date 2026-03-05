@@ -233,7 +233,7 @@ const Prodotti = () => {
       </div>
 
       {/* Category Tabs */}
-      <div className="container max-w-6xl px-6 mb-10 md:mb-16">
+      <div className="sticky top-16 z-40 bg-background/95 backdrop-blur-md py-4 -mx-6 px-6 md:relative md:top-auto md:z-auto md:bg-transparent md:backdrop-blur-none md:mx-0 md:py-0 container max-w-6xl md:px-6 mb-10 md:mb-16">
         {isMobile ?
         <CategoryCarousel
           categories={categories}
