@@ -813,7 +813,7 @@ const Prodotti = () => {
                   {[
                 { slug: "maree", title: "MAREE", subtitle: "inprofvndvmmaris", image: mareeImage },
                 { slug: "art-deco", title: "ART DECO", subtitle: lang === "en" ? "Unique piece" : "Pezzo unico", image: mareePezziUniciImage },
-                { slug: "legione", title: "LEGIONE", subtitle: lang === "en" ? "Unique piece" : "Pezzo unico", image: mareeFullImage }].
+                { slug: "legione", title: "LEGIONE", subtitle: lang === "en" ? "Collection" : "Collezione", image: legioneImage }].
                 map((sub, i) =>
                 <motion.div
                   key={sub.slug}
