@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import Prodotti from "./pages/Prodotti";
 import Collezioni from "./pages/Collezioni";
@@ -19,18 +20,32 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Navigate to="/home" replace />} />
-            <Route path="/home" element={<Index />} />
-            <Route path="/home/en" element={<Index />} />
-            <Route path="/collezioni" element={<Collezioni />} />
-            <Route path="/gioielli" element={<Prodotti />} />
-            <Route path="/gioielli/:categoria" element={<Prodotti />} />
-            <Route path="/gioielli/:categoria/:subcollezione" element={<Prodotti />} />
-            {/* SEO redirects from old /prodotti URLs */}
+            {/* Italian routes (default, no prefix) */}
+            <Route element={<Layout lang="it" />}>
+              <Route index element={<Index />} />
+              <Route path="gioielli" element={<Prodotti />} />
+              <Route path="gioielli/:categoria" element={<Prodotti />} />
+              <Route path="gioielli/:categoria/:subcollezione" element={<Prodotti />} />
+              <Route path="collezioni" element={<Collezioni />} />
+            </Route>
+
+            {/* English routes (/en prefix) */}
+            <Route path="/en" element={<Layout lang="en" />}>
+              <Route index element={<Index />} />
+              <Route path="jewellery" element={<Prodotti />} />
+              <Route path="jewellery/:categoria" element={<Prodotti />} />
+              <Route path="jewellery/:categoria/:subcollezione" element={<Prodotti />} />
+              <Route path="collections" element={<Collezioni />} />
+            </Route>
+
+            {/* Legacy redirects */}
+            <Route path="/home" element={<Navigate to="/" replace />} />
+            <Route path="/home/en" element={<Navigate to="/en" replace />} />
             <Route path="/prodotti" element={<Navigate to="/gioielli" replace />} />
             <Route path="/prodotti/*" element={<Navigate to="/gioielli" replace />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+
+            {/* Catch-all */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

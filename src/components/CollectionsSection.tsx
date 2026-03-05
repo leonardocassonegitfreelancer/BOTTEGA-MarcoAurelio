@@ -120,6 +120,7 @@ const CollectionsSection = () => {
     { key: "bracciali", label: lang === "en" ? "Bracelets" : "Bracciali" },
   ];
 
+  const base = lang === "en" ? "/en/jewellery" : "/gioielli";
   const slugs = lang === "en"
     ? {
         pietre: "circular-rings",
@@ -148,7 +149,7 @@ const CollectionsSection = () => {
         subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
         description: t("collections.kintsugi.desc"),
         alt: t("collections.kintsugi.alt"),
-        categoryLink: `/gioielli/${slugs.pietre}`,
+        categoryLink: `${base}/${slugs.pietre}`,
       },
       {
         images: [initivmImage],
@@ -157,7 +158,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Geometry as consequence of life. Square rings that carry the weight of an origin."
           : "Geometria come conseguenza della vita. Anelli quadrati che portano il peso di un'origine.",
-        categoryLink: `/gioielli/${slugs.senza_pietre}`,
+        categoryLink: `${base}/${slugs.senza_pietre}`,
       },
       {
         images: [ariaImage, navtilvs1Image],
@@ -167,7 +168,7 @@ const CollectionsSection = () => {
           ? "Lightness captured in wire. From the breath of Aria to the spiral of Nautilus."
           : "Leggerezza catturata nel filamento. Dal respiro di Aria alla spirale del Nautilus.",
         alt: t("collections.aria.alt"),
-        categoryLink: `/gioielli/${slugs.filamento}`,
+        categoryLink: `${base}/${slugs.filamento}`,
       },
     ],
     fedi: [
@@ -177,7 +178,7 @@ const CollectionsSection = () => {
         subtitle: lang === "en" ? "Wedding Bands" : "Fedi Nuziali",
         description: t("collections.nido.desc"),
         alt: t("collections.nido.alt"),
-        categoryLink: `/gioielli/${slugs.fedi}`,
+        categoryLink: `${base}/${slugs.fedi}`,
       },
     ],
     bracciali: [
@@ -188,7 +189,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "The wave motif extends from ring to wrist, a continuous flow of handcrafted metal."
           : "Il motivo ondoso si estende dall'anello al polso, un flusso continuo di metallo lavorato a mano.",
-        categoryLink: `/gioielli/${slugs.bracciali}`,
+        categoryLink: `${base}/${slugs.bracciali}`,
       },
       {
         images: [anelliLisciImage],
@@ -197,7 +198,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Essential purity. A clean surface that speaks through form alone."
           : "Purezza essenziale. Una superficie pulita che parla solo attraverso la forma.",
-        categoryLink: `/gioielli/${slugs.bracciali}`,
+        categoryLink: `${base}/${slugs.bracciali}`,
       },
     ],
     pendenti: [
@@ -208,7 +209,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "An asymmetric pendant in white gold — controlled imbalance as artistic expression."
           : "Un pendente asimmetrico in oro bianco — sbilanciamento controllato come espressione artistica.",
-        categoryLink: `/gioielli/${slugs.pendenti}`,
+        categoryLink: `${base}/${slugs.pendenti}`,
       },
       {
         images: [sangue1Image],
@@ -217,7 +218,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Blood red meets precious metal. A visceral, unapologetic pendant."
           : "Il rosso sangue incontra il metallo prezioso. Un pendente viscerale e senza compromessi.",
-        categoryLink: `/gioielli/${slugs.pendenti}`,
+        categoryLink: `${base}/${slugs.pendenti}`,
       },
     ],
     pezzi_unici: [
@@ -228,7 +229,7 @@ const CollectionsSection = () => {
         description: lang === "en"
           ? "Maree · Art Deco · Legione\n\nUnique, unrepeatable, unclassifiable pieces."
           : "Maree · Art Deco · Legione\n\nPezzi unici, irripetibili, inclassificabili.",
-        categoryLink: `/gioielli/${slugs.pezzi_unici}`,
+        categoryLink: `${base}/${slugs.pezzi_unici}`,
       },
     ],
   };
@@ -295,11 +296,11 @@ const CollectionsSection = () => {
         >
           <Link
             to={
-              activeTab === "anelli" ? "/gioielli/anelli-circolari"
-              : activeTab === "fedi" ? "/gioielli/fedi-nuziali"
-              : activeTab === "pendenti" ? "/gioielli/pendenti"
-              : activeTab === "bracciali" ? "/gioielli/bracciali"
-              : "/gioielli/pezzi-unici"
+              activeTab === "anelli" ? `${base}/${slugs.pietre}`
+              : activeTab === "fedi" ? `${base}/${slugs.fedi}`
+              : activeTab === "pendenti" ? `${base}/${slugs.pendenti}`
+              : activeTab === "bracciali" ? `${base}/${slugs.bracciali}`
+              : `${base}/${slugs.pezzi_unici}`
             }
             className="inline-block border border-gold text-gold px-10 py-4 text-sm tracking-[0.2em] uppercase font-body hover:bg-gold hover:text-background transition-colors duration-300"
           >
