@@ -399,6 +399,31 @@ const translations: Record<Language, Record<string, string>> = {
   },
 };
 
+const pathMap: Record<string, string> = {
+  gioielli: "jewellery",
+  jewellery: "gioielli",
+  collezioni: "collections",
+  collections: "collezioni",
+};
+
+export const getLocalizedPath = (currentPath: string, targetLang: Language): string => {
+  const segments = currentPath.split("/").filter(Boolean);
+  const isEnglish = segments[0] === "en";
+
+  if (targetLang === "en") {
+    // IT → EN
+    if (isEnglish) return currentPath; // already EN
+    const translated = segments.map((s) => pathMap[s] || s);
+    return "/en" + (translated.length ? "/" + translated.join("/") : "");
+  } else {
+    // EN → IT
+    if (!isEnglish) return currentPath; // already IT
+    const rest = segments.slice(1); // remove "en"
+    const translated = rest.map((s) => pathMap[s] || s);
+    return "/" + translated.join("/") || "/";
+  }
+};
+
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export const useLanguage = () => {
@@ -410,13 +435,11 @@ export const useLanguage = () => {
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const [lang, setLang] = useState<Language>("it");
 
-  // Sync language from URL
+  // Sync language from URL on first load
   useEffect(() => {
     const path = window.location.pathname;
-    if (path === "/home/en" || path.startsWith("/home/en/")) {
+    if (path.startsWith("/en")) {
       setLang("en");
-    } else {
-      setLang("it");
     }
   }, []);
 

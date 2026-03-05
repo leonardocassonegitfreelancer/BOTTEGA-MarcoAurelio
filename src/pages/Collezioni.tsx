@@ -2,8 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 
 import ariaImage from "@/assets/aria.webp";
 import nidoImage from "@/assets/nido.jpg";
@@ -23,70 +21,69 @@ interface CollectionEntry {
 }
 
 const Collezioni = () => {
-  const { lang, t } = useLanguage();
-  const homePath = lang === "en" ? "/home/en" : "/home";
+  const { lang } = useLanguage();
+  const homePath = lang === "en" ? "/en" : "/";
+  const base = lang === "en" ? "/en/jewellery" : "/gioielli";
 
   const collections: CollectionEntry[] = [
     {
       name: "ARIA",
       image: ariaImage,
-      link: `/gioielli/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
+      link: `${base}/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
       subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
     },
     {
       name: lang === "en" ? "NiDO Wedding Bands" : "Fedi NiDO",
       image: nidoImage,
-      link: `/gioielli/${lang === "en" ? "wedding-bands" : "fedi-nuziali"}`,
+      link: `${base}/${lang === "en" ? "wedding-bands" : "fedi-nuziali"}`,
       subtitle: lang === "en" ? "Wedding Bands" : "Fedi Nuziali",
     },
     {
       name: "INITIVM",
       image: initivmImage,
-      link: `/gioielli/${lang === "en" ? "square-rings" : "anelli-quadrati"}`,
+      link: `${base}/${lang === "en" ? "square-rings" : "anelli-quadrati"}`,
       subtitle: lang === "en" ? "Square Rings" : "Anelli Quadrati",
     },
     {
       name: "KINTSUGI",
       image: kintsugiImage,
-      link: `/gioielli/${lang === "en" ? "circular-rings" : "anelli-circolari"}`,
+      link: `${base}/${lang === "en" ? "circular-rings" : "anelli-circolari"}`,
       subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
     },
     {
       name: "MAREE",
       image: mareePezziUniciImage,
-      link: `/gioielli/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`,
+      link: `${base}/${lang === "en" ? "unique-pieces" : "pezzi-unici"}`,
       subtitle: lang === "en" ? "Unique Pieces" : "Pezzi Unici",
     },
     {
       name: "MVTARA NEBVLA",
       image: mvtaraNebvla1Image,
-      link: `/gioielli/${lang === "en" ? "circular-rings" : "anelli-circolari"}`,
+      link: `${base}/${lang === "en" ? "circular-rings" : "anelli-circolari"}`,
       subtitle: lang === "en" ? "Circular Rings" : "Anelli Circolari",
     },
     {
       name: "NAVTILVS",
       image: navtilvs1Image,
-      link: `/gioielli/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
+      link: `${base}/${lang === "en" ? "wire-rings" : "anelli-in-filamento"}`,
       subtitle: lang === "en" ? "Wire Rings" : "Anelli in Filamento",
     },
     {
       name: "SANGUE",
       image: sangue1Image,
-      link: `/gioielli/${lang === "en" ? "pendants" : "pendenti"}`,
+      link: `${base}/${lang === "en" ? "pendants" : "pendenti"}`,
       subtitle: lang === "en" ? "Pendants" : "Pendenti",
     },
     {
-      name: lang === "en" ? "Uno Sbilanciamento di Bianco" : "Uno Sbilanciamento di Bianco",
+      name: "Uno Sbilanciamento di Bianco",
       image: sbilanciamentoBiancoImage,
-      link: `/gioielli/${lang === "en" ? "pendants" : "pendenti"}`,
+      link: `${base}/${lang === "en" ? "pendants" : "pendenti"}`,
       subtitle: lang === "en" ? "Pendants" : "Pendenti",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
+    <>
       <div className="pt-24 md:pt-36 pb-4 md:pb-12">
         <div className="container max-w-6xl px-6">
           <Link
@@ -147,9 +144,7 @@ const Collezioni = () => {
           </div>
         </div>
       </div>
-
-      <Footer />
-    </div>
+    </>
   );
 };
 

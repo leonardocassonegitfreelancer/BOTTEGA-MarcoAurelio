@@ -2,22 +2,25 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage, getLocalizedPath } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { lang, setLang, t } = useLanguage();
+  const { lang, t } = useLanguage();
   const navigate = useNavigate();
   const location = useLocation();
-  const homePath = lang === "en" ? "/home/en" : "/home";
+
+  const homePath = lang === "en" ? "/en" : "/";
+  const jewelleryPath = lang === "en" ? "/en/jewellery" : "/gioielli";
+  const collectionsPath = lang === "en" ? "/en/collections" : "/collezioni";
 
   const links = [
     { label: lang === "en" ? "The Workshop" : "La Bottega", href: "#about" },
-    { label: lang === "en" ? "All Jewelry" : "Tutti i Gioielli", href: "/gioielli", isRoute: true },
+    { label: lang === "en" ? "All Jewelry" : "Tutti i Gioielli", href: jewelleryPath, isRoute: true },
     { label: lang === "en" ? "Barter" : "Baratto", href: "#baratto" },
     { label: "FAQ", href: "#faq" },
-    { label: lang === "en" ? "Get Inspired" : "Lasciati Ispirare", href: "/collezioni", isRoute: true },
+    { label: lang === "en" ? "Get Inspired" : "Lasciati Ispirare", href: collectionsPath, isRoute: true },
     { label: lang === "en" ? "Contact" : "Contatti", href: "#contatti" },
   ];
 
@@ -27,22 +30,26 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isOnHome = location.pathname === "/" || location.pathname === "/en";
+
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMenuOpen(false);
 
-    const isOnHome = location.pathname === "/home" || location.pathname === "/home/en";
     if (isOnHome) {
       const target = document.querySelector(href);
       if (target) {
-        setTimeout(() => {
-          target.scrollIntoView({ behavior: "smooth" });
-        }, 300);
+        setTimeout(() => target.scrollIntoView({ behavior: "smooth" }), 300);
       }
     } else {
-      // Navigate to home with hash
       navigate(`${homePath}${href}`);
     }
+  };
+
+  const handleLangSwitch = () => {
+    const targetLang = lang === "it" ? "en" : "it";
+    const newPath = getLocalizedPath(location.pathname, targetLang);
+    navigate(newPath);
   };
 
   return (
@@ -79,16 +86,8 @@ const Navbar = () => {
               </a>
             )
           )}
-          {/* Language toggle */}
           <button
-            onClick={() => {
-              const newLang = lang === "it" ? "en" : "it";
-              setLang(newLang);
-              const isOnHome = location.pathname === "/home" || location.pathname === "/home/en";
-              if (isOnHome) {
-                navigate(newLang === "en" ? "/home/en" : "/home");
-              }
-            }}
+            onClick={handleLangSwitch}
             className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-3 py-1.5 hover:border-gold hover:text-gold transition-colors duration-300 text-cream-muted"
           >
             {lang === "it" ? "IT" : "EN"}
@@ -98,14 +97,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <div className="md:hidden flex items-center gap-3">
           <button
-            onClick={() => {
-              const newLang = lang === "it" ? "en" : "it";
-              setLang(newLang);
-              const isOnHome = location.pathname === "/home" || location.pathname === "/home/en";
-              if (isOnHome) {
-                navigate(newLang === "en" ? "/home/en" : "/home");
-              }
-            }}
+            onClick={handleLangSwitch}
             className="text-xs tracking-[0.15em] uppercase font-body border border-gold/30 px-2 py-1 text-cream-muted hover:text-gold transition-colors"
           >
             {lang === "it" ? "IT" : "EN"}

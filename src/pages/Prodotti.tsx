@@ -4,8 +4,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import WhatsAppContactForm from "@/components/WhatsAppContactForm";
 import CategoryCarousel from "@/components/CategoryCarousel";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -120,9 +118,11 @@ const Prodotti = () => {
     }
   }, [categoria]);
 
+  const basePath = lang === "en" ? "/en/jewellery" : "/gioielli";
+
   const handleCategoryChange = (key: Category) => {
     setActive(key);
-    navigate(`/gioielli/${categoryToSlug[key]}`, { replace: true });
+    navigate(`${basePath}/${categoryToSlug[key]}`, { replace: true });
     window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
   };
 
@@ -220,14 +220,12 @@ const Prodotti = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navbar />
-
+    <>
       {/* Header */}
       <div className="pt-24 md:pt-36 pb-4 md:pb-12">
         <div className="container max-w-6xl px-6">
           <Link
-            to={lang === "en" ? "/home/en" : "/home"}
+            to={lang === "en" ? "/en" : "/"}
             className="inline-flex items-center gap-2 text-cream-muted hover:text-gold text-xs tracking-[0.2em] uppercase font-body transition-colors mb-6 md:mb-8">
             
             <ArrowLeft className="w-4 h-4" />
@@ -1170,8 +1168,7 @@ const Prodotti = () => {
         </AnimatePresence>
       </div>
 
-      <Footer />
-    </div>);
+    </>);
 
 };
 
