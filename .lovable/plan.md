@@ -1,20 +1,20 @@
 
 
-## Piano: Invertire logica puntini + eliminare riga grigia
+## Piano: Ridurre spazio nero nello sticky durante lo scroll
 
-### Problemi
-1. I puntini sono visibili durante lo scroll — l'utente vuole il contrario: visibili di default, nascosti durante lo scroll.
-2. La riga grigia appare per via di `bg-background/95 backdrop-blur-md` nel container sticky.
+### Problema
+Il container sticky ha `py-2` + i dots con `mt-3` che creano troppo spazio nero visibile. Quando l'utente scrolla e i dots scompaiono (opacity-0), lo spazio verticale resta allocato.
 
 ### Modifiche
 
-**`src/pages/Prodotti.tsx`** (riga 252):
-- Cambiare `bg-background/95 backdrop-blur-md` → `bg-background` (opaco, niente blur = niente riga grigia).
+**`src/components/CategoryCarousel.tsx`**:
+- Cambiare i dots da `opacity-0`/`opacity-100` a un collasso effettivo dell'altezza: usare `max-height` e `overflow-hidden` insieme all'opacity per eliminare lo spazio quando nascosti.
+- Quando `showDots=false`: `max-height: 0`, `mt-0`, `opacity-0`
+- Quando `showDots=true`: `max-height: 24px`, `mt-3`, `opacity-100`
 
-**`src/pages/Prodotti.tsx`** (riga 258):
-- Invertire la prop: `showDots={!isScrolling}` invece di `showDots={isScrolling}`.
+**`src/pages/Prodotti.tsx`**:
+- Ridurre il padding del container sticky da `py-2` a `py-1` per minimizzare lo spazio nero.
 
 ### Risultato
-- Puntini visibili quando l'utente non scrolla, scompaiono con fade durante lo scroll.
-- Nessuna riga grigia grazie allo sfondo completamente opaco.
+Quando l'utente scrolla, i dots collassano completamente e il padding si riduce, eliminando lo spazio nero in eccesso.
 
