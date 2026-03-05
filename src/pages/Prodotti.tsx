@@ -40,6 +40,7 @@ import sbilBianco2Image from "@/assets/sbilanciamento-bianco-2.png";
 import sbilBianco3Image from "@/assets/sbilanciamento-bianco-3.png";
 import sbilBianco4Image from "@/assets/sbilanciamento-bianco-4.png";
 import legioneImage from "@/assets/legione.webp";
+import legioneViridisImage from "@/assets/legione-viridis.webp";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
@@ -990,16 +991,19 @@ const Prodotti = () => {
                 </div>
                 <div className="mb-12 md:mb-16">
                   {/* Video placeholder */}
-                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden bg-background">
                     <video
                     src="/legione-intro.mp4"
                     autoPlay loop muted playsInline preload="auto"
-                    poster={legioneImage}
+                    poster={legioneViridisImage}
                     className="w-full h-full object-cover"
                     style={{ backgroundColor: "hsl(var(--background))" }} />
                   
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
+                  <h4 className="text-lg md:text-xl font-display font-light text-cream mt-4">
+                    VIRIDIS
+                  </h4>
 
                   <div className="max-w-3xl mx-auto space-y-6 text-center">
                     <p className="text-cream font-body text-sm md:text-base leading-[2] italic whitespace-pre-line">
@@ -1033,16 +1037,18 @@ const Prodotti = () => {
                     </p>
                   </div>
 
-                  {/* Product image */}
+                  {/* Product carousel */}
                   <div className="max-w-2xl mx-auto mt-10 md:mt-14">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={legioneImage}
-                        alt="LEGIONE — Collezione in bronzo e smeraldi, Bottega MarcoAurelio Roma"
-                        className="w-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-background/10" />
-                    </div>
+                    <ProductImageCarousel
+                      images={[legioneImage, legioneViridisImage]}
+                      alt="LEGIONE — Collezione in bronzo e smeraldi"
+                    />
+                    <h4 className="text-lg md:text-xl font-display font-light text-cream mt-4">
+                      LEGIONE — <span className="text-gold">VIRIDIS</span>
+                    </h4>
+                    <p className="text-cream-muted font-body text-xs tracking-[0.15em] mt-1">
+                      {t("products.pezzi_unici.legione.desc_short")}
+                    </p>
                   </div>
 
                   <div className="text-center mt-10 md:mt-14">
