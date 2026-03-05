@@ -1033,16 +1033,18 @@ const Prodotti = () => {
                     </p>
                   </div>
 
-                  {/* Product image */}
+                  {/* Product carousel */}
                   <div className="max-w-2xl mx-auto mt-10 md:mt-14">
-                    <div className="relative overflow-hidden">
-                      <img
-                        src={legioneImage}
-                        alt="LEGIONE — Collezione in bronzo e smeraldi, Bottega MarcoAurelio Roma"
-                        className="w-full object-cover"
-                      />
-                      <div className="absolute inset-0 bg-background/10" />
-                    </div>
+                    <ProductImageCarousel
+                      images={[legioneImage, legioneViridisImage]}
+                      alt="LEGIONE — Collezione in bronzo e smeraldi"
+                    />
+                    <h4 className="text-lg md:text-xl font-display font-light text-cream mt-4">
+                      LEGIONE — <span className="text-gold">VIRIDIS</span>
+                    </h4>
+                    <p className="text-cream-muted font-body text-xs tracking-[0.15em] mt-1">
+                      {t("products.pezzi_unici.legione.desc_short")}
+                    </p>
                   </div>
 
                   <div className="text-center mt-10 md:mt-14">
