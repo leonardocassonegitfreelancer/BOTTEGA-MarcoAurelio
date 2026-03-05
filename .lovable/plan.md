@@ -1,22 +1,21 @@
 
 
-## Piano: CategoryCarousel sticky su mobile nella pagina Gioielli
+## Piano: Mostrare i puntini solo durante lo scroll
 
-### Modifica
+### Comportamento
+I puntini (dots indicator) del CategoryCarousel saranno nascosti di default e appariranno con un fade-in quando l'utente scrolla la pagina. Dopo che lo scroll si ferma per ~1.5 secondi, i puntini scompaiono di nuovo con un fade-out.
 
-**`src/pages/Prodotti.tsx`** — Rendere il contenitore del `CategoryCarousel` mobile sticky, in modo che resti visibile in cima allo schermo quando l'utente scrolla verso il basso.
+### Modifiche
 
-Wrappare il blocco delle category tabs (linee 236-260) con classi sticky su mobile:
+**`src/components/CategoryCarousel.tsx`**:
+1. Aggiungere una prop `showDots` (boolean) al componente.
+2. Wrappare la sezione dots con una `div` che ha `opacity-0`/`opacity-100` e `transition-opacity duration-300` controllata dalla prop.
 
-```tsx
-<div className="md:relative sticky top-16 z-40 bg-background/95 backdrop-blur-md py-4 -mx-6 px-6 md:mx-0 md:py-0 md:bg-transparent md:backdrop-blur-none container max-w-6xl md:px-6 mb-10 md:mb-16">
-```
+**`src/pages/Prodotti.tsx`**:
+1. Aggiungere stato `isScrolling` (default `false`) e un ref per il timeout.
+2. Listener `scroll` su `window`: setta `isScrolling = true`, resetta un timeout di ~1500ms che lo riporta a `false`.
+3. Passare `showDots={isScrolling}` al `CategoryCarousel`.
 
-- `sticky top-16` — si fissa sotto la navbar (h-16 su mobile)
-- `z-40` — sotto la navbar (z-50) ma sopra il contenuto
-- `bg-background/95 backdrop-blur-md` — sfondo semi-trasparente coerente col design
-- Su desktop (`md:`) torna a comportamento normale (non sticky)
-
-### File coinvolto
-- `src/pages/Prodotti.tsx` (solo la riga 236)
+### Risultato
+I puntini appaiono con fade quando l'utente scrolla e scompaiono poco dopo che si ferma.
 
