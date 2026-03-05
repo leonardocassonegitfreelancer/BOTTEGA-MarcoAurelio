@@ -203,6 +203,10 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.q4": "Posso discutere ogni dettaglio con voi?",
     "faq.a4": "Certamente, siamo aperti a discutere ogni dettaglio con te. Nessun problema, nessuna fretta. Il dialogo è parte del processo creativo.",
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Roma",
+    "footer.phone": "348.27.62.842",
+    "footer.hours": "Solo su appuntamento",
+    "footer.instagram": "@bottegamarcoaurelio",
+    "footer.vat": "P.IVA 12345678901",
   },
   en: {
     "nav.bottega": "The Workshop",
