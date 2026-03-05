@@ -400,6 +400,10 @@ const translations: Record<Language, Record<string, string>> = {
     "faq.q4": "Can I discuss every detail with you?",
     "faq.a4": "Of course, we are open to discussing every detail with you. No problems, no rush. Dialogue is part of the creative process.",
     "footer.address": "Via dei Cappellari 21, Campo de' Fiori — Rome",
+    "footer.phone": "348.27.62.842",
+    "footer.hours": "By appointment only",
+    "footer.instagram": "@bottegamarcoaurelio",
+    "footer.vat": "VAT 12345678901",
   },
 };
 
