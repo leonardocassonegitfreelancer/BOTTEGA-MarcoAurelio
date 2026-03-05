@@ -1,21 +1,20 @@
 
 
-## Piano: Mostrare i puntini solo durante lo scroll
+## Piano: Invertire logica puntini + eliminare riga grigia
 
-### Comportamento
-I puntini (dots indicator) del CategoryCarousel saranno nascosti di default e appariranno con un fade-in quando l'utente scrolla la pagina. Dopo che lo scroll si ferma per ~1.5 secondi, i puntini scompaiono di nuovo con un fade-out.
+### Problemi
+1. I puntini sono visibili durante lo scroll — l'utente vuole il contrario: visibili di default, nascosti durante lo scroll.
+2. La riga grigia appare per via di `bg-background/95 backdrop-blur-md` nel container sticky.
 
 ### Modifiche
 
-**`src/components/CategoryCarousel.tsx`**:
-1. Aggiungere una prop `showDots` (boolean) al componente.
-2. Wrappare la sezione dots con una `div` che ha `opacity-0`/`opacity-100` e `transition-opacity duration-300` controllata dalla prop.
+**`src/pages/Prodotti.tsx`** (riga 252):
+- Cambiare `bg-background/95 backdrop-blur-md` → `bg-background` (opaco, niente blur = niente riga grigia).
 
-**`src/pages/Prodotti.tsx`**:
-1. Aggiungere stato `isScrolling` (default `false`) e un ref per il timeout.
-2. Listener `scroll` su `window`: setta `isScrolling = true`, resetta un timeout di ~1500ms che lo riporta a `false`.
-3. Passare `showDots={isScrolling}` al `CategoryCarousel`.
+**`src/pages/Prodotti.tsx`** (riga 258):
+- Invertire la prop: `showDots={!isScrolling}` invece di `showDots={isScrolling}`.
 
 ### Risultato
-I puntini appaiono con fade quando l'utente scrolla e scompaiono poco dopo che si ferma.
+- Puntini visibili quando l'utente non scrolla, scompaiono con fade durante lo scroll.
+- Nessuna riga grigia grazie allo sfondo completamente opaco.
 
