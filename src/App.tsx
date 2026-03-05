@@ -39,6 +39,9 @@ const App = () => (
               <Route path="collections" element={<Collezioni />} />
             </Route>
 
+            {/* Sitemap (no layout, standalone) */}
+            <Route path="/sitemap" element={<Sitemap />} />
+
             {/* Legacy redirects */}
             <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/home/en" element={<Navigate to="/en" replace />} />
