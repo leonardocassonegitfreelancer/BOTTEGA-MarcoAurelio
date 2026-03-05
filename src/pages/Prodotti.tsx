@@ -991,16 +991,19 @@ const Prodotti = () => {
                 </div>
                 <div className="mb-12 md:mb-16">
                   {/* Video placeholder */}
-                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden mb-8 md:mb-12 bg-background">
+                  <div className="relative w-full aspect-[4/5] md:aspect-video overflow-hidden bg-background">
                     <video
                     src="/legione-intro.mp4"
                     autoPlay loop muted playsInline preload="auto"
-                    poster={legioneImage}
+                    poster={legioneViridisImage}
                     className="w-full h-full object-cover"
                     style={{ backgroundColor: "hsl(var(--background))" }} />
                   
                     <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
                   </div>
+                  <h4 className="text-lg md:text-xl font-display font-light text-cream mt-4">
+                    VIRIDIS
+                  </h4>
 
                   <div className="max-w-3xl mx-auto space-y-6 text-center">
                     <p className="text-cream font-body text-sm md:text-base leading-[2] italic whitespace-pre-line">
