@@ -17,6 +17,7 @@ import mareeFullImage from "@/assets/maree.jpg";
 import anelliLisciImage from "@/assets/anelli-lisci.jpg";
 import mvtaraNebvla1Image from "@/assets/mvtara-nebvla-1.png";
 import navtilvs1Image from "@/assets/navtilvs-1.png";
+import legioneImage from "@/assets/legione.webp";
 
 type HomeCategoryKey = "anelli" | "fedi" | "bracciali" | "pendenti" | "pezzi_unici";
 
