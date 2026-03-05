@@ -98,6 +98,7 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pezzi_unici.legione.desc": "Legione nasce da chi resiste. Il metallo è vivo, non ha trattamenti: respira, cambia insieme a chi lo indossa — e porta con sé tutto ciò che è già stato.",
     "products.pezzi_unici.legione.material": "Bronzo e Smeraldi",
     "products.pezzi_unici.legione.price": "A partire da 290 euro",
+    "products.pezzi_unici.legione.desc_short": "Bronzo e Smeraldi · Collezione Legione",
     "products.fedi.subtitle": "Fedi Nuziali",
     "products.fedi.desc": "Fedi forgiate a mano, intrecci organici incisi nel metallo. Un'opera di pazienza, forza e destino condiviso.",
     "products.fedi.item1.name": "NiDO Classica",
