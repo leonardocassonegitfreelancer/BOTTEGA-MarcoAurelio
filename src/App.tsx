@@ -8,6 +8,7 @@ import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import Prodotti from "./pages/Prodotti";
 import Collezioni from "./pages/Collezioni";
+import Sitemap from "./pages/Sitemap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
