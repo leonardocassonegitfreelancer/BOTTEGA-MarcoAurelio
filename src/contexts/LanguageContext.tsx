@@ -300,6 +300,7 @@ const translations: Record<Language, Record<string, string>> = {
     "products.pezzi_unici.legione.desc": "Legione is born from those who resist. The metal is alive, untreated: it breathes, it changes with the one who wears it — and carries with it everything that has already been.",
     "products.pezzi_unici.legione.material": "Bronze and Emeralds",
     "products.pezzi_unici.legione.price": "Starting from 290 euro",
+    "products.pezzi_unici.legione.desc_short": "Bronze and Emeralds · Legione Collection",
     "products.fedi.subtitle": "Wedding Bands",
     "products.fedi.desc": "Hand-forged wedding bands with organic woven patterns etched in metal. A work of patience, strength and shared destiny.",
     "products.fedi.item1.name": "NiDO Classic",

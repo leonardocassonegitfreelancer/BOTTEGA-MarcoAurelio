@@ -40,6 +40,7 @@ import sbilBianco2Image from "@/assets/sbilanciamento-bianco-2.png";
 import sbilBianco3Image from "@/assets/sbilanciamento-bianco-3.png";
 import sbilBianco4Image from "@/assets/sbilanciamento-bianco-4.png";
 import legioneImage from "@/assets/legione.webp";
+import legioneViridisImage from "@/assets/legione-viridis.webp";
 
 type Category = "fedi" | "pietre" | "senza_pietre" | "filamento" | "pendenti" | "bracciali" | "pezzi_unici";
 
