@@ -432,7 +432,7 @@ export const getLocalizedPath = (currentPath: string, targetLang: Language): str
   }
 };
 
-const LanguageContext = createContext<LanguageContextType | null>(null);
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const useLanguage = () => {
   const ctx = useContext(LanguageContext);
