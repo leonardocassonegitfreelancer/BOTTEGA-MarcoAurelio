@@ -71,7 +71,7 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const result = schema.safeParse({ name, collection, category, message });
+    const result = schema.safeParse({ name, collection, category, howFound, message });
 
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
