@@ -65,6 +65,7 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
     name: z.string().trim().min(1, t("form.error.name")).max(100),
     collection: z.string().min(1, lang === "it" ? "Seleziona una collezione" : "Select a collection"),
     category: z.string().min(1, t("form.error.category")),
+    howFound: z.string().min(1, t("form.error.howFound")),
     message: z.string().trim().min(1, t("form.error.message")).max(1000),
   });
 
