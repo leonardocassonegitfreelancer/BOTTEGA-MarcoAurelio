@@ -206,6 +206,28 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
           {errors.collection && <p className="text-red-400 text-xs mt-1 font-body">{errors.collection}</p>}
         </div>
 
+        {/* Come ci hai trovati */}
+        <div>
+          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
+            {t("form.howFound")}
+          </label>
+          <select
+            value={howFound}
+            onChange={(e) => setHowFound(e.target.value)}
+            className={`${inputClass} ${!howFound ? "text-cream-muted/40" : ""}`}
+          >
+            <option value="" disabled>
+              {t("form.howFound.placeholder")}
+            </option>
+            {howFoundOptions.map((opt) => (
+              <option key={opt.value} value={opt.value} className="bg-background text-cream">
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          {errors.howFound && <p className="text-red-400 text-xs mt-1 font-body">{errors.howFound}</p>}
+        </div>
+
         {/* Messaggio */}
         <div>
           <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
