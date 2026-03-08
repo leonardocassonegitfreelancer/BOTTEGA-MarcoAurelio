@@ -86,9 +86,10 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
 
     const categoryLabel = categoryOptions.find((c) => c.value === category)?.label || category;
     const collectionLabel = collectionOptions.find((c) => c.value === collection)?.label || collection;
+    const howFoundLabel = howFoundOptions.find((c) => c.value === howFound)?.label || howFound;
     const text = lang === "it"
-      ? `Salve, mi chiamo ${name.trim()}.\n\nCollezione: ${collectionLabel}\nCategoria: ${categoryLabel}\n\nMessaggio: ${message.trim()}`
-      : `Hello, my name is ${name.trim()}.\n\nCollection: ${collectionLabel}\nCategory: ${categoryLabel}\n\nMessage: ${message.trim()}`;
+      ? `Salve, mi chiamo ${name.trim()}.\n\nCollezione: ${collectionLabel}\nCategoria: ${categoryLabel}\nCome ci ha trovati: ${howFoundLabel}\n\nMessaggio: ${message.trim()}`
+      : `Hello, my name is ${name.trim()}.\n\nCollection: ${collectionLabel}\nCategory: ${categoryLabel}\nHow they found us: ${howFoundLabel}\n\nMessage: ${message.trim()}`;
 
     window.open(
       `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`,
