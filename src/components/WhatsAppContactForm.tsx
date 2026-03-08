@@ -57,6 +57,7 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
   useEffect(() => {
     if (defaultCollection) setCollection(defaultCollection);
   }, [defaultCollection]);
+  const [howFound, setHowFound] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
