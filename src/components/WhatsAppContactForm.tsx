@@ -25,6 +25,14 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
     { value: "altro", label: lang === "it" ? "Altro" : "Other" },
   ];
 
+  const howFoundOptions = [
+    { value: "google", label: "Google" },
+    { value: "instagram", label: "Instagram" },
+    { value: "facebook", label: "Facebook" },
+    { value: "passaparola", label: lang === "it" ? "Passaparola" : "Word of mouth" },
+    { value: "altro", label: lang === "it" ? "Altro" : "Other" },
+  ];
+
   const pendantsOptions = [
     { value: "sbilanciamento_bianco", label: "Uno Sbilanciamento di Bianco" },
     { value: "sangue", label: "SANGUE" },
@@ -49,6 +57,7 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
   useEffect(() => {
     if (defaultCollection) setCollection(defaultCollection);
   }, [defaultCollection]);
+  const [howFound, setHowFound] = useState("");
   const [message, setMessage] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -56,12 +65,13 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
     name: z.string().trim().min(1, t("form.error.name")).max(100),
     collection: z.string().min(1, lang === "it" ? "Seleziona una collezione" : "Select a collection"),
     category: z.string().min(1, t("form.error.category")),
+    howFound: z.string().min(1, t("form.error.howFound")),
     message: z.string().trim().min(1, t("form.error.message")).max(1000),
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const result = schema.safeParse({ name, collection, category, message });
+    const result = schema.safeParse({ name, collection, category, howFound, message });
 
     if (!result.success) {
       const fieldErrors: Record<string, string> = {};
@@ -76,9 +86,10 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
 
     const categoryLabel = categoryOptions.find((c) => c.value === category)?.label || category;
     const collectionLabel = collectionOptions.find((c) => c.value === collection)?.label || collection;
+    const howFoundLabel = howFoundOptions.find((c) => c.value === howFound)?.label || howFound;
     const text = lang === "it"
-      ? `Salve, mi chiamo ${name.trim()}.\n\nCollezione: ${collectionLabel}\nCategoria: ${categoryLabel}\n\nMessaggio: ${message.trim()}`
-      : `Hello, my name is ${name.trim()}.\n\nCollection: ${collectionLabel}\nCategory: ${categoryLabel}\n\nMessage: ${message.trim()}`;
+      ? `Salve, mi chiamo ${name.trim()}.\n\nCollezione: ${collectionLabel}\nCategoria: ${categoryLabel}\nCome ci ha trovati: ${howFoundLabel}\n\nMessaggio: ${message.trim()}`
+      : `Hello, my name is ${name.trim()}.\n\nCollection: ${collectionLabel}\nCategory: ${categoryLabel}\nHow they found us: ${howFoundLabel}\n\nMessage: ${message.trim()}`;
 
     window.open(
       `https://wa.me/${PHONE}?text=${encodeURIComponent(text)}`,
@@ -193,6 +204,28 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
             ))}
           </select>
           {errors.collection && <p className="text-red-400 text-xs mt-1 font-body">{errors.collection}</p>}
+        </div>
+
+        {/* Come ci hai trovati */}
+        <div>
+          <label className="block text-[10px] tracking-[0.2em] uppercase text-cream-muted font-body mb-1.5">
+            {t("form.howFound")}
+          </label>
+          <select
+            value={howFound}
+            onChange={(e) => setHowFound(e.target.value)}
+            className={`${inputClass} ${!howFound ? "text-cream-muted/40" : ""}`}
+          >
+            <option value="" disabled>
+              {t("form.howFound.placeholder")}
+            </option>
+            {howFoundOptions.map((opt) => (
+              <option key={opt.value} value={opt.value} className="bg-background text-cream">
+                {opt.label}
+              </option>
+            ))}
+          </select>
+          {errors.howFound && <p className="text-red-400 text-xs mt-1 font-body">{errors.howFound}</p>}
         </div>
 
         {/* Messaggio */}
