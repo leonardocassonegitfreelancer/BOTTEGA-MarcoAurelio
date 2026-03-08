@@ -25,6 +25,14 @@ const WhatsAppContactForm = ({ defaultCategory, defaultCollection, compact = fal
     { value: "altro", label: lang === "it" ? "Altro" : "Other" },
   ];
 
+  const howFoundOptions = [
+    { value: "google", label: "Google" },
+    { value: "instagram", label: "Instagram" },
+    { value: "facebook", label: "Facebook" },
+    { value: "passaparola", label: lang === "it" ? "Passaparola" : "Word of mouth" },
+    { value: "altro", label: lang === "it" ? "Altro" : "Other" },
+  ];
+
   const pendantsOptions = [
     { value: "sbilanciamento_bianco", label: "Uno Sbilanciamento di Bianco" },
     { value: "sangue", label: "SANGUE" },
