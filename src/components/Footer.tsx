@@ -65,12 +65,9 @@ const Footer = () => {
         </div>
 
         {/* Divider + legal */}
-        <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div className="border-t border-border pt-6 text-center">
           <p className="text-muted-foreground font-body text-xs">
             © {new Date().getFullYear()} Bottega MarcoAurelio
-          </p>
-          <p className="text-muted-foreground font-body text-xs">
-            {t("footer.vat")}
           </p>
         </div>
       </div>
